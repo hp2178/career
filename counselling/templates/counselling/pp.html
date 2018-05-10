@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<title>Chat-bot</title>
+	    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cubeslider.css'%}">
+     
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demonew.css'%}"/>
+  
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+
+
+   <link rel="stylesheet" href="{% static 'newcss/supersized.css'%}"/>    
+<link rel="stylesheet" href="{% static 'newcss/style.css'%}"/>    
+<link rel="stylesheet" href="{% static 'newcss/side-stick.css'%}"/>    
+<link rel="stylesheet" href="{% static 'newcss/responsive.css'%}"/>
+   
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+<div class="newpadding1" >
+<div class="container-fluid" style="margin-bottom: -20px; margin-top: -60px;  background-color:#038889 ">   
+    
+<div style="background-color:#038889;height: 564px;" id="pnp" name="pnp">
+	<center><h2  class="thirdheading"style="margin-bottom: 20px; color:white; opacity: 1.0">Plans & Pricing</h2></center>
+	<div name="pnpcontent" id="pnpcontent">
+	<center><span class="secheading" style="color:white; opacity:1.0;color: white">Select Category :</span>
+	<div class="styled-select yellow rounded" style="margin-top: 50px;width: 250px;margin-bottom: 50px;  font-family: 'Open Sans',sans-serif;">    
+
+  <select>
+    <option>Students</option>
+    <option>Working</option>
+    <option>School/College/Universities</option>
+  </select>
+</div><br><br>
+
+        <button class="btn-lg btn-warning" style="width: 100px;" name="pnpnext" id="pnpnext" value="pnpnext" onclick="screen2()"><span class="secpara" style="color: white">Next</span></button>
+</center>
+
+
+    </div>
+
+<div class="style_prevu_kit" style="background-color:#cb2025;"></div>
+
+</div>
+
+</div>
+
+
+  
+<script type="text/javascript">
+	function screen2() {
+		// body...
+		document.getElementById('pnpcontent').innerHTML="";
+		document.getElementById('pnpcontent').innerHTML='<center><span style="color: white;margin-top: 500px;">Question 1 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your name?" style="width:300px;"><br>	<span style="color: white;margin-top: 10px;">Question 2 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your age?" style="width:300px;margin-top: 10px;"><br>	<span style="color: white;margin-top: 10px;">Question 3 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your school/college/university name?" style="width:300px;margin-top: 10px;"><br>	<span style="color: white;margin-top: 10px;">Question 4 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your current std/semester?" style="width:300px;margin-top: 10px;margin-bottom: 50px;"><br><br><button class="btn-lg btn-warning"style="width: 100px;" name="pnpnext" id="pnpnext" value="pnpnext" onclick="screen3()">Next</button></center>';
+		
+
+	}
+	function screen3() {
+		// body...
+		document.getElementById('pnpcontent').innerHTML="";
+		document.getElementById('pnp').style.height='560px';
+		document.getElementById('pnpcontent').innerHTML='<center><div style="margin-top:-40px "class="container-fluid";><div class="col-sm-4 zoom"><div class="card "><p class="card-block"><p style="color:white">                </p> <br><h2><span style="color:#cbe2a5;">Download Report for all format</font><br><font style="color:#edeff2;">100$</font></h2><form method="POST" action="home.html"><button type="submit"  id="buy1" name="buy1" value="100" class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px">Buy</button></form> </div></div>	<div class="col-sm-4 zoom"><div class="card " ><p class="card-block"><p style="color:white">     </p><br><h2><span style="color:#cbe2a5;">Choose Right Career for student</font><br><font style="color:#edeff2;">200$</font></h2><form method="POST" action="home.html"><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy2" name="buy2" value="200">Buy</button></form>   </div></div><div class="col-sm-4 zoom"><div class="card ">    <p class="card-block"><p style="color:white"></p> <br><h2><span style="color:#cbe2a5;">Admin Accessiblity</font><br><font style="color:#edeff2;">300$</font></h2><form method="POST" action="home.html"><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy3" name="buy3" value="300">Buy</button></form> </div></div></center><center><div class=container-fluid style="padding-top:60px"><div class="col-sm-4 zoom"><div class="card ">   <p class="card-block"><p style="color:white"></p> <br><h2><span style="color:#cbe2a5;">Take proper Action Plan</span><br><font style="color:#edeff2;">400$</font></h2><form method="POST" action="home.html"><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy4" name="buy4" value="400">Buy</button></form></div></div><div class="col-sm-4 zoom"><div class="card ">   <p class="card-block"><p style="color:white"></p> <br><h2><span style="color:#cbe2a5;">Chatbot</font><br><font style="color:#edeff2;">500$</font></h2><form method="POST" action="home.html"><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy5" name="buy5" value="500">Buy</button></form></div></div><div class="col-sm-4 zoom"><div class="card ">   <p class="card-block"><p style="color:white"></p> <br><h2><span style="color:#cbe2a5;">Chat with Counsellor</font><br><font style="color:#edeff2;">600$</font></h2><form method="POST" action="home.html" ><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy6" name="buy6" value="600">Buy</button></form></div> </center> '
+        
+	}
+</script>
+  
+   <center>
+ <div class="bot-tiles" style="height: 100px;">
+            <div>
+                <a href="pf.html" title="">
+                    Product Features
+                    <span><img src="{% static 'img/line-separator.png'%}"></span>
+                </a>
+            </div>
+            <div>
+                <a href="au.html" title="">
+                    About Us
+                    <span><img src='{% static "img/line-separator.png"%}'></span>
+                </a>
+            </div>
+            <div>
+                <a href="index.html" title="">
+                    Home
+                    <span><img src='{% static "img/line-separator.png"%}'></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</center>
+
+
+
+</body>
+</html>

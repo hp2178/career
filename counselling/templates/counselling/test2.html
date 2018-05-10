@@ -1,0 +1,1486 @@
+<!DOCTYPE HTML>
+<html onmouseover="check()">
+<head> 
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>Chat-bot</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cubeslider.css'%}">
+     
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demonew.css'%}"/>
+  
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+
+    <script src="{% static 'js/jquery-3.2.0.min.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <meta name="google-signin-client_id" content="40784559178-njrnpentbq1qocvs8htg75l424m53re1.apps.googleusercontent.com.apps.googleusercontent.com">
+
+    body {
+
+  color: #666666;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pen Title */
+.pen-title {
+  padding: 50px 0;
+  text-align: center;
+  letter-spacing: 2px;
+    ima
+}
+.pen-title h1 {
+  margin: 0 0 20px;
+  font-size: 48px;
+  font-weight: 300;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: #ed2553;
+}
+.pen-title span a {
+  color: #ed2553;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Rerun */
+.rerun {
+  margin: 0 0 30px;
+  text-align: center;
+}
+.rerun a {
+  cursor: pointer;
+  display: inline-block;
+  background: #ed2553;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.rerun a:hover {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Scroll To Bottom */
+#codepen, #portfolio {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #363636;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  color: #ffffff;
+  text-align: center;
+}
+#codepen i, #portfolio i {
+  line-height: 56px;
+}
+#codepen:hover, #portfolio:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* CodePen */
+#portfolio {
+  bottom: 96px;
+  right: 36px;
+  background: #ed2553;
+  width: 44px;
+  height: 44px;
+  -webkit-animation: buttonFadeInUp 1s ease;
+  animation: buttonFadeInUp 1s ease;
+}
+#portfolio i {
+  line-height: 44px;
+}
+
+/* Container */
+.container-card{
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto 100px;
+}
+.container-card.active .card:first-child {
+  background: #f2f2f2;
+  margin: 0 15px;
+}
+.container-card.active .card:nth-child(2) {
+  background: #fafafa;
+  margin: 0 10px;
+}
+.container-card.active .card.alt {
+  top: 20px;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+.container-card.active .card.alt .toggle {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+.container-card.active .card.alt .toggle:before {
+  content: '';
+}
+.container-card.active .card.alt .title,
+.container-card.active .card.alt .input-container,
+.container-card.active .card.alt .button-container {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.container-card.active .card.alt .title {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+}
+.container-card.active .card.alt .input-container {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+}
+.container-card.active .card.alt .input-container:nth-child(2) {
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+}
+.container-card.active .card.alt .input-container:nth-child(3) {
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+.container-card.active .card.alt .button-container {
+  -webkit-transition-delay: .7s;
+          transition-delay: .7s;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Title */
+  /* Inputs */
+  /* Button */
+  /* Footer */
+  /* Alt Card */
+}
+.card:first-child {
+  background: #fafafa;
+  height: 10px;
+  border-radius: 5px 5px 0 0;
+  margin: 0 10px;
+  padding: 0;
+}
+.card .title {
+  position: relative;
+  z-index: 1;
+  border-left: 5px solid #ed2553;
+  margin: 0 0 35px;
+  padding: 10px 0 10px 50px;
+  color: #ed2553;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card .input-container {
+  position: relative;
+  margin: 0 60px 50px;
+}
+.card .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 60px;
+  border: 0;
+  color: #212121;
+  font-size: 24px;
+  font-weight: 400;
+}
+.card .input-container input:focus ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container input:focus ~ .bar:before, .card .input-container input:focus ~ .bar:after {
+  width: 50%;
+}
+.card .input-container input:valid ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.card .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #757575;
+  width: 100%;
+  height: 1px;
+}
+.card .input-container .bar:before, .card .input-container .bar:after {
+  content: '';
+  position: absolute;
+  background: #ed2553;
+  width: 0;
+  height: 2px;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+.card .input-container .bar:before {
+  left: 50%;
+}
+.card .input-container .bar:after {
+  right: 50%;
+}
+.card .button-container {
+  margin: 0 60px;
+  text-align: center;
+}
+.card .button-container button {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 240px;
+  border: 2px solid #e3e3e3;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button span {
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #ed2553;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+  border-color: #ed2553;
+}
+.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+  color: #ed2553;
+}
+.card .button-container button:active span, .card .button-container button:focus span {
+  color: #ffffff;
+}
+.card .button-container button:active:before, .card .button-container button:focus:before {
+  opacity: 1;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+}
+.card .footer {
+  margin: 40px 0 0;
+  color: #d3d3d3;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+}
+.card .footer a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .footer a:hover {
+  color: #bababa;
+}
+.card.alt {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  background: none;
+  border-radius: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Toggle */
+  /* Title */
+  /* Input */
+  /* Button */
+}
+.card.alt .toggle {
+  position: relative;
+  background: #ed2553;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+  font-size: 30px;   
+  line-height: 160px;
+  text-align: center;
+  cursor: pointer;
+}
+.card.alt .toggle:before {
+  content: '\f040  new user';
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+.card.alt .title,
+.card.alt .input-container,
+.card.alt .button-container {
+  left: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+.card.alt .title {
+  position: relative;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.card.alt .title .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  display: inline;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 400;
+}
+.card.alt .title .close:before {
+  content: '\00d7';
+}
+.card.alt .input-container input {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ .bar:before, .card.alt .input-container input:focus ~ .bar:after {
+  background: #ffffff;
+}
+.card.alt .input-container input:valid ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.card.alt .input-container .bar {
+  background: rgba(255, 255, 255, 0.8);
+}
+.card.alt .button-container button {
+  width: 100%;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.card.alt .button-container button span {
+  color: #ed2553;
+}
+.card.alt .button-container button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.card.alt .button-container button:active:before, .card.alt .button-container button:focus:before {
+  display: none;
+}
+
+/* Keyframes */
+@-webkit-keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+@keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+.icon-circle .fa{
+    font-size           : 25px;
+    color               : #e84700;
+    margin              : 0 auto;
+    height              : 80px;
+    width               : 80px;
+    border-radius       : 50%;
+    border              :2px solid #e84700;
+    line-height         : 80px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+    
+}
+      
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 50px;
+    
+}
+
+@media (min-width:320px) and (max-width:768px) {
+
+
+ .icon-circle .fa{
+    font-size           : 15px;
+    color               : #e84700;
+    
+    height              : 40px;
+    width               : 40px;
+    border-radius       : 50%;
+     
+    border              :2px solid #e84700;
+    line-height         : 40px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+}
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 20px;
+}   
+}
+
+.ifacebook .fa{
+    color               :black;
+    border              :2px solid black;
+}
+
+.ifacebook .fa:hover{
+    
+    background-color        : black;    
+    color                   : #fff;
+    border                  : 1px solid black;
+
+}
+
+.itwittter .fa{
+    color               : #33ccff;
+    border              :2px solid #33ccff;
+}
+
+.itwittter .fa:hover{
+    
+    background-color        : #33ccff;    
+    color                   : #fff;
+    border                  : 1px solid #33ccff;
+
+}
+
+.igoogle .fa{
+    color               : #BD3518;
+    border              :2px solid #BD3518;
+}
+
+.igoogle .fa:hover{
+    
+    background-color        : #BD3518;    
+    color                   : #fff;
+    border                  : 1px solid #BD3518;
+
+}
+
+.iLinkedin .fa{
+    color               : #007bb7;
+    border              :2px solid #007bb7;
+}
+
+.iLinkedin .fa:hover{
+    
+    background-color        :#007bb7;    
+    color                   : #fff;
+    border                  : 1px solid #007bb7;
+
+}
+
+    .zoom {
+    
+    transition: transform .2s; /* Animation */
+    
+   
+}
+
+.zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}    
+    
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}      
+      
+
+
+
+
+.specDet .resRep{
+  display: none;
+}
+
+
+#ryt{
+  background: #1d1d1d;
+  float: right;
+
+}
+
+.mySlides {display:none;}
+
+
+
+.my{
+  display: inline-block;
+}
+
+
+
+
+
+
+
+</style> 
+
+<title>Ai Based Hiring</title> 
+ <meta name="description" content="website description" /> 
+  <meta name="keywords" content="website keywords, website keywords" />  <meta http-equiv="content-type" content="text/html; charset=windows-1252" /> 
+   <link rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+<body>  
+
+   <div class="container-fluid"> 
+<nav class="navbar navbar-inverse navbar-fixed-top" style="padding: 10px; background-color:#286f9e;">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <a href="/AiHiring/index.html"><img class="zoom" src="{% static 'images/brainstem.png'%}" class="brandpic" height="50" width="70"></a>
+           
+             
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" >
+                <img class="zoom" src="{% static 'images/jove.jpg'%}" style="border-radius:20px" class="brandpic" height="40" width="40">
+                <button class="btn btn-primary" style='background-color: white;color:black'>Enter Dashboard</button>
+                <button class="btn btn-primary" style='background-color: white;color:black'>Language</button>
+
+            </ul>
+
+        </div>
+        <a href="/counselling/logout" style="background-color: white;width: 55px;float: right;"><center>Logout</center></a>
+    </div>
+</nav>
+ </div> 
+
+
+
+
+ <center> 
+<div style="margin-bottom: 20px;margin-top: 150px;">
+  {% load staticfiles %}
+
+<form method="post" action="jove.html">
+	{% csrf_token %}
+MBTI Personality Type Test
+
+
+<table id="tbl1" >
+  <tr>
+    <th>Sr. No.</th>
+    <th>Question</th>
+    <th>Option A</th>
+    <th>Option B</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>At a party do you:</td>
+    <td><input required type="radio" name="q1" value="female">Interact with many, including strangers</td>
+    <td><input required type="radio" name="q1" value="female">Interact with a few, known to you</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Are you more:</td>
+    <td><input required type="radio" name="q2" value="female">Realistic than speculative</td>
+    <td><input required type="radio" name="q2" value="female">Speculative than realistic</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Is it worse to:</td>
+    <td><input required type="radio" name="q3" value="female">Have your “head in the clouds”</td>
+    <td><input required type="radio" name="q3" value="female">Be “in a rut”</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Are you more impressed by:</td>
+      <td><input required type="radio" name="q4" value="female">Principles</td>
+      <td><input required type="radio" name="q4" value="female">Emotions</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Are more drawn toward the:</td>
+      <td><input required type="radio" name="q5" value="female">Convincing</td>
+      <td><input required type="radio" name="q5" value="female">Touching</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Do you prefer to work:</td>
+      <td><input required type="radio" name="q6" value="female">To deadlines</td>
+      <td><input required type="radio" name="q6" value="female">Just “whenever”</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Do you tend to choose:</td>
+      <td><input required type="radio" name="q7" value="female">Rather carefully</td>
+      <td><input required type="radio" name="q7" value="female">Somewhat impulsively</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>At parties do you:</td>
+      <td><input required type="radio" name="q8" value="female">Stay late, with increasing energy</td>
+      <td><input required type="radio" name="q8" value="female">Leave early with decreased energy</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Are you more attracted to:</td>
+      <td><input required type="radio" name="q9" value="female">Sensible people</td>
+      <td><input required type="radio" name="q9" value="female">Imaginative people</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Are you more interested in:</td>
+     <td><input required type="radio" name="q10" value="female">What is actual</td>
+     <td><input required type="radio" name="q10" value="female">What is possible</td>
+  </tr>
+</table>
+</form>
+<button onclick="next()" id="next" style="width: 75px;"> > </button>
+
+
+
+
+
+<form method="post" action="jove.html">
+<table id="tbl2" style="display: none;">
+  <tr>
+    <th>Sr. No.</th>
+    <th>Question</th>
+    <th>Option A</th>
+    <th>Option B</th>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>In judging others are you more swayed by:</td>
+    <td><input type="radio" name="gender" value="female"> a. Laws than circumstances</td>
+     <td><input type="radio" name="gender" value="female"> b. Circumstances than laws</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>In approaching others is your inclination to be somewhat:</td>
+    <td><input type="radio" name="gender" value="female"> a. Objective</td>
+     <td><input type="radio" name="gender" value="female"> b. Personal</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Are you more:</td>
+    <td><input type="radio" name="gender" value="female">a. Punctual</td>
+      <td><input type="radio" name="gender" value="female">b. Leisurely</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>Does it bother you more having things:</td>
+      <td><input type="radio" name="gender" value="female">a. Incomplete</td>
+      <td><input type="radio" name="gender" value="female">b. Completed</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>In your social groups do you:</td>
+      <td><input type="radio" name="gender" value="female"> a. Keep abreast of other’s happenings</td>
+     <td><input type="radio" name="gender" value="female"> b. Get behind on the news</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>In doing ordinary things are you more</td>
+      <td><input type="radio" name="gender" value="female"> a. Do it the usual way</td>
+     <td><input type="radio" name="gender" value="female"> b. Do it your own way</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>Writers should:</td>
+      <td><input type="radio" name="gender" value="female">a. “Say what they mean and mean what they
+      say”</td>
+      <td><input type="radio" name="gender" value="female">b. Express things more by use of analogy</td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td> Which appeals to you more:</td>
+      <td><input type="radio" name="gender" value="female">a. Consistency of thought</td>
+      <td><input type="radio" name="gender" value="female">b. Harmonious human relationships</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>Are you more comfortable in making:</td>
+      <td><input type="radio" name="gender" value="female">a. Logical judgments</td>
+     <td> <input type="radio" name="gender" value="female">b. Value judgments</td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>Do you want things:</td>
+     <td><input type="radio" name="gender" value="female">a. Settled and decided</td>
+      <td><input type="radio" name="gender" value="female">b. Unsettled and undecided</td>
+  </tr>
+</table>
+</form>
+<button onclick="prev()" id="prev" style="width: 75px;display: none;"> < </button>
+<button onclick="next1()" id="next1" style="display: none;width: 75px;"> > </button>
+
+
+
+
+
+
+<form method="post" action="jove.html">
+<table id="tbl3" style="display: none;">
+  <tr>
+    <th>Sr. No.</th>
+    <th>Question</th>
+    <th>Option A</th>
+    <th>Option B</th>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td>Would you say you are more:</td>
+    <td><input type="radio" name="gender" value="female"> a. Serious and determined</td>
+     <td><input type="radio" name="gender" value="female"> b. Easy-going</td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>In phoning do you:</td>
+    <td><input type="radio" name="gender" value="female"> a. Rarely question that it will all be said</td>
+     <td><input type="radio" name="gender" value="female"> b. Rehearse what you’ll say</td>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>Facts:</td>
+    <td><input type="radio" name="gender" value="female"> a. “Speak for themselves”</td>
+    <td> <input type="radio" name="gender" value="female"> b. Illustrate principles</td>
+  </tr>
+  <tr>
+    <td>24</td>
+    <td>Are visionaries:</td>
+      <td><input type="radio" name="gender" value="female"> a. somewhat annoying</td>
+     <td><input type="radio" name="gender" value="female"> b. rather fascinating</td>
+  </tr>
+  <tr>
+    <td>25</td>
+    <td>Are you more often:</td>
+      <td><input type="radio" name="gender" value="female">a. a cool-headed person</td>
+     <td> <input type="radio" name="gender" value="female">b. a warm-hearted person</td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>Is it worse to be:</td>
+      <td><input type="radio" name="gender" value="female">a. unjust</td>
+     <td> <input type="radio" name="gender" value="female">b. merciless</td>
+  </tr>
+  <tr>
+    <td>27</td>
+    <td>Should one usually let events occur:</td>
+      <td><input type="radio" name="gender" value="female"> a. by careful selection and choice</td>
+     <td><input type="radio" name="gender" value="female"> b. randomly and by chance</td>
+  </tr>
+  <tr>
+    <td>28</td>
+    <td>Do you feel better about:</td>
+      <td><input type="radio" name="gender" value="female">a. having purchased</td>
+      <td><input type="radio" name="gender" value="female">b. having the option to buy</td>
+  </tr>
+  <tr>
+    <td>29</td>
+    <td>In company do you:</td>
+      <td><input type="radio" name="gender" value="female">a. initiate conversation</td>
+     <td><input type="radio" name="gender" value="female"> b. wait to be approached</td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>Common sense is:</td>
+     <td><input type="radio" name="gender" value="female"> a. rarely questionable</td>
+      <td><input type="radio" name="gender" value="female">b. frequently questionable</td>
+  </tr>
+</table>
+</form>
+<button onclick="prev1()" id="prev1" style="width: 75px;display: none;"> < </button>
+<button onclick="next2()" id="next2" style="display: none;width: 75px;"> > </button>
+
+
+
+
+
+
+<form method="post" action="jove.html">
+<table id="tbl4" style="display: none;">
+  <tr>
+    <th>Sr. No.</th>
+    <th>Question</th>
+    <th>Option A</th>
+    <th>Option B</th>
+  </tr>
+  <tr>
+    <td>31</td>
+    <td>Children often do not:</td>
+    <td><input type="radio" name="gender" value="female">a. make themselves useful enough</td>
+     <td> <input type="radio" name="gender" value="female">b. exercise their fantasy enough</td>
+  </tr>
+  <tr>
+    <td>32</td>
+    <td>In making decisions do you feel more comfortable with:</td>
+    <td><input type="radio" name="gender" value="female"> a. standards</td>
+    <td> <input type="radio" name="gender" value="female"> b. feelings</td>
+  </tr>
+  <tr>
+    <td>33</td>
+    <td>Are you more:</td>
+    <td><input type="radio" name="gender" value="female"> a. firm than gentle</td>
+    <td><input type="radio" name="gender" value="female">  b. gentle than firm</td>
+  </tr>
+  <tr>
+    <td>34</td>
+    <td>Which is more admirable:</td>
+      <td> <input type="radio" name="gender" value="female">  a. the ability to organize and be methodical</td>
+   <td> <input type="radio" name="gender" value="female">  b. the ability to adapt and make do</td>
+  </tr>
+  <tr>
+    <td>35</td>
+    <td>Do you put more value on:</td>
+      <td><input type="radio" name="gender" value="female">a. infinite</td>
+    <td> <input type="radio" name="gender" value="female"> b. open-minded</td>
+  </tr>
+  <tr>
+    <td>36</td>
+    <td>Does new and non-routine interaction with others:</td>
+      <td><input type="radio" name="gender" value="female"> a. stimulate and energize you</td>
+    <td> <input type="radio" name="gender" value="female"> b. tax your reserves</td>
+  </tr>
+  <tr>
+    <td>37</td>
+    <td>Are you more frequently:</td>
+      <td><input type="radio" name="gender" value="female">a. a practical sort of person</td>
+     <td> <input type="radio" name="gender" value="female">b. a fanciful sort of person</td>
+  </tr>
+  <tr>
+    <td>38</td>
+    <td>Are you more likely to:</td>
+      <td><input type="radio" name="gender" value="female"> a. see how others are useful</td>
+    <td> <input type="radio" name="gender" value="female"> b. see how others see</td>
+  </tr>
+  <tr>
+    <td>39</td>
+    <td> Which is more satisfying:</td>
+      <td><input type="radio" name="gender" value="female"> a. to discuss an issue thoroughly<br>
+     <td> <input type="radio" name="gender" value="female">b. to arrive at agreement on an issue</td>
+  </tr>
+  <tr>
+    <td>40</td>
+    <td>Which rules you more:</td>
+     <td><input type="radio" name="gender" value="female">a. your head</td>
+      <td><input type="radio" name="gender" value="female">b. your heart</td>
+  </tr>
+</table>
+</form>
+<button onclick="prev2()" id="prev2" style="width: 75px;display: none;"> < </button>
+<button onclick="next3()" id="next3" style="display: none;width: 75px;"> > </button>
+
+
+
+
+
+
+
+<form method="post" action="jove.html">
+<table id="tbl5" style="display: none;">
+  <tr>
+    <th>Sr. No.</th>
+    <th>Question</th>
+    <th>Option A</th>
+    <th>Option B</th>
+  </tr>
+  <tr>
+    <td>41</td>
+    <td>Are you more comfortable with work that is:</td>
+    <td><input type="radio" name="gender" value="female">a. contracted</td>
+    <td>  <input type="radio" name="gender" value="female">b. done on a casual basis</td>
+  </tr>
+  <tr>
+    <td>42</td>
+    <td>Do you tend to look for:</td>
+    <td><input type="radio" name="gender" value="female">a. the orderly</td>
+      <td><input type="radio" name="gender" value="female">b. whatever turns up</td>
+  </tr>
+  <tr>
+    <td>43</td>
+    <td> Do you prefer:</td>
+    <td><input type="radio" name="gender" value="female">a. many friends with brief contact</td>
+     <td> <input type="radio" name="gender" value="female">b. a few friends with more lengthy contact</td>
+  </tr>
+  <tr>
+    <td>44</td>
+    <td>Do you go more by:</td>
+      <td> <input type="radio" name="gender" value="female"> a. facts</td>
+     <td><input type="radio" name="gender" value="female"> b. principles</td>
+  </tr>
+  <tr>
+    <td>45</td>
+    <td> Are you more interested in:</td>
+      <td><input type="radio" name="gender" value="female">a. production and distribution</td>
+     <td> <input type="radio" name="gender" value="female">b. design and research</td>
+  </tr>
+  <tr>
+    <td>46</td>
+    <td>Which is more of a compliment:</td>
+      <td><input type="radio" name="gender" value="female">a. “There is a very logical person.”</td>
+      <td><input type="radio" name="gender" value="female">b. “There is a very sentimental person.”</td>
+  </tr>
+  <tr>
+    <td>47</td>
+    <td>Do you value in yourself more that you are:</td>
+      <td><input type="radio" name="gender" value="female">a. unwavering</td>
+     <td> <input type="radio" name="gender" value="female">b. devoted</td>
+  </tr>
+  <tr>
+    <td>48</td>
+    <td>Do you more often prefer the</td>
+      <td><input type="radio" name="gender" value="female">a. final and unalterable statement</td>
+      <td><input type="radio" name="gender" value="female">b. tentative and preliminary statement</td>
+  </tr>
+  <tr>
+    <td>49</td>
+    <td>Are you more comfortable:</td>
+      <td><input type="radio" name="gender" value="female">a. after a decision</td>
+      <td><input type="radio" name="gender" value="female">b. before a decision</td>
+  </tr>
+  <tr>
+    <td>50</td>
+    <td>Do you:</td>
+     <td><input type="radio" name="gender" value="female">a. speak easily and at length with strangers</td>
+    <td> <input type="radio" name="gender" value="female"> b. find little to say to strangers</td>
+  </tr>
+</table>
+</form>
+<button onclick="prev3()" id="prev3" style="width: 75px;display: none;"> < </button>
+<button onclick="next4()" id="next4" style="display: none;width: 75px;"> > </button>
+
+
+
+
+
+
+
+
+
+<form method="post" action="jove.html">
+<table id="tbl6" style="display: none;">
+  <tr>
+    <th>Sr. No.</th>
+    <th>Question</th>
+    <th>Option A</th>
+    <th>Option B</th>
+  </tr>
+  <tr>
+    <td>51</td>
+    <td>Are you more likely to trust your:</td>
+    <td><input type="radio" name="gender" value="female"> a. experience</td>
+      <td><input type="radio" name="gender" value="female"> b. hunch</td>
+  </tr>
+  <tr>
+    <td>52</td>
+    <td>Do you feel:</td>
+    <td><input type="radio" name="gender" value="female"> a. more practical than ingenious</td>
+     <td> <input type="radio" name="gender" value="female"> b. more ingenious than practical</td>
+  </tr>
+  <tr>
+    <td>53</td>
+    <td>Which person is more to be complimented – one of:</td>
+    <td><input type="radio" name="gender" value="female">  a. clear reason</td>
+     <td> <input type="radio" name="gender" value="female"> b. strong feeling</td>
+  </tr>
+  <tr>
+    <td>54</td>
+    <td>Are you inclined more to be:</td>
+      <td><input type="radio" name="gender" value="female"> a. fair-minded</td>
+    <td>  <input type="radio" name="gender" value="female"> b. sympathetic</td>
+  </tr>
+  <tr>
+    <td>55</td>
+    <td>Is it preferable mostly to:</td>
+      <td><input type="radio" name="gender" value="female">  a. make sure things are arranged</td>
+     <td><input type="radio" name="gender" value="female">  b. just let things happen</td>
+  </tr>
+  <tr>
+    <td>56</td>
+    <td>In relationships should most things be:</td>
+      <td><input type="radio" name="gender" value="female"> a. re-negotiable</td>
+     <td> <input type="radio" name="gender" value="female"> b. random and circumstantial</td>
+  </tr>
+  <tr>
+    <td>57</td>
+    <td>When the phone rings do you:</td>
+      <td><input type="radio" name="gender" value="female"> a. hasten to get to it first</td>
+     <td> <input type="radio" name="gender" value="female"> b. hope someone else will answer</td>
+  </tr>
+  <tr>
+    <td>58</td>
+    <td>Do you prize more in yourself:</td>
+      <td><input type="radio" name="gender" value="female">a. a strong sense of reality</td>
+      <td> <input type="radio" name="gender" value="female">b. a vivid imagination</td>
+  </tr>
+  <tr>
+    <td>59</td>
+    <td>Are you drawn more to:</td>
+      <td><input type="radio" name="gender" value="female"> a. fundamentals</td>
+     <td> <input type="radio" name="gender" value="female"> b. overtones</td>
+  </tr>
+  <tr>
+    <td>60</td>
+    <td>Which seems the greater error:</td>
+     <td><input type="radio" name="gender" value="female">a. to be too passionate</td>
+     <td> <input type="radio" name="gender" value="female"> b. to be too objective</td>
+  </tr>
+</table>
+</form>
+<button onclick="prev4()" id="prev4" style="width: 75px;display: none;"> < </button>
+<button onclick="next5()" id="next5" style="display: none;width: 75px;"> > </button>
+
+
+
+
+
+
+
+<form method="post" action="jove.html">
+<table id="tbl7" style="display: none;">
+  <tr>
+    <th>Sr. No.</th>
+    <th>Question</th>
+    <th>Option A</th>
+    <th>Option B</th>
+  </tr>
+  <tr>
+    <td>61</td>
+    <td>Do you see yourself as basically:</td>
+    <td><input type="radio" name="gender" value="female"> a. hard-headed</td>
+     <td><input type="radio" name="gender" value="female"> b. soft-hearted</td>
+  </tr>
+  <tr>
+    <td>62</td>
+    <td>Which situation appeals to you more:</td>
+    <td><input type="radio" name="gender" value="female">  a. the structured and scheduled</td>
+    <td> <input type="radio" name="gender" value="female"> b. the unstructured and unscheduled</td>
+  </tr>
+  <tr>
+    <td>63</td>
+    <td>Are you a person that is more:</td>
+    <td><input type="radio" name="gender" value="female"> a. routinized than whimsical</td>
+      <td> <input type="radio" name="gender" value="female">b. whimsical than routinized</td>
+  </tr>
+  <tr>
+    <td>64</td>
+    <td>Are you more inclined to be:</td>
+      <td> <input type="radio" name="gender" value="female"> a. easy to approach</td>
+      <td><input type="radio" name="gender" value="female">b. somewhat reserved</td>
+  </tr>
+  <tr>
+    <td>65</td>
+    <td>In writings do you prefer:</td>
+      <td><input type="radio" name="gender" value="female">a. the more literal</td>
+      <td><input type="radio" name="gender" value="female">b. the more figurative</td>
+  </tr>
+  <tr>
+    <td>66</td>
+    <td>Is it harder for you to:</td>
+      <td><input type="radio" name="gender" value="female"> a. identify with others</td>
+     <td><input type="radio" name="gender" value="female"> b. utilize others</td>
+  </tr>
+  <tr>
+    <td>67</td>
+    <td>Which do you wish more for yourself:</td>
+      <td><input type="radio" name="gender" value="female"> a. clarity of reason</td>
+    <td> <input type="radio" name="gender" value="female"> b. strength of compassion</td>
+  </tr>
+  <tr>
+    <td>68</td>
+    <td>Which is the greater fault:</td>
+      <td><input type="radio" name="gender" value="female">  a. being indiscriminate</td>
+    <td> <input type="radio" name="gender" value="female"> b. being critical</td>
+  </tr>
+  <tr>
+    <td>69</td>
+    <td>Do you prefer the:</td>
+      <td><input type="radio" name="gender" value="female">a. planned event</td>
+     <td><input type="radio" name="gender" value="female"> b. unplanned event</td>
+  </tr>
+  <tr>
+    <td>70</td>
+    <td>Do you tend to be more:</td>
+     <td><input type="radio" name="gender" value="female">a. deliberate than spontaneous</td>
+     <td> <input type="radio" name="gender" value="female">b. spontaneous than deliberate</td>
+  </tr>
+</table>
+</form>
+<button onclick="prev5()" id="prev5" style="width: 75px;display: none;"> < </button>
+
+
+
+
+
+<script type="text/javascript">
+  function next(){
+    document.getElementById('tbl1').style.display='none';
+    document.getElementById('next').style.display='none';
+    document.getElementById('tbl2').style.display='';
+    document.getElementById('next1').style.display='';
+    document.getElementById('skipTest').style.display='none';
+    document.getElementById('prev').style.display='';
+  }
+  function prev(){
+    document.getElementById('tbl1').style.display='';
+    document.getElementById('next').style.display='';
+    document.getElementById('tbl2').style.display='none';
+    document.getElementById('next1').style.display='none';
+    document.getElementById('skipTest').style.display='';
+    document.getElementById('prev').style.display='none';
+  }
+
+  function next1(){
+    document.getElementById('tbl2').style.display='none';
+    document.getElementById('next1').style.display='none';
+    document.getElementById('tbl3').style.display='';
+    document.getElementById('next2').style.display='';
+    document.getElementById('prev1').style.display='';
+    document.getElementById('prev').style.display='none';
+  }
+  function prev1(){
+    document.getElementById('tbl2').style.display='';
+    document.getElementById('next1').style.display='';
+    document.getElementById('tbl3').style.display='none';
+    document.getElementById('next2').style.display='none';
+    document.getElementById('prev1').style.display='none';
+    document.getElementById('prev').style.display='';
+  }
+  function next2(){
+    document.getElementById('tbl3').style.display='none';
+    document.getElementById('next2').style.display='none';
+    document.getElementById('tbl4').style.display='';
+    document.getElementById('next3').style.display='';
+    document.getElementById('prev2').style.display='';
+    document.getElementById('prev1').style.display='none';
+  }
+  function prev2(){
+    document.getElementById('tbl3').style.display='';
+    document.getElementById('next2').style.display='';
+    document.getElementById('tbl4').style.display='none';
+    document.getElementById('next3').style.display='none';
+    document.getElementById('prev2').style.display='none';
+    document.getElementById('prev1').style.display='';
+  }
+  function next3(){
+    document.getElementById('tbl4').style.display='none';
+    document.getElementById('next3').style.display='none';
+    document.getElementById('tbl5').style.display='';
+    document.getElementById('next4').style.display='';
+    document.getElementById('prev3').style.display='';
+    document.getElementById('prev2').style.display='none';
+  }
+  function prev3(){
+    document.getElementById('tbl4').style.display='';
+    document.getElementById('next3').style.display='';
+    document.getElementById('tbl5').style.display='none';
+    document.getElementById('next4').style.display='none';
+    document.getElementById('prev3').style.display='none';
+    document.getElementById('prev2').style.display='';
+  }
+
+  function next4(){
+    document.getElementById('tbl5').style.display='none';
+    document.getElementById('next4').style.display='none';
+    document.getElementById('tbl6').style.display='';
+    document.getElementById('next5').style.display='';
+    document.getElementById('prev4').style.display='';
+    document.getElementById('prev3').style.display='none';
+  }
+
+
+  function prev4(){
+    document.getElementById('tbl5').style.display='';
+    document.getElementById('next4').style.display='';
+    document.getElementById('tbl6').style.display='none';
+    document.getElementById('next5').style.display='none';
+    document.getElementById('prev4').style.display='none';
+    document.getElementById('prev3').style.display='';
+  }
+
+  function next5(){
+    document.getElementById('tbl6').style.display='none';
+    document.getElementById('next5').style.display='none';
+    document.getElementById('tbl7').style.display='';
+    document.getElementById('submitTest').style.display='';
+    document.getElementById('prev5').style.display='';
+    document.getElementById('prev4').style.display='none';
+
+  }
+  function prev5(){
+    document.getElementById('tbl6').style.display='';
+    document.getElementById('next5').style.display='';
+    document.getElementById('tbl7').style.display='none';
+    document.getElementById('submitTest').style.display='none';
+    document.getElementById('prev5').style.display='none';
+    document.getElementById('prev4').style.display='';
+
+  }
+</script>
+
+
+
+
+<form method="post" action="jove.html">
+<span><button style="width: 150px;" name="skipTest" id="skipTest" value="skipTest">Skip</button></span> 
+
+<span ><button style="width: 150px;display: none;" name="submitTest" id="submitTest" value="submitTest">Submit</button></span>
+
+</form>
+
+<!--
+<br><br><br><br>
+      
+      
+     
+     
+      
+     
+      
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</center>
+
+
+
+<div id="Contact"class="container-fluid">
+<div class="row" style="margin-top: -80px">
+   <footer class="footer-distributed" >
+
+      <div  class="footer-left">
+
+        <h3 class="zoom">Brain Stem<span>Technolgies</span></h3>
+
+        <p class="footer-company-name"> &copy; COPYRIGHTS</p><br>
+        <p class="footer-company-name"> ALL RIGHTS RESERVED.</p><br>
+      </div>
+
+      <div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"class="footer-center">
+
+        
+
+        <div>
+          <i class="fa fa-phone zoom"></i>
+            
+                    <p class="zoom">+91-xxxxxxxxxx</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope zoom"></i>
+          <p class="zoom"><a href="mailto:support@company.com">xxxx@xxxx.in</a></p>
+                  
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <div class="footer-icons">
+
+          <a href=https://www.facebook.com/DataBytesAnalytics/><i class="fa fa-facebook zoom"></i></a>
+        </div>
+
+      
+         
+       
+          <div>
+
+        
+
+    
+                </div>
+<div>
+        <div class="footer-icons">
+
+          <a href=https://twitter.com/databytes1><i class="fa fa-twitter zoom"></i></a>
+        </div>
+
+      </div>
+       
+    </footer>   
+       </div>    
+
+
+</body>
+
+
+
+</html>

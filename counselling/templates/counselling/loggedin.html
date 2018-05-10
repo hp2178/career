@@ -1,0 +1,1077 @@
+<!DOCTYPE HTML>
+<html onmouseover="check()">
+<head> 
+  {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>Chat-bot</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cubeslider.css'%}">
+     
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demonew.css'%}"/>
+  
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+
+    <script src="{% static 'js/jquery-3.2.0.min.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <meta name="google-signin-client_id" content="40784559178-njrnpentbq1qocvs8htg75l424m53re1.apps.googleusercontent.com.apps.googleusercontent.com">
+
+    body {
+
+  color: #666666;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pen Title */
+.pen-title {
+  padding: 50px 0;
+  text-align: center;
+  letter-spacing: 2px;
+    ima
+}
+.pen-title h1 {
+  margin: 0 0 20px;
+  font-size: 48px;
+  font-weight: 300;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: #ed2553;
+}
+.pen-title span a {
+  color: #ed2553;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Rerun */
+.rerun {
+  margin: 0 0 30px;
+  text-align: center;
+}
+.rerun a {
+  cursor: pointer;
+  display: inline-block;
+  background: #ed2553;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.rerun a:hover {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Scroll To Bottom */
+#codepen, #portfolio {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #363636;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  color: #ffffff;
+  text-align: center;
+}
+#codepen i, #portfolio i {
+  line-height: 56px;
+}
+#codepen:hover, #portfolio:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* CodePen */
+#portfolio {
+  bottom: 96px;
+  right: 36px;
+  background: #ed2553;
+  width: 44px;
+  height: 44px;
+  -webkit-animation: buttonFadeInUp 1s ease;
+  animation: buttonFadeInUp 1s ease;
+}
+#portfolio i {
+  line-height: 44px;
+}
+
+/* Container */
+.container-card{
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto 100px;
+}
+.container-card.active .card:first-child {
+  background: #f2f2f2;
+  margin: 0 15px;
+}
+.container-card.active .card:nth-child(2) {
+  background: #fafafa;
+  margin: 0 10px;
+}
+.container-card.active .card.alt {
+  top: 20px;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+.container-card.active .card.alt .toggle {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+.container-card.active .card.alt .toggle:before {
+  content: '';
+}
+.container-card.active .card.alt .title,
+.container-card.active .card.alt .input-container,
+.container-card.active .card.alt .button-container {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.container-card.active .card.alt .title {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+}
+.container-card.active .card.alt .input-container {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+}
+.container-card.active .card.alt .input-container:nth-child(2) {
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+}
+.container-card.active .card.alt .input-container:nth-child(3) {
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+.container-card.active .card.alt .button-container {
+  -webkit-transition-delay: .7s;
+          transition-delay: .7s;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Title */
+  /* Inputs */
+  /* Button */
+  /* Footer */
+  /* Alt Card */
+}
+.card:first-child {
+  background: #fafafa;
+  height: 10px;
+  border-radius: 5px 5px 0 0;
+  margin: 0 10px;
+  padding: 0;
+}
+.card .title {
+  position: relative;
+  z-index: 1;
+  border-left: 5px solid #ed2553;
+  margin: 0 0 35px;
+  padding: 10px 0 10px 50px;
+  color: #ed2553;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card .input-container {
+  position: relative;
+  margin: 0 60px 50px;
+}
+.card .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 60px;
+  border: 0;
+  color: #212121;
+  font-size: 24px;
+  font-weight: 400;
+}
+.card .input-container input:focus ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container input:focus ~ .bar:before, .card .input-container input:focus ~ .bar:after {
+  width: 50%;
+}
+.card .input-container input:valid ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.card .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #757575;
+  width: 100%;
+  height: 1px;
+}
+.card .input-container .bar:before, .card .input-container .bar:after {
+  content: '';
+  position: absolute;
+  background: #ed2553;
+  width: 0;
+  height: 2px;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+.card .input-container .bar:before {
+  left: 50%;
+}
+.card .input-container .bar:after {
+  right: 50%;
+}
+.card .button-container {
+  margin: 0 60px;
+  text-align: center;
+}
+.card .button-container button {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 240px;
+  border: 2px solid #e3e3e3;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button span {
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #ed2553;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+  border-color: #ed2553;
+}
+.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+  color: #ed2553;
+}
+.card .button-container button:active span, .card .button-container button:focus span {
+  color: #ffffff;
+}
+.card .button-container button:active:before, .card .button-container button:focus:before {
+  opacity: 1;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+}
+.card .footer {
+  margin: 40px 0 0;
+  color: #d3d3d3;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+}
+.card .footer a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .footer a:hover {
+  color: #bababa;
+}
+.card.alt {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  background: none;
+  border-radius: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Toggle */
+  /* Title */
+  /* Input */
+  /* Button */
+}
+.card.alt .toggle {
+  position: relative;
+  background: #ed2553;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+  font-size: 30px;   
+  line-height: 160px;
+  text-align: center;
+  cursor: pointer;
+}
+.card.alt .toggle:before {
+  content: '\f040  new user';
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+.card.alt .title,
+.card.alt .input-container,
+.card.alt .button-container {
+  left: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+.card.alt .title {
+  position: relative;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.card.alt .title .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  display: inline;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 400;
+}
+.card.alt .title .close:before {
+  content: '\00d7';
+}
+.card.alt .input-container input {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ .bar:before, .card.alt .input-container input:focus ~ .bar:after {
+  background: #ffffff;
+}
+.card.alt .input-container input:valid ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.card.alt .input-container .bar {
+  background: rgba(255, 255, 255, 0.8);
+}
+.card.alt .button-container button {
+  width: 100%;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.card.alt .button-container button span {
+  color: #ed2553;
+}
+.card.alt .button-container button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.card.alt .button-container button:active:before, .card.alt .button-container button:focus:before {
+  display: none;
+}
+
+/* Keyframes */
+@-webkit-keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+@keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+.icon-circle .fa{
+    font-size           : 25px;
+    color               : #e84700;
+    margin              : 0 auto;
+    height              : 80px;
+    width               : 80px;
+    border-radius       : 50%;
+    border              :2px solid #e84700;
+    line-height         : 80px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+    
+}
+      
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 50px;
+    
+}
+
+@media (min-width:320px) and (max-width:768px) {
+
+
+ .icon-circle .fa{
+    font-size           : 15px;
+    color               : #e84700;
+    
+    height              : 40px;
+    width               : 40px;
+    border-radius       : 50%;
+     
+    border              :2px solid #e84700;
+    line-height         : 40px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+}
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 20px;
+}   
+}
+
+.ifacebook .fa{
+    color               :black;
+    border              :2px solid black;
+}
+
+.ifacebook .fa:hover{
+    
+    background-color        : black;    
+    color                   : #fff;
+    border                  : 1px solid black;
+
+}
+
+.itwittter .fa{
+    color               : #33ccff;
+    border              :2px solid #33ccff;
+}
+
+.itwittter .fa:hover{
+    
+    background-color        : #33ccff;    
+    color                   : #fff;
+    border                  : 1px solid #33ccff;
+
+}
+
+.igoogle .fa{
+    color               : #BD3518;
+    border              :2px solid #BD3518;
+}
+
+.igoogle .fa:hover{
+    
+    background-color        : #BD3518;    
+    color                   : #fff;
+    border                  : 1px solid #BD3518;
+
+}
+
+.iLinkedin .fa{
+    color               : #007bb7;
+    border              :2px solid #007bb7;
+}
+
+.iLinkedin .fa:hover{
+    
+    background-color        :#007bb7;    
+    color                   : #fff;
+    border                  : 1px solid #007bb7;
+
+}
+
+    .zoom {
+    
+    transition: transform .2s; /* Animation */
+    
+   
+}
+
+.zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}    
+    
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+</style> 
+
+<title>Ai Based Hiring</title> 
+ <meta name="description" content="website description" /> 
+  <meta name="keywords" content="website keywords, website keywords" />  <meta http-equiv="content-type" content="text/html; charset=windows-1252" /> 
+   <link rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+<body>  
+<div id="myModal" class="modal">
+<div class="container">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 style="color: red;">Attention</h2>
+    </div>
+    <div class="modal-body" id="popupContent">
+      
+    </div>
+    <div class="modal-footer">
+      <h3 style="color: blue;">Thank You!!!</h3>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+
+
+
+
+   <div class="container-fluid"> 
+<nav class="navbar navbar-inverse navbar-fixed-top" style="padding: 10px; background-color:rgb(10,34,36);">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <a href="/counselling/index.html"><img class="zoom"  title="Databytes Analytics Pvt Ltd" src="{% static 'images/databytes.jpg'%}" class="brandpic" height="50" width="70"></a>
+           
+             
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" >
+                <img class="zoom" title="I'm Taby!" src="{% static 'images/jove.jpg'%}" style="border-radius:20px;margin-right: 20px;" class="brandpic" height="40" width="40">
+                 <!--<a href="#" style="margin-right: 20px;color: white;"><font size="4"><b>Dashboard</b></font></a>
+                <a  href="#" style="margin-right: 20px;color: white;"><font size="4"><b>Language</b></font></a>-->
+                <a href="/counselling/logout" style="color: white;margin-right: 20px;margin-top: 6px;width: 55px;float: right;"><font size="4"><b>Logout</b></font></a>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+ </div> 
+
+
+
+<div class="container" style="margin-left: 200px ; padding-top:  20px; padding-bottom: 100px;margin-top: 30px;">
+<div class="col-sm-12">   
+<div style="" >
+	
+<form method="POST" action="/counselling/taby.html" style="margin-bottom: 20px;" >
+	<div style="margin-top: 100px;margin-bottom: 20px;">
+	<div style="display: inline-block;margin-left: 50px;" >
+<b><i><span style="color: #286f9e;" ><font size="4">Name:</font></span></i></b> 		
+	</div>
+		<div style="display: inline-block;margin-left: 66px;" >
+<input style="margin-left: 200px" class="form-control"required type="text" name="uname" id="uname" placeholder="Enter your name here...">	
+	</div>
+	</div>
+
+
+
+<div style="margin-top: 15px;">
+	<div style="display: inline-block;margin-left: 50px;" >
+<b><i><span style="color: #286f9e;" > <font size="4">School/College/University:</font></span></i></b>		
+	</div>
+		<div style="display: inline-block; margin-left: 94px;" >
+		<select class="form-control" id="testSelect1" name="scu" id="scu">
+  <option value="IIT">IIT</option>
+  <option value="NIT">NIT</option>
+  <option value="VIT">VIT</option>
+  <option value="RJIT">RJIT</option>
+</select>	
+</div>
+
+
+<div style="display: inline-block;">
+<input  type="checkbox"  onclick="unhideOtherCOL()" name="otherCOL" value="otherCOL" id="otherCOL">Other
+</div>    
+<div style="display: none; padding-top: 10px" name="hideOtherCOL" id="hideOtherCOL">
+<input style="border-radius: 10px" id="refreshInputCOL" type="text"/>
+</div>
+<div style="display: none; padding-top: 10px" name="hideOtherCOL1" id="hideOtherCOL1">
+<button style="margin: 4%; border-radius: 20px" class="btn-sm btn-success" type="button" id="refreshAddCOL">Add</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  function testInput(event) {
+   var value = String.fromCharCode(event.which);
+   var pattern = new RegExp(/[a-zåäö ]/i);
+   return pattern.test(value);
+}
+
+$('#refreshInputCOL').bind('keypress', testInput);
+</script>
+</div>
+<script type="text/javascript">
+  function unhideOtherCOL(){
+    if(document.getElementById('otherCOL').checked){
+    document.getElementById('hideOtherCOL').style.display = "inline-block";
+    document.getElementById('hideOtherCOL1').style.display = "inline-block";
+    document.getElementById('refreshInputCOL').required = true;
+  }
+  else{
+   document.getElementById('hideOtherCOL').style.display = "none";
+   document.getElementById('hideOtherCOL1').style.display = "none";
+  document.getElementById('refreshInputCOL').required = false;
+  }
+     
+  }
+</script>
+<script src="{% static 'personal/js/multiple-select.js'%}"></script>
+<script>
+    $(function() {
+        $("#refreshAddCOL").click(function() {
+            var $select = $("#testSelect1"),
+                $input = $("#refreshInputCOL"),
+                value = $.trim($input.val()),
+                $opt = $("<option />", {
+                    value: value,
+                    text: value
+                });
+
+            if (!value) {
+                $input.focus();
+                return;
+            }
+            
+            $opt.attr("selected", true);
+            
+            $input.val("");
+           
+            var myOpts = [];
+
+            $('#testSelect1 option').each(function() {
+              myOpts.push($(this).val());
+            });
+
+            
+            console.log(myOpts)
+            console.log(typeof(myOpts));
+            var flag=0;
+            for(i=0;i<myOpts.length;i++)
+            {
+              console.log(myOpts[i]);
+              if(value==myOpts[i])
+              {
+                flag=1;
+                break;
+              }
+              else{
+                flag=0;
+              }
+            }
+            if(flag==1)
+            {
+              console.log("its already there............................")
+              var modal = document.getElementById('myModal');
+              var btn = document.getElementById("recal");
+              var span = document.getElementsByClassName("close")[0];
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              var modal = document.getElementById('myModal');
+              modal.style.display = "block";
+              var popupContent = document.getElementById('popupContent');
+              popupContent.innerHTML = "";
+              popupContent.innerHTML = "<p>The College you want to Add already exist in our List.</p>";
+            }
+            else{
+              console.log("NOOOOOOOOOOOOOOOOOOOt there:::::::::::")
+              $select.append($opt);
+            }
+
+            document.getElementById('hideOtherCOL').style.display = "none";
+            document.getElementById('hideOtherCOL1').style.display = "none";
+            document.getElementById('refreshInputCOL').required = false;
+            document.getElementById('otherCOL').checked = false;
+        });
+    });
+</script>
+
+
+
+
+	</div>
+	</div>
+
+
+
+<div style="margin-top: 15px;">
+	<div style="display: inline-block;margin-left: 65px;" >
+<b><i><span style="color: #286f9e;"><font size="4">Course:	</font></span></i></b>	
+	</div>
+		<div style="display: inline-block; margin-left: 255px;" >
+		<select class="form-control"id="testSelect2" name="course" id="course">
+  <option value="Computer">Computer</option>
+  <option value="Mechanical">Mechanical</option>
+  <option value="Chemical">Chemical</option>
+  <option value="Electrical">Electrical</option>
+</select>	
+
+</div>
+
+
+<div style="display: inline-block;">
+<input  type="checkbox" onclick="unhideOtherCOU()" name="otherCOU" value="otherCOU" id="otherCOU">Other
+</div>   
+ <div style="display: none; padding-top: 10px" name="hideOtherCOU" id="hideOtherCOU">
+<input style="border-radius: 10px" id="refreshInputCOU" type="text" />
+</div>
+ <div style="display: none; padding-top: 10px" name="hideOtherCOU1" id="hideOtherCOU1">
+<button style="margin: 4%; border-radius: 20px" class="btn-sm btn-success" type="button" id="refreshAddCOU">Add</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+  function testInput(event) {
+   var value = String.fromCharCode(event.which);
+   var pattern = new RegExp(/[a-zåäö ]/i);
+   return pattern.test(value);
+}
+
+$('#refreshInputCOU').bind('keypress', testInput);
+</script>
+</div>
+<script type="text/javascript">
+  function unhideOtherCOU(){
+    if(document.getElementById('otherCOU').checked){
+    document.getElementById('hideOtherCOU').style.display = "inline-block";
+    document.getElementById('hideOtherCOU1').style.display = "inline-block";
+    document.getElementById('refreshInputCOU').required = true;
+  }
+  else{
+   document.getElementById('hideOtherCOU').style.display = "none";
+   document.getElementById('hideOtherCOU1').style.display = "none";
+  document.getElementById('refreshInputCOU').required = false;
+  }
+     
+  }
+</script>
+<script src="{% static 'personal/js/multiple-select.js'%}"></script>
+<script>
+    $(function() {
+        $("#refreshAddCOU").click(function() {
+            var $select = $("#testSelect2"),
+                $input = $("#refreshInputCOU"),
+                value = $.trim($input.val()),
+                $opt = $("<option />", {
+                    value: value,
+                    text: value
+                });
+
+            if (!value) {
+                $input.focus();
+                return;
+            }
+            
+            $opt.attr("selected", true);
+            
+            $input.val("");
+           
+            var myOpts = [];
+
+            $('#testSelect2 option').each(function() {
+              myOpts.push($(this).val());
+            });
+
+            
+            console.log(myOpts)
+            console.log(typeof(myOpts));
+            var flag=0;
+            for(i=0;i<myOpts.length;i++)
+            {
+              console.log(myOpts[i]);
+              if(value==myOpts[i])
+              {
+                flag=1;
+                break;
+              }
+              else{
+                flag=0;
+              }
+            }
+            if(flag==1)
+            {
+              console.log("its already there............................")
+              var modal = document.getElementById('myModal');
+              var btn = document.getElementById("recal");
+              var span = document.getElementsByClassName("close")[0];
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              var modal = document.getElementById('myModal');
+              modal.style.display = "block";
+              var popupContent = document.getElementById('popupContent');
+              popupContent.innerHTML = "";
+              popupContent.innerHTML = "<p>The Course you want to Add already exist in our List.</p>";
+            }
+            else{
+              console.log("NOOOOOOOOOOOOOOOOOOOt there:::::::::::")
+              $select.append($opt);
+            }
+
+            document.getElementById('hideOtherCOU').style.display = "none";
+            document.getElementById('hideOtherCOU1').style.display = "none";
+            document.getElementById('refreshInputCOU').required = false;
+            document.getElementById('otherCOU').checked = false;
+        });
+    });
+</script>
+
+
+
+
+
+<div style="display: inline-block; margin-top: 20px;" >
+<b><i><span style="color: #286f9e;margin-left: 64px;" ><font size="4">Class/Semester:</font></span></i></b>   
+  </div>
+    <div style="display: inline-block;margin-left: 184px;" >
+    <select class="form-control" name="sem" id="sem">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select> 
+  </div>
+<br>
+
+<div style="display: inline-block;margin-top: 20px;" >
+<b><i><span style="color: #286f9e;margin-left: 64px;" ><font size="4">Birthday:</font></span></i></b></div><div style="display: inline-block;margin-left: 198px;" >
+
+  <input class="form-control" type="date" required name="bday" id="bday" style="margin-left: 53px"></div>
+
+
+  <div style="margin-top: 15px;margin-left: 50px;">
+<b><i><span style="color: #286f9e;margin-left: 15px;"><font size="4">Gender:</font></span></i></b>
+    <label class="radio-inline" style="margin-left:255px">
+      <input type="radio" required name="gender" value="male" > Male
+    </label>
+    <label class="radio-inline">
+      <input type="radio" required name="gender" value="female"> Female
+    </label>
+</div>
+</div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+	</div>
+
+	</div>
+
+
+
+
+
+
+
+
+ 
+<div style="padding: 70px ; margin-left: 600px">
+<input class="btn btn-lg btn-primary" style="background-color:  rgb(204,188,137);border-color: black;color: black;" type="submit" name="submit" value="submit" id="submit">
+</div>
+</form>
+</div> 
+</div>
+
+
+
+</div>
+</center>
+
+
+</body>
+
+
+
+</html>

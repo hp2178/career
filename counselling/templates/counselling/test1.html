@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html onmouseover="check()">
+<head> 
+<style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <meta name="google-signin-client_id" content="40784559178-njrnpentbq1qocvs8htg75l424m53re1.apps.googleusercontent.com.apps.googleusercontent.com">
+html{ height: 100%;}*{ margin: 0;  padding: 0;}body{ font: normal .80em trebuchet ms, arial, sans-serif;  background: #FFF;  color: #555;}p{ padding: 0 0 20px 0;  line-height: 1.7em;}img{ border: 0;}h1, h2, h3, h4, h5, h6 { color: #E7746F;  letter-spacing: 0em;  padding: 0 0 5px 0;}h1, h2, h3{ font: normal 170%  century gothic, arial;  margin: 0 0 15px 0;  padding: 15px 0 5px 0;}h2{ font-size: 160%;  padding: 9px 0 5px 0;}h3{ font-size: 140%;  padding: 5px 0 0 0;}h4, h6{ color: #009FBC;  padding: 0 0 5px 0;  font: normal 110% arial;  text-transform: uppercase;}h5, h6{ color: #888;  font: normal 95% arial;  letter-spacing: normal;  padding: 0 0 15px 0;}a, a:hover{ outline: none;  text-decoration: underline;  color: #009FBC;}a:hover{ text-decoration: none;}blockquote{ margin: 20px 0;   padding: 10px 20px 0 20px;  border: 1px solid #E5E5DB;  background: #FFF;}ul{ margin: 2px 0 22px 17px;}ul li{ list-style-type: circle;  margin: 0 0 6px 0;   padding: 0 0 4px 5px;  line-height: 1.5em;}ol{ margin: 8px 0 22px 20px;}ol li{ margin: 0 0 11px 0;}.left{ float: left;  width: auto;  margin-right: 10px;}.right{ float: right;   width: auto;  margin-left: 10px;}.center{ display: block;  text-align: center;  margin: 20px auto;}#main, #logo, #menubar, #site_content, #footer{ margin-left: auto;   margin-right: auto;}#header{ background: #14233a;  border-bottom: 2px solid #E7746F;  height: 177px;}  #banner{ background: transparent;  width: 870px;  height: 180px;  margin-bottom: 20px;  border: 2px solid #E7746F;background:#1d1d1d;background-image: url("C://Users//patel//Desktop//web_2//website//AiHiring//templates//AiHiring//style//banner.png");}#logo{ width: 880px;  position: relative;  height: 140px;  background: transparent;}#logo #logo_text { position: absolute;   top: 10px;  left: 0;}#logo h1, #logo h2{ font: normal 300%  century gothic, arial, sans-serif;  border-bottom: 0;  text-transform: none;  margin: 0 0 0 9px;}#logo_text h1, #logo_text h1 a, #logo_text h1 a:hover { padding: 22px 0 0 0;  color: #FFF;  letter-spacing: 0.1em;  text-decoration: none;}#logo_text h1 a .logo_colour{ color: #E7746F;}#logo_text a:hover .logo_colour{ color: #FFF;}#logo_text h2{ font-size: 120%;  padding: 4px 0 0 0;  color: #FFF;}#menubar{ width: 880px;  height: 46px;} ul#menu{ float: right;  margin: 0;}ul#menu li{ float: left;  padding: 0 0 0 9px;  list-style: none;  margin: 1px 2px 0 0;  background: transparent;}ul#menu li a{ font: normal 100% trebuchet ms, sans-serif;  display: block;   float: left;   height: 20px;  padding: 6px 35px 5px 28px;  text-align: center;  color: #FFF;  text-decoration: none;  background: transparent;} ul#menu li.selected a{ height: 20px;  padding: 6px 35px 5px 28px;}ul#menu li.selected{ margin: 1px 2px 0 0;  background: #E7746F;}ul#menu li.selected a, ul#menu li.selected a:hover{ background: #E7746F;  color: #FFF;}ul#menu li a:hover{ color: #FFF;  background: #E7746F;}#site_content{ width: 880px;  overflow: hidden;  margin: 20px auto 0 auto;  padding: 0 0 10px 0;} #sidebar_container{ float: right;  width: 224px;background:#1d1d1d;}.sidebar_top{ width: 222px;  height: 14px;  background: transparent;}.sidebar_base{ width: 222px;  height: 14px;  background: #1d1d1d;}.sidebar{ float: right;  width: 222px;  padding: 0;  margin: 0 0 16px 0;}.sidebar_item{ background: #1d1d1d;  padding: 0 15px;  width: 192px;}.sidebar li a.selected{ color: #444;} .sidebar ul{ margin: 0;} #content{ text-align: left;  width: 620px;  padding: 0 0 0 5px;  float: left;}  #content ul{ margin: 2px 0 22px 0px;}#content ul li, .sidebar ul li{ list-style-type: none;  margin: 0 0 0 0;   padding: 0 0 4px 25px;  line-height: 1.5em;}#footer{ width: 100%;  font-family: trebuchet ms, sans-serif;  font-size: 100%;  height: 80px;  padding: 28px 0 5px 0;  text-align: center;   background: transparent;  border-top: 2px solid #E7746F;  color: #FFF;}#footer p{ line-height: 1.7em;  padding: 0 0 10px 0;}#footer a{ color: #E7746F;  text-decoration: none;}#footer a:hover{ color: #FFF;  text-decoration: none;}.search{ color: #5D5D5D;   border: 1px solid #BBB;   width: 134px;   padding: 4px;   font: 100% arial, sans-serif;}.form_settings{ margin: 15px 0 0 0;}.form_settings p{ padding: 0 0 4px 0;}.form_settings span{ float: left;   width: 200px;   text-align: left;}  .form_settings input, .form_settings textarea{ padding: 5px;   width: 299px;   font: 100%  arial;   border: 1px solid #E5E5DB;   background: #FFF;   color: #47433F;}  .form_settings .submit{ font: 100% arial;   border: 0;   width: 99px;   margin: 0 0 0 212px;   height: 33px;  padding: 2px 0 3px 0;  cursor: pointer;   background: #E7746F;   color: #FFF;}.form_settings textarea, .form_settings select{ font: 100% arial;   width: 299px;}.form_settings select{ width: 310px;}.form_settings .checkbox{ margin: 4px 0;   padding: 0;   width: 14px;  border: 0;  background: none;}.separator{ width: 100%;  height: 0;  border-top: 1px solid #D9D5CF;  border-bottom: 1px solid #FFF;  margin: 0 0 20px 0;}  table{ margin: 10px 0 30px 0;}table tr th, table tr td{ background: #E7746F;  color: #FFF;  padding: 7px 4px;  text-align: left;}  table tr td{ background: #E5E5DB;  color: #47433F;  border-top: 1px solid #FFF;}
+
+
+
+
+
+.specDet .resRep{
+  display: none;
+}
+
+
+#ryt{
+  background: #1d1d1d;
+  float: right;
+
+}
+
+.mySlides {display:none;}
+
+
+
+.my{
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+</style> 
+
+<title>Ai Based Hiring</title> 
+ <meta name="description" content="website description" /> 
+  <meta name="keywords" content="website keywords, website keywords" />  <meta http-equiv="content-type" content="text/html; charset=windows-1252" /> 
+   <link rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+<body>  
+  <a href="/counselling/logout">Logout</a>
+<div id="main">    
+  <div>{% load staticfiles %}<a href="http://www.data-bytes.in" target="_blank"><img height="100" style="margin-left: 8px;margin-top: 8px;" width="100" src="{% static 'images/DBA1.png' %}" alt="NotFOund"> </a> <img height="75" width="75" style="margin-left: 800px;" src="{% static 'images/jove.png' %}" alt="NotFOund"> 
+  <form id="db-form" action="/counselling/dashboard.html" method="post">
+  {% csrf_token %}
+      <button style="margin-bottom: 10px;width: 150px;" type="submit" name="dashboard" id="dashboard" value="dashboard">Enter DashBoard</button>
+         
+   </form>
+   <a href="#"><button style="width: 150px;">Language</button></a> 
+  </div>
+  
+
+  <div id="header" style="margin-bottom: 10px;">      
+    <div id="logo">        
+      <div id="logo_text">          <!-- class="logo_colour", allows you to change the colour of the text -->          
+        <h1><a href="#">Career<span class="logo_colour">Counselling</span></a></h1>                
+      </div>      
+      </div>      <center> 
+      <div id="menubar">       
+        <ul id="menu">          <!-- put class="selected" in the li tag for the selected page - to highlight which page youre on -->        
+        <li class="selected" style="margin-right: 20px;"><a href="#">INDIVIDUALS</a></li>         
+          <li  style="margin-right: 20px;"><a href="#">TEACHERS</a></li>        
+         <li  style="margin-right: 20px;"><a href="#">PARENTS</a></li>         
+          <li ><a href="#">SCHOOLS/COLLEGES/UNIVERSITIES</a></li>         
+          
+         </ul>      
+
+      </div>    </center>
+
+
+
+      <script type="text/javascript">
+        function myFunction(){
+          alert("Please, Please, Please. Follow the steps given on the home page... Thank You...")
+        }
+      </script>
+
+
+
+
+    </div>    
+
+
+
+ <center> 
+<div style="margin-bottom: 20px;">
+  {% load staticfiles %}
+
+<form method="post" action="jove.html">
+	{% csrf_token %}
+MBTI Personality Type Test
+
+<br><br><br><br>
+      1. At a party do you:<br>
+      <input type="radio" name="gender" value="female">a. Interact with many, including strangers<br>
+      <input type="radio" name="gender" value="female">b. Interact with a few, known to you
+      <br><br><br>
+      2. Are you more:<br>
+      <input type="radio" name="gender" value="female">a. Realistic than speculative<br>
+      <input type="radio" name="gender" value="female">b. Speculative than realistic
+      <br><br><br>
+      3. Is it worse to:<br>
+     <input type="radio" name="gender" value="female"> a. Have your “head in the clouds”<br>
+      <input type="radio" name="gender" value="female">b. Be “in a rut”
+      <br><br><br>
+      4. Are you more impressed by:<br>
+      <input type="radio" name="gender" value="female">a. Principles<br>
+      <input type="radio" name="gender" value="female">b. Emotions
+      <br><br><br>
+      5. Are more drawn toward the:<br>
+      <input type="radio" name="gender" value="female">a. Convincing<br>
+      <input type="radio" name="gender" value="female">b. Touching
+      <br><br><br>
+      6. Do you prefer to work:<br>
+      <input type="radio" name="gender" value="female">a. To deadlines<br>
+      <input type="radio" name="gender" value="female">b. Just “whenever”
+      <br><br><br>
+      7. Do you tend to choose:<br>
+      <input type="radio" name="gender" value="female">a. Rather carefully<br>
+      <input type="radio" name="gender" value="female">b. Somewhat impulsively
+      <br><br><br>
+      8. At parties do you:<br>
+      <input type="radio" name="gender" value="female">a. Stay late, with increasing energy<br>
+      <input type="radio" name="gender" value="female">b. Leave early with decreased energy
+      <br><br><br>
+      9. Are you more attracted to:<br>
+      <input type="radio" name="gender" value="female">a. Sensible people<br>
+      <input type="radio" name="gender" value="female">b. Imaginative people
+      <br><br><br>
+      10. Are you more interested in:<br>
+     <input type="radio" name="gender" value="female"> a. What is actual<br>
+     <input type="radio" name="gender" value="female"> b. What is possible
+      <br><br><br>
+      11. In judging others are you more swayed
+      by:<br>
+     <input type="radio" name="gender" value="female"> a. Laws than circumstances<br>
+     <input type="radio" name="gender" value="female"> b. Circumstances than laws
+      <br><br><br>
+      12. In approaching others is your inclination
+      to be somewhat:<br>
+     <input type="radio" name="gender" value="female"> a. Objective<br>
+     <input type="radio" name="gender" value="female"> b. Personal
+      <br><br><br>
+      13. Are you more:<br>
+      <input type="radio" name="gender" value="female">a. Punctual<br>
+      <input type="radio" name="gender" value="female">b. Leisurely
+      <br><br><br>
+      14. Does it bother you more having things:<br>
+      <input type="radio" name="gender" value="female">a. Incomplete<br>
+      <input type="radio" name="gender" value="female">b. Completed
+      <br><br><br>
+      15. In your social groups do you:<br>
+     <input type="radio" name="gender" value="female"> a. Keep abreast of other’s happenings<br>
+     <input type="radio" name="gender" value="female"> b. Get behind on the news
+      <br><br><br>
+      16. In doing ordinary things are you more
+      likely to:<br>
+     <input type="radio" name="gender" value="female"> a. Do it the usual way<br>
+     <input type="radio" name="gender" value="female"> b. Do it your own way
+      <br><br><br>
+      17. Writers should:<br>
+      <input type="radio" name="gender" value="female">a. “Say what they mean and mean what they
+      say”<br>
+      <input type="radio" name="gender" value="female">b. Express things more by use of analogy
+      <br><br><br>
+      18. Which appeals to you more:<br>
+      <input type="radio" name="gender" value="female">a. Consistency of thought<br>
+      <input type="radio" name="gender" value="female">b. Harmonious human relationships
+      <br><br><br>
+      19. Are you more comfortable in making:<br>
+      <input type="radio" name="gender" value="female">a. Logical judgments<br>
+      <input type="radio" name="gender" value="female">b. Value judgments
+      <br><br><br>
+      20. Do you want things:<br>
+      <input type="radio" name="gender" value="female">a. Settled and decided<br>
+      <input type="radio" name="gender" value="female">b. Unsettled and undecided
+      <br><br><br>
+      21. Would you say you are more:<br>
+     <input type="radio" name="gender" value="female"> a. Serious and determined<br>
+     <input type="radio" name="gender" value="female"> b. Easy-going
+      <br><br><br>
+      22. In phoning do you:<br>
+     <input type="radio" name="gender" value="female"> a. Rarely question that it will all be said<br>
+     <input type="radio" name="gender" value="female"> b. Rehearse what you’ll say
+      <br><br><br>
+      23. Facts:<br>
+     <input type="radio" name="gender" value="female"> a. “Speak for themselves”<br>
+     <input type="radio" name="gender" value="female"> b. Illustrate principles
+      <br><br><br>
+      24. Are visionaries:<br>
+     <input type="radio" name="gender" value="female"> a. somewhat annoying<br>
+     <input type="radio" name="gender" value="female"> b. rather fascinating
+      <br><br><br>
+      25. Are you more often:<br>
+      <input type="radio" name="gender" value="female">a. a cool-headed person<br>
+      <input type="radio" name="gender" value="female">b. a warm-hearted person
+      <br><br><br>
+      26. Is it worse to be:<br>
+      <input type="radio" name="gender" value="female">a. unjust<br>
+      <input type="radio" name="gender" value="female">b. merciless
+      <br><br><br>
+      27. Should one usually let events occur:<br>
+     <input type="radio" name="gender" value="female"> a. by careful selection and choice<br>
+     <input type="radio" name="gender" value="female"> b. randomly and by chance
+      <br><br><br>
+      28. Do you feel better about:<br>
+      <input type="radio" name="gender" value="female">a. having purchased<br>
+      <input type="radio" name="gender" value="female">b. having the option to buy
+      <br><br><br>
+      29. In company do you:<br>
+      <input type="radio" name="gender" value="female">a. initiate conversation<br>
+     <input type="radio" name="gender" value="female"> b. wait to be approached
+      <br><br><br>
+      30. Common sense is:<br>
+     <input type="radio" name="gender" value="female"> a. rarely questionable<br>
+      <input type="radio" name="gender" value="female">b. frequently questionable
+      <br><br><br>
+      31. Children often do not:<br>
+      <input type="radio" name="gender" value="female">a. make themselves useful enough<br>
+      <input type="radio" name="gender" value="female">b. exercise their fantasy enough
+      <br><br><br>
+      32. In making decisions do you feel more
+      comfortable with:<br>
+     <input type="radio" name="gender" value="female"> a. standards<br>
+     <input type="radio" name="gender" value="female"> b. feelings
+      <br><br><br>
+      33. Are you more:<br>
+     <input type="radio" name="gender" value="female"> a. firm than gentle<br>
+    <input type="radio" name="gender" value="female">  b. gentle than firm
+      <br><br><br>
+      34. Which is more admirable:<br>
+    <input type="radio" name="gender" value="female">  a. the ability to organize and be methodical<br>
+    <input type="radio" name="gender" value="female">  b. the ability to adapt and make do
+      <br><br><br>
+      35. Do you put more value on:<br>
+     <input type="radio" name="gender" value="female">a. infinite<br>
+     <input type="radio" name="gender" value="female"> b. open-minded
+      <br><br><br>
+      36. Does new and non-routine interaction
+      with others:<br>
+     <input type="radio" name="gender" value="female"> a. stimulate and energize you<br>
+     <input type="radio" name="gender" value="female"> b. tax your reserves
+     <br><br><br>
+      37. Are you more frequently:<br>
+      <input type="radio" name="gender" value="female">a. a practical sort of person<br>
+      <input type="radio" name="gender" value="female">b. a fanciful sort of person
+      <br><br><br>
+      38. Are you more likely to:<br>
+     <input type="radio" name="gender" value="female"> a. see how others are useful<br>
+     <input type="radio" name="gender" value="female"> b. see how others see
+      <br><br><br>
+      39. Which is more satisfying:<br>
+     <input type="radio" name="gender" value="female"> a. to discuss an issue thoroughly<br>
+      <input type="radio" name="gender" value="female">b. to arrive at agreement on an issue
+      <br><br><br>
+      40. Which rules you more:<br>
+      <input type="radio" name="gender" value="female">a. your head<br>
+      <input type="radio" name="gender" value="female">b. your heart
+      <br><br><br>
+      41. Are you more comfortable with work that
+      is:<br>
+      <input type="radio" name="gender" value="female">a. contracted<br>
+      <input type="radio" name="gender" value="female">b. done on a casual basis
+      <br><br><br>
+      42. Do you tend to look for:<br>
+      <input type="radio" name="gender" value="female">a. the orderly<br>
+      <input type="radio" name="gender" value="female">b. whatever turns up
+      <br><br><br>
+      43. Do you prefer:<br>
+      <input type="radio" name="gender" value="female">a. many friends with brief contact<br>
+      <input type="radio" name="gender" value="female">b. a few friends with more lengthy contact
+      <br><br><br>
+      44. Do you go more by:<br>
+     <input type="radio" name="gender" value="female"> a. facts<br>
+     <input type="radio" name="gender" value="female"> b. principles
+      <br><br><br>
+      45. Are you more interested in:<br>
+      <input type="radio" name="gender" value="female">a. production and distribution<br>
+      <input type="radio" name="gender" value="female">b. design and research
+      <br><br><br>
+      46. Which is more of a compliment:<br>
+      <input type="radio" name="gender" value="female">a. “There is a very logical person.”<br>
+      <input type="radio" name="gender" value="female">b. “There is a very sentimental person.”
+      <br><br><br>
+      47. Do you value in yourself more that you
+      are:<br>
+      <input type="radio" name="gender" value="female">a. unwavering<br>
+      <input type="radio" name="gender" value="female">b. devoted
+      <br><br><br>
+      48. Do you more often prefer the<br>
+      <input type="radio" name="gender" value="female">a. final and unalterable statement<br>
+      <input type="radio" name="gender" value="female">b. tentative and preliminary statement
+      <br><br><br>
+      49. Are you more comfortable:<br>
+      <input type="radio" name="gender" value="female">a. after a decision<br>
+      <input type="radio" name="gender" value="female">b. before a decision
+      <br><br><br>
+      50. Do you:<br>
+      <input type="radio" name="gender" value="female">a. speak easily and at length with strangers<br>
+     <input type="radio" name="gender" value="female"> b. find little to say to strangers
+      <br><br><br>
+      51. Are you more likely to trust your:<br>
+     <input type="radio" name="gender" value="female"> a. experience<br>
+     <input type="radio" name="gender" value="female"> b. hunch
+      <br><br><br>
+      52. Do you feel:<br>
+     <input type="radio" name="gender" value="female"> a. more practical than ingenious<br>
+     <input type="radio" name="gender" value="female"> b. more ingenious than practical
+      <br><br><br>
+      53. Which person is more to be complimented
+      – one of:<br>
+    <input type="radio" name="gender" value="female">  a. clear reason<br>
+     <input type="radio" name="gender" value="female"> b. strong feeling
+      <br><br><br>
+      54. Are you inclined more to be:<br>
+     <input type="radio" name="gender" value="female"> a. fair-minded<br>
+     <input type="radio" name="gender" value="female"> b. sympathetic
+      <br><br><br>
+      55. Is it preferable mostly to:<br>
+    <input type="radio" name="gender" value="female">  a. make sure things are arranged<br>
+    <input type="radio" name="gender" value="female">  b. just let things happen
+      <br><br><br>
+      56. In relationships should most things be:<br>
+     <input type="radio" name="gender" value="female"> a. re-negotiable<br>
+     <input type="radio" name="gender" value="female"> b. random and circumstantial
+      <br><br><br>
+      57. When the phone rings do you:<br>
+     <input type="radio" name="gender" value="female"> a. hasten to get to it first<br>
+     <input type="radio" name="gender" value="female"> b. hope someone else will answer
+      <br><br><br>
+      58. Do you prize more in yourself:<br>
+      <input type="radio" name="gender" value="female">a. a strong sense of reality<br>
+      <input type="radio" name="gender" value="female">b. a vivid imagination
+      <br><br><br>
+      59. Are you drawn more to:<br>
+     <input type="radio" name="gender" value="female"> a. fundamentals<br>
+     <input type="radio" name="gender" value="female"> b. overtones
+      <br><br><br>
+      60. Which seems the greater error:<br>
+      <input type="radio" name="gender" value="female">a. to be too passionate<br>
+     <input type="radio" name="gender" value="female"> b. to be too objective
+      <br><br><br>
+      61. Do you see yourself as basically:<br>
+     <input type="radio" name="gender" value="female"> a. hard-headed<br>
+     <input type="radio" name="gender" value="female"> b. soft-hearted
+      <br><br><br>
+      62. Which situation appeals to you more:<br>
+    <input type="radio" name="gender" value="female">  a. the structured and scheduled<br>
+     <input type="radio" name="gender" value="female"> b. the unstructured and unscheduled
+      <br><br><br>
+      63. Are you a person that is more:<br>
+     <input type="radio" name="gender" value="female"> a. routinized than whimsical<br>
+      <input type="radio" name="gender" value="female">b. whimsical than routinized
+      <br><br><br>
+      64. Are you more inclined to be:<br>
+     <input type="radio" name="gender" value="female"> a. easy to approach<br>
+      <input type="radio" name="gender" value="female">b. somewhat reserved
+      <br><br><br>
+      65. In writings do you prefer:<br>
+      <input type="radio" name="gender" value="female">a. the more literal<br>
+      <input type="radio" name="gender" value="female">b. the more figurative
+      <br><br><br>
+      66. Is it harder for you to:<br>
+     <input type="radio" name="gender" value="female"> a. identify with others<br>
+     <input type="radio" name="gender" value="female"> b. utilize others
+      <br><br><br>
+      67. Which do you wish more for yourself:<br>
+     <input type="radio" name="gender" value="female"> a. clarity of reason<br>
+     <input type="radio" name="gender" value="female"> b. strength of compassion
+      <br><br><br>
+      68. Which is the greater fault:<br>
+    <input type="radio" name="gender" value="female">  a. being indiscriminate<br>
+     <input type="radio" name="gender" value="female"> b. being critical
+      <br><br><br>
+      69. Do you prefer the:<br>
+      <input type="radio" name="gender" value="female">a. planned event<br>
+     <input type="radio" name="gender" value="female"> b. unplanned event
+      <br><br><br>
+      70. Do you tend to be more:<br>
+      <input type="radio" name="gender" value="female">a. deliberate than spontaneous<br>
+      <input type="radio" name="gender" value="female">b. spontaneous than deliberate
+<br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span><button style="width: 150px;" name="skipTest" id="skipTest" value="skipTest">Skip</button></span> 
+
+<span ><button style="width: 150px;" name="submitTest" id="submitTest" value="submitTest">Submit</button></span>
+
+</form>
+
+
+</div>
+</center>
+
+
+<div id="content_footer"></div>    
+
+<div id="footer">     
+</div>  
+
+
+
+</div>
+
+
+</body>
+
+
+
+</html>

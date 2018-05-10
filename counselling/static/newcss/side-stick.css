@@ -1,0 +1,88 @@
+ /* @import url(http://weloveiconfonts.com/api/?family=entypo); */
+ @font-face {
+  font-family: "Flaticon";
+  src: url("fonts/Flaticon.eot");
+  src: url("fonts/Flaticond41d.eot?#iefix") format("embedded-opentype"),
+  url("fonts/Flaticon.woff") format("woff"),
+  url("fonts/Flaticon.ttf") format("truetype"),
+  url("fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-size: 20px;
+  font-style: normal;
+  margin-left: 20px;
+}
+
+.flaticon-down-chevron:before { content: "\f100"; }
+.flaticon-magnifying-glass-browser:before { content: "\f101"; }
+.flaticon-shopping-cart:before { content: "\f102"; }
+/* entypo */
+[class*="entypo-"]::before {
+ font-family: "entypo", sans-serif;
+}
+#sticky-social a { 
+ text-decoration: none;
+}
+#sticky-social ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+}
+#sticky-social ul li{
+  display: inline-block;
+}
+#sticky-social .container {
+ margin: 0 auto;
+ padding: 20px 50px;
+ background: white;
+}
+#sticky-social {
+ right: 30px;
+ position: fixed;
+ top: 20px;
+ z-index: 99999;
+}
+#sticky-social a {
+ /* background: #333; */
+ color: #fff;
+ display: block;
+ height: 35px;
+ font: 20px "Open Sans", sans-serif;
+ line-height: 35px;
+ position: relative;
+ text-align: center;
+ width: 35px;
+}
+#sticky-social a span {
+ line-height: 35px;
+ right: -120px;
+ position: absolute;
+ text-align:center;
+ width:120px;
+}
+#sticky-social a:hover span {
+ right: 100%;
+}
+#sticky-social a[class*="basket"],
+#sticky-social a[class*="basket"]:hover,
+#sticky-social a[class*="basket"] span { 
+  /* background: #c3922e;  */
+}
+
+#sticky-social a[class*="search"],
+#sticky-social a[class*="search"]:hover,
+#sticky-social a[class*="search"] span {
+  /* background: #c3922e; */
+}

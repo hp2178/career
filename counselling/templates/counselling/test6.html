@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<style type="text/css">
+	a:hover{
+		background-color: white;
+		text-decoration: underline;
+		color: blue;
+	}
+	.pointer {cursor: pointer;}
+	.blink_me {
+  		animation: blinker 1s linear;
+  		animation-iteration-count: 1;
+	}
+
+	@keyframes blinker {
+  	50% {
+    	opacity: 0;
+  	}
+	}
+
+
+
+
+
+
+
+
+
+	button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+  background: #286f9e;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+button::before,
+button::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button:hover {
+  color: black;
+}
+/* BUTTON 5 */
+.btn-5 {
+  overflow: hidden;
+}
+
+.btn-5::after {
+  /*background-color: #f00;*/
+  height: 100%;
+  left: -35%;
+  top: 0;
+  transform: skew(50deg);
+  transition-duration: 0.6s;
+  transform-origin: top left;
+  width: 0;
+}
+
+.btn-5:hover:after {
+  height: 100%;
+  width: 135%;
+}
+</style>
+
+
+<body style="background-color: ">
+	
+		{% csrf_token %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+     var objDiv = document.getElementById("history");
+     objDiv.scrollTop = objDiv.scrollHeight;
+}
+	</script>
+	<div type="text" name="history" id="history" style="margin-left: 350px;background: #27e5c8;width: 50%;height: 600px;position: fixed;overflow:scroll;">
+		<!--{% for c in cL %}
+		<pre>{{c}}<br></pre>
+		{% endfor %}-->
+		
+		<!--{% for c in cQl %}
+		<pre>{{c}}<br></pre>
+		{% endfor %}
+		{% for c in cAl %}
+		<pre>{{c}}<br></pre>
+		{% endfor %}-->
+<!--
+		{% load extra %}
+		{% for c in cQl %}
+		<pre><div id="ryt" align="left" >{% load staticfiles %}<img width="85" height="70" src="{% static 'images/bot.jpg' %}" alt="NotFOund"> {{cAl|get_at_index:forloop.counter0}}
+     	</div> <br></pre>
+		<pre><div align="center">	{{c}}	<br></div></pre>
+		
+		{% endfor %}		-->
+
+		<div  align="left" style="margin-bottom: 0px;margin-top: 5px;margin-left: 5px;">{% load staticfiles %}<img width="60" height="60" src="{% static 'images/bot.jpg' %}" alt="NotFOund" style="border-radius: 50%;"> <span id="typing1" class="blink_me"  ><font size="5" face="calibri"><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q1"><b>1. At a party do you:</b></span>  </font>
+			<script type="text/javascript">
+				var x = document.getElementById("typing1");
+				x.addEventListener("webkitAnimationEnd", myEndFunction1);
+				function myEndFunction1() {
+    				this.style.display = "none";
+    				document.getElementById('q1').style.display='';
+    				document.getElementById('1A').style.display='';
+    				document.getElementById('1B').style.display='';
+				}
+				
+			</script>
+
+
+
+	</div>
+<!--<input type="text" name="ans" id="ans" placeholder="type ans here.." value="{{ques}}"><br>-->
+<form method="post" action='reports.html'>
+	{% csrf_token %}
+<div style="width: 100%;height:75px;color: red;" id="hehe">
+	<input type="text" name="ques" hidden id="ques" value="" style="width: 15%;height: 50px;position: fixed;bottom:2%;">
+	
+	<br>
+	<input type="submit" hidden  name="submit" id="submit" value="submit" style="width: 15%;height: 50px;position: fixed;bottom:2%;left: 175px;"><br>
+</div>
+</form>
+<button class="btn-5" name="a" id="1A" value="Interact with many, including strangers" onclick="call(this.id)" style="display: none;width: 15%;left: 500px;height: 50px;position: fixed;bottom:2%;">a. Interact with many, including strangers</button>
+<button class="btn-5" name="b" id="1B" value="Interact with a few, known to you" style="display: none;width: 15%;height: 50px;position: fixed;bottom:2%;left: 700px;"  onclick="call(this.id)">b. Interact with a few, known to you</button>
+
+<script type="text/javascript">
+	var answer=[]
+	function call(val){
+		if (val=='1A' || val=='1B'){
+			if(val=='1A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;"><font size="4" face="calibri"><b>User :'+document.getElementById(val).value+'</b></font></div><div align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" ><img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;"> <span id="typing2" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q2">2. Are you more:</span>  ';
+		document.getElementById('1A').innerHTML='a. Realistic than speculative';
+		document.getElementById('1B').innerHTML='b. Speculative than realistic';
+
+		document.getElementById('1A').value='Realistic than speculative';
+		document.getElementById('1B').value='Speculative than realistic';
+		document.getElementById('1A').id='2A';
+		document.getElementById('1B').id='2B';
+		document.getElementById('2A').style.display='none';
+    	document.getElementById('2B').style.display='none';
+
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        var x = document.getElementById("typing2");
+				x.addEventListener("webkitAnimationEnd", myEndFunction2);
+				function myEndFunction2() {
+    				this.style.display = "none";
+    				document.getElementById('q2').style.display='';
+    				document.getElementById('2A').style.display='';
+    				document.getElementById('2B').style.display='';
+				}
+
+		}
+		else if (val=='2A' || val=='2B'){
+			if(val=='2A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing3" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q3">3. Is it worse to:</span>  ';
+		
+		document.getElementById('2A').innerHTML='a. Have your head in the clouds';
+		document.getElementById('2B').innerHTML='b. Be in a rut';
+		document.getElementById('2A').value='Have your head in the clouds';
+		document.getElementById('2B').value='Be in a rut';
+		document.getElementById('2A').id='3A';
+		document.getElementById('2B').id='3B';
+		document.getElementById('3A').style.display='none';
+    	document.getElementById('3B').style.display='none';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing3");
+				x.addEventListener("webkitAnimationEnd", myEndFunction3);
+				function myEndFunction3() {
+    				this.style.display = "none";
+    				document.getElementById('q3').style.display='';
+    				document.getElementById('3A').style.display='';
+    				document.getElementById('3B').style.display='';
+				}
+
+		
+		}
+		else if (val=='3A' || val=='3B'){
+			if(val=='3A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" > <span id="typing4" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q4">4. Are you more impressed by:</span>';
+		document.getElementById('3A').innerHTML='a. Principles';
+		document.getElementById('3B').innerHTML='b. Emotions';
+		document.getElementById('3A').value='Principles';
+		document.getElementById('3B').value='Emotions';
+		document.getElementById('3A').id='4A';
+		document.getElementById('3B').id='4B';
+		document.getElementById('4A').style.display='none';
+    	document.getElementById('4B').style.display='none';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        var x = document.getElementById("typing4");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q4').style.display='';
+    				document.getElementById('4A').style.display='';
+    				document.getElementById('4B').style.display='';
+				}
+		}
+		else if (val=='4A' || val=='4B'){
+			if(val=='4A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing5" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q5"> 5. Are more drawn toward the:';
+		document.getElementById('4A').innerHTML='a. Convincing';
+		document.getElementById('4B').innerHTML='b. Touching';
+		document.getElementById('4A').value='Convincing';
+		document.getElementById('4B').value='Touching';
+		document.getElementById('4A').id='5A';
+		document.getElementById('4B').id='5B';
+		document.getElementById('5A').style.display='none';
+    	document.getElementById('5B').style.display='none';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing5");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q5').style.display='';
+    				document.getElementById('5A').style.display='';
+    				document.getElementById('5B').style.display='';
+				}
+		}
+		else if (val=='5A' || val=='5B'){
+			if(val=='5A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing6" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q6">6. Do you prefer to work:';
+		document.getElementById('5A').innerHTML='a.To deadlines';
+		document.getElementById('5B').innerHTML='b. Just “whenever”';
+		document.getElementById('5A').value='To deadlines';
+		document.getElementById('5B').value='Just “whenever”';
+		document.getElementById('5A').id='6A';
+		document.getElementById('5B').id='6B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        var x = document.getElementById("typing6");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q6').style.display='';
+    				document.getElementById('6A').style.display='';
+    				document.getElementById('6B').style.display='';
+				}
+		}
+		else if (val=='6A' || val=='6B'){
+			if(val=='6A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing7" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q7">7. Do you tend to choose:';
+		document.getElementById('6A').innerHTML='a.Rather carefully';
+		document.getElementById('6B').innerHTML='b. Somewhat impulsively';
+		document.getElementById('6A').value='Rather carefully';
+		document.getElementById('6B').value='Somewhat impulsively';
+		document.getElementById('6A').id='7A';
+		document.getElementById('6B').id='7B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing7");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q7').style.display='';
+    				document.getElementById('7A').style.display='';
+    				document.getElementById('7B').style.display='';
+				}
+		}
+		else if (val=='7A' || val=='7B'){
+			if(val=='7A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing8" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q8">8.At parties do you:';
+		document.getElementById('7A').innerHTML='a.Stay late, with increasing energy';
+		document.getElementById('7B').innerHTML='b. Leave early with decreased energy';
+		document.getElementById('7A').value='Stay late, with increasing energy';
+		document.getElementById('7B').value='Leave early with decreased energy';
+		document.getElementById('7A').id='8A';
+		document.getElementById('7B').id='8B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing8");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q8').style.display='';
+    				document.getElementById('8A').style.display='';
+    				document.getElementById('8B').style.display='';
+				}
+		}
+		else if (val=='8A' || val=='8B'){
+			if(val=='8A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" ><span id="typing9" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q9">9. Are you more attracted to :';
+		document.getElementById('8A').innerHTML='a.Sensible people';
+		document.getElementById('8B').innerHTML='b. Imaginative people';
+		document.getElementById('8A').value='Sensible people';
+		document.getElementById('8B').value='Imaginative people';
+		document.getElementById('8A').id='9A';
+		document.getElementById('8B').id='9B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing9");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q9').style.display='';
+    				document.getElementById('9A').style.display='';
+    				document.getElementById('9B').style.display='';
+				}
+		}
+		else if (val=='9A' || val=='9B'){
+			if(val=='9A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" ><span id="typing10" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q10">10. Are you more interested in :';
+		document.getElementById('9A').innerHTML='What is actual';
+		document.getElementById('9B').innerHTML='b. What is possible';
+		document.getElementById('9A').value='What is actual';
+		document.getElementById('9B').value='What is possible';
+		document.getElementById('9A').id='10A';
+		document.getElementById('9B').id='10B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing10");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q10').style.display='';
+    				document.getElementById('10A').style.display='';
+    				document.getElementById('10B').style.display='';
+				}
+		}
+		else if (val=='10A' || val=='10B'){
+			if(val=='10A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" ><span id="typing11" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q11">11. . In judging others are you more swayed by:';
+		document.getElementById('10A').innerHTML='a.Laws than circumstances';
+		document.getElementById('10B').innerHTML='b. Circumstances than laws';
+		document.getElementById('10A').value='Laws than circumstances';
+		document.getElementById('10B').value='Circumstances than laws';
+		document.getElementById('10A').id='11A';
+		document.getElementById('10B').id='11B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing11");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q11').style.display='';
+    				document.getElementById('11A').style.display='';
+    				document.getElementById('11B').style.display='';
+				}
+		}
+		else if (val=='11A' || val=='11B'){
+			if(val=='11A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" ><span id="typing12" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q12">12. In approaching others is your inclination to be somewhat:';
+		document.getElementById('11A').innerHTML='a.Objective';
+		document.getElementById('11B').innerHTML='b.Personal';
+		document.getElementById('11A').value='Objective';
+		document.getElementById('11B').value='Personal';
+		document.getElementById('11A').id='12A';
+		document.getElementById('11B').id='12B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing12");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q12').style.display='';
+    				document.getElementById('12A').style.display='';
+    				document.getElementById('12B').style.display='';
+				}
+		}
+		else if (val=='12A' || val=='12B'){
+			if(val=='12A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing13" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q13">13.Are you more';
+		document.getElementById('12A').innerHTML='a.Punctual';
+		document.getElementById('12B').innerHTML='b.Leisurely';
+		document.getElementById('12A').value='Punctual';
+		document.getElementById('12B').value='Leisurely';
+		document.getElementById('12A').id='13A';
+		document.getElementById('12B').id='13B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing13");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q13').style.display='';
+    				document.getElementById('13A').style.display='';
+    				document.getElementById('13B').style.display='';
+				}
+		}
+		else if (val=='13A' || val=='13B'){
+			if(val=='13A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing14" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q14">14. Does it bother you more having things:';
+		document.getElementById('13A').innerHTML='a.Incomplete';
+		document.getElementById('13B').innerHTML='b.Completed';
+		document.getElementById('13A').value='Incomplete';
+		document.getElementById('13B').value='Completed';
+		document.getElementById('13A').id='14A';
+		document.getElementById('13B').id='14B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing14");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q14').style.display='';
+    				document.getElementById('14A').style.display='';
+    				document.getElementById('14B').style.display='';
+				}
+		}
+		else if (val=='14A' || val=='14B'){
+			if(val=='14A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing15" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q15">15. . In your social groups do you';
+		document.getElementById('14A').innerHTML='a.Keep abreast of other’s happenings';
+		document.getElementById('14B').innerHTML='b. Get behind on the news';
+		document.getElementById('14A').value='Keep abreast of other’s happenings';
+		document.getElementById('14B').value='Get behind on the news';
+		document.getElementById('14A').id='15A';
+		document.getElementById('14B').id='15B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing15");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q15').style.display='';
+    				document.getElementById('15A').style.display='';
+    				document.getElementById('15B').style.display='';
+				}
+		}
+        else if (val=='15A' || val=='15B'){
+			if(val=='15A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing16" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q16">16. In doing ordinary things are you more likely to:';
+		document.getElementById('15A').innerHTML='a.Do it the usual way';
+		document.getElementById('15B').innerHTML='b.Do it your own way';
+		document.getElementById('15A').value='Do it the usual way';
+		document.getElementById('15B').value='Do it your own way';
+		document.getElementById('15A').id='16A';
+		document.getElementById('15B').id='16B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing16");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q16').style.display='';
+    				document.getElementById('16A').style.display='';
+    				document.getElementById('16B').style.display='';
+				}
+		}
+		else if (val=='16A' || val=='16B'){
+			if(val=='16A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing17" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q17">17. Writers should:';
+		document.getElementById('16A').innerHTML='a."Say what they mean and mean what they say"';
+		document.getElementById('16B').innerHTML='b.Express things more by use of analogy';
+		document.getElementById('16A').value='"Say what they mean and mean what they say"';
+		document.getElementById('16B').value='Express things more by use of analogy';
+		document.getElementById('16A').id='17A';
+		document.getElementById('16B').id='17B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing17");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q17').style.display='';
+    				document.getElementById('17A').style.display='';
+    				document.getElementById('17B').style.display='';
+				}
+		}
+		else if (val=='17A' || val=='17B'){
+			if(val=='17A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing18" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q18">18. Which appeals to you more:';
+		document.getElementById('17A').innerHTML='a.Consistency of thought';
+		document.getElementById('17B').innerHTML='b. Harmonious human relationships';
+		document.getElementById('17A').value='Consistency of thought';
+		document.getElementById('17B').value='Harmonious human relationships';
+		document.getElementById('17A').id='18A';
+		document.getElementById('17B').id='18B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing18");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q18').style.display='';
+    				document.getElementById('18A').style.display='';
+    				document.getElementById('18B').style.display='';
+				}
+		}
+		else if (val=='18A' || val=='18B'){
+			if(val=='18A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing19" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q19">19. you more comfortable in making :';
+		document.getElementById('18A').innerHTML='a.Logical judgments';
+		document.getElementById('18B').innerHTML='b.Value judgments';
+		document.getElementById('18A').value='Logical judgments';
+		document.getElementById('18B').value='Value judgments';
+		document.getElementById('18A').id='19A';
+		document.getElementById('18B').id='19B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing19");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q19').style.display='';
+    				document.getElementById('19A').style.display='';
+    				document.getElementById('19B').style.display='';
+				}
+		}
+		else if (val=='19A' || val=='19B'){
+			if(val=='19A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing20" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q20">20. Do you want things:';
+		document.getElementById('19A').innerHTML='a.Settled and decided';
+		document.getElementById('19B').innerHTML='b. Unsettled and undecided';
+		document.getElementById('19A').value='Settled and decided';
+		document.getElementById('19B').value='Unsettled and undecided';
+		document.getElementById('19A').id='20A';
+		document.getElementById('19B').id='20B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing20");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q20').style.display='';
+    				document.getElementById('20A').style.display='';
+    				document.getElementById('20B').style.display='';
+				}
+		}
+		else if (val=='20A' || val=='20B'){
+			if(val=='20A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing21" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q21">21. Would you say you are more:';
+		document.getElementById('20A').innerHTML='a.Serious and determined';
+		document.getElementById('20B').innerHTML='b. Easy-going';
+		document.getElementById('20A').value='Serious and determined';
+		document.getElementById('20B').value='Easy-going';
+		document.getElementById('20A').id='21A';
+		document.getElementById('20B').id='21B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing21");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q21').style.display='';
+    				document.getElementById('21A').style.display='';
+    				document.getElementById('21B').style.display='';
+				}
+		}
+		else if (val=='21A' || val=='21B'){
+			if(val=='21A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing22" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q22">22. In phoning do you:';
+		document.getElementById('21A').innerHTML='a.Rarely question that it will all be said';
+		document.getElementById('21B').innerHTML='b. Rehearse what you’ll say';
+		document.getElementById('21A').value='Rarely question that it will all be said';
+		document.getElementById('21B').value='Rehearse what you’ll say';
+		document.getElementById('21A').id='22A';
+		document.getElementById('21B').id='22B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing22");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q22').style.display='';
+    				document.getElementById('22A').style.display='';
+    				document.getElementById('22B').style.display='';
+				}
+		}
+		else if (val=='22A' || val=='22B'){
+			if(val=='22A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing23" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q23">23.Facts:';
+		document.getElementById('22A').innerHTML='a."Speak for themselves"';
+		document.getElementById('22B').innerHTML='b. Illustrate principles';
+		document.getElementById('22A').value='"Speak for themselves"';
+		document.getElementById('22B').value='Illustrate principles';
+		document.getElementById('22A').id='23A';
+		document.getElementById('22B').id='23B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing23");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q23').style.display='';
+    				document.getElementById('23A').style.display='';
+    				document.getElementById('23B').style.display='';
+				}
+		}
+		else if (val=='23A' || val=='23B'){
+			if(val=='23A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing24" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q24">24. Are visionaries:';
+		document.getElementById('23A').innerHTML='a.somewhat annoying';
+		document.getElementById('23B').innerHTML='b. rather fascinating';
+		document.getElementById('23A').value='somewhat annoying';
+		document.getElementById('23B').value='rather fascinating';
+		document.getElementById('23A').id='24A';
+		document.getElementById('23B').id='24B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing24");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q24').style.display='';
+    				document.getElementById('24A').style.display='';
+    				document.getElementById('24B').style.display='';
+				}
+		}
+		else if (val=='24A' || val=='24B'){
+			if(val=='24A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing25" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q25">25. Are you more often:';
+		document.getElementById('24A').innerHTML='a.cool-headed person';
+		document.getElementById('24B').innerHTML='b. warm-hearted person';
+		document.getElementById('24A').value='cool-headed person';
+		document.getElementById('24B').value='warm-hearted person';
+		document.getElementById('24A').id='25A';
+		document.getElementById('24B').id='25B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing25");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q25').style.display='';
+    				document.getElementById('25A').style.display='';
+    				document.getElementById('25B').style.display='';
+				}
+		}
+		else if (val=='25A' || val=='25B'){
+			if(val=='25A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing26" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q26">26. Is it worse to be:';
+		document.getElementById('25A').innerHTML='a.unjust';
+		document.getElementById('25B').innerHTML='b. merciless';
+		document.getElementById('25A').value='unjust';
+		document.getElementById('25B').value='merciless';
+		document.getElementById('25A').id='26A';
+		document.getElementById('25B').id='26B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing26");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q26').style.display='';
+    				document.getElementById('26A').style.display='';
+    				document.getElementById('26B').style.display='';
+				}
+		}
+		else if (val=='26A' || val=='26B'){
+			if(val=='26A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing27" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q27">27. Should one usually let events occur:';
+		document.getElementById('26A').innerHTML='a.by careful selection and choice';
+		document.getElementById('26B').innerHTML='b. randomly and by chance';
+		document.getElementById('26A').value='by careful selection and choice';
+		document.getElementById('26B').value='randomly and by chance';
+		document.getElementById('26A').id='27A';
+		document.getElementById('26B').id='27B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing27");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q27').style.display='';
+    				document.getElementById('27A').style.display='';
+    				document.getElementById('27B').style.display='';
+				}
+		}
+		else if (val=='27A' || val=='27B'){
+			if(val=='27A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing28" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q28">28.Do you feel better about:';
+		document.getElementById('27A').innerHTML='a.having purchased';
+		document.getElementById('27B').innerHTML='b. having the option to buy';
+		document.getElementById('27A').value='having purchased';
+		document.getElementById('27B').value='having the option to buy';
+		document.getElementById('27A').id='28A';
+		document.getElementById('27B').id='28B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing28");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q28').style.display='';
+    				document.getElementById('28A').style.display='';
+    				document.getElementById('28B').style.display='';
+				}
+		}
+		else if (val=='28A' || val=='28B'){
+			if(val=='28A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing29" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q29">29. In company do you:';
+		document.getElementById('28A').innerHTML='a.initiate conversation';
+		document.getElementById('28B').innerHTML='b. wait to be approached';
+		document.getElementById('28A').value='initiate conversation';
+		document.getElementById('28B').value='wait to be approached';
+		document.getElementById('28A').id='29A';
+		document.getElementById('28B').id='29B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing29");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q29').style.display='';
+    				document.getElementById('29A').style.display='';
+    				document.getElementById('29B').style.display='';
+				}
+		}
+		else if (val=='29A' || val=='29B'){
+			if(val=='29A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing30" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q30">30. Common sense is:';
+		document.getElementById('29A').innerHTML='a.rarely questionable';
+		document.getElementById('29B').innerHTML='b. frequently questionable';
+		document.getElementById('29A').value='rarely questionable';
+		document.getElementById('29B').value='frequently questionable';
+		document.getElementById('29A').id='30A';
+		document.getElementById('29B').id='30B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing30");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q30').style.display='';
+    				document.getElementById('30A').style.display='';
+    				document.getElementById('30B').style.display='';
+				}
+		}
+		else if (val=='30A' || val=='30B'){
+			if(val=='30A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing31" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q31">31. Children often do not:';
+		document.getElementById('30A').innerHTML='a.make themselves useful enough';
+		document.getElementById('30B').innerHTML='b.exercise their fantasy enough';
+		document.getElementById('30A').value='make themselves useful enough';
+		document.getElementById('30B').value='exercise their fantasy enough';
+		document.getElementById('30A').id='31A';
+		document.getElementById('30B').id='31B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing31");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q31').style.display='';
+    				document.getElementById('31A').style.display='';
+    				document.getElementById('31B').style.display='';
+				}
+		}
+		else if (val=='31A' || val=='31B'){
+			if(val=='31A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing32" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q32">32. In making decisions do you feel more comfortable with:';
+		document.getElementById('31A').innerHTML='a.standards';
+		document.getElementById('31B').innerHTML='b.feelings';
+		document.getElementById('31A').value='standards';
+		document.getElementById('31B').value='feelings';
+		document.getElementById('31A').id='32A';
+		document.getElementById('31B').id='32B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing32");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q32').style.display='';
+    				document.getElementById('32A').style.display='';
+    				document.getElementById('32B').style.display='';
+				}
+		}
+		else if (val=='32A' || val=='32B'){
+			if(val=='32A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing33" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q33">33. Are you more:';
+		document.getElementById('32A').innerHTML='a.firm than gentle';
+		document.getElementById('32B').innerHTML='b. gentle than firm';
+		document.getElementById('32A').value='firm than gentle';
+		document.getElementById('32B').value='gentle than firm';
+		document.getElementById('32A').id='33A';
+		document.getElementById('32B').id='33B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing33");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q33').style.display='';
+    				document.getElementById('33A').style.display='';
+    				document.getElementById('33B').style.display='';
+				}
+		}
+		else if (val=='33A' || val=='33B'){
+			if(val=='33A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing34" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q34">34.Which is more admirable:';
+		document.getElementById('33A').innerHTML='a.the ability to organize and be methodical';
+		document.getElementById('33B').innerHTML='b. the ability to adapt and make do';
+		document.getElementById('33A').value='the ability to organize and be methodical';
+		document.getElementById('33B').value='the ability to adapt and make do';
+		document.getElementById('33A').id='34A';
+		document.getElementById('33B').id='34B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing34");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q34').style.display='';
+    				document.getElementById('34A').style.display='';
+    				document.getElementById('34B').style.display='';
+				}
+		}
+		else if (val=='34A' || val=='34B'){
+			if(val=='34A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing35" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q35">35. Do you put more value on:';
+		document.getElementById('34A').innerHTML='a.infinite';
+		document.getElementById('34B').innerHTML='b. open-minded';
+		document.getElementById('34A').value='infinite';
+		document.getElementById('34B').value='open-minded';
+		document.getElementById('34A').id='35A';
+		document.getElementById('34B').id='35B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing35");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q35').style.display='';
+    				document.getElementById('35A').style.display='';
+    				document.getElementById('35B').style.display='';
+				}
+		}
+		else if (val=='35A' || val=='35B'){
+			if(val=='35A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing36" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q36">36. Does new and non-routine interaction with others:';
+		document.getElementById('35A').innerHTML='a.stimulate and energize you';
+		document.getElementById('35B').innerHTML='b. tax your reserves';
+		document.getElementById('35A').value='stimulate and energize you';
+		document.getElementById('35B').value='tax your reserves';
+		document.getElementById('35A').id='36A';
+		document.getElementById('35B').id='36B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing36");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q36').style.display='';
+    				document.getElementById('36A').style.display='';
+    				document.getElementById('36B').style.display='';
+				}
+		}
+		else if (val=='36A' || val=='36B'){
+			if(val=='36A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing37" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q37">37. Are you more frequently:';
+		document.getElementById('36A').innerHTML='a.practical sort of person';
+		document.getElementById('36B').innerHTML='b. fanciful sort of person';
+		document.getElementById('36A').value='practical sort of person';
+		document.getElementById('36B').value='fanciful sort of person';
+		document.getElementById('36A').id='37A';
+		document.getElementById('36B').id='37B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing37");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q37').style.display='';
+    				document.getElementById('37A').style.display='';
+    				document.getElementById('37B').style.display='';
+				}
+		}
+		else if (val=='37A' || val=='37B'){
+			if(val=='37A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing38" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q38">38. Are you more likely to:';
+		document.getElementById('37A').innerHTML='a.see how others are useful';
+		document.getElementById('37B').innerHTML='b. see how others see';
+		document.getElementById('37A').value='see how others are useful';
+		document.getElementById('37B').value='see how others see';
+		document.getElementById('37A').id='38A';
+		document.getElementById('37B').id='38B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing38");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q38').style.display='';
+    				document.getElementById('38A').style.display='';
+    				document.getElementById('38B').style.display='';
+				}
+		}
+		else if (val=='38A' || val=='38B'){
+			if(val=='38A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing39" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q39">39. Which is more satisfying:';
+		document.getElementById('38A').innerHTML='a.to discuss an issue thoroughly';
+		document.getElementById('38B').innerHTML='b.to arrive at agreement on an issue';
+		document.getElementById('38A').value='to discuss an issue thoroughly';
+		document.getElementById('38B').value='to arrive at agreement on an issue';
+		document.getElementById('38A').id='39A';
+		document.getElementById('38B').id='39B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing39");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q39').style.display='';
+    				document.getElementById('39A').style.display='';
+    				document.getElementById('39B').style.display='';
+				}
+		}
+		else if (val=='39A' || val=='39B'){
+			if(val=='39A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing40" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q40">40. Which rules you more:';
+		document.getElementById('39A').innerHTML='a.your head';
+		document.getElementById('39B').innerHTML='b. your heart';
+		document.getElementById('39A').value='your head';
+		document.getElementById('39B').value='your heart';
+		document.getElementById('39A').id='40A';
+		document.getElementById('39B').id='40B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing40");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q40').style.display='';
+    				document.getElementById('40A').style.display='';
+    				document.getElementById('40B').style.display='';
+				}
+		}
+		else if (val=='40A' || val=='40B'){
+			if(val=='40A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing41" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q41">41. Are you more comfortable with work that is:';
+		document.getElementById('40A').innerHTML='a.contracted';
+		document.getElementById('40B').innerHTML='b. done on a casual basis';
+		document.getElementById('40A').value='contracted';
+		document.getElementById('40B').value='done on a casual basis';
+		document.getElementById('40A').id='41A';
+		document.getElementById('40B').id='41B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing41");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q41').style.display='';
+    				document.getElementById('41A').style.display='';
+    				document.getElementById('41B').style.display='';
+				}
+		}
+
+			else if (val=='41A' || val=='41B'){
+			if(val=='41A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing42" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q42">42.Do you tend to look for:';
+		document.getElementById('41A').innerHTML='a.the orderly';
+		document.getElementById('41B').innerHTML='b. whatever turns up';
+		document.getElementById('41A').value='the orderly';
+		document.getElementById('41B').value='whatever turns up';
+		document.getElementById('41A').id='42A';
+		document.getElementById('41B').id='42B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing42");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q42').style.display='';
+    				document.getElementById('42A').style.display='';
+    				document.getElementById('42B').style.display='';
+				}
+		}
+			else if (val=='42A' || val=='42B'){
+			if(val=='42A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing43" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q43">43. Do you prefer:';
+		document.getElementById('42A').innerHTML='a.many friends with brief contact';
+		document.getElementById('42B').innerHTML='b.a few friends with more lengthy contact';
+		document.getElementById('42A').value='many friends with brief contact';
+		document.getElementById('42B').value='a few friends with more lengthy contact';
+		document.getElementById('42A').id='43A';
+		document.getElementById('42B').id='43B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing43");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q43').style.display='';
+    				document.getElementById('43A').style.display='';
+    				document.getElementById('43B').style.display='';
+				}
+		}
+			else if (val=='43A' || val=='43B'){
+			if(val=='43A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing44" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q44">44. Do you go more by:';
+		document.getElementById('43A').innerHTML='a.facts';
+		document.getElementById('43B').innerHTML='b. principles';
+		document.getElementById('43A').value='facts';
+		document.getElementById('43B').value='principles';
+		document.getElementById('43A').id='44A';
+		document.getElementById('43B').id='44B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing44");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q44').style.display='';
+    				document.getElementById('44A').style.display='';
+    				document.getElementById('44B').style.display='';
+				}
+		}
+			else if (val=='44A' || val=='44B'){
+			if(val=='44A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing45" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q45">45. Are you more interested in:';
+		document.getElementById('44A').innerHTML='a.production and distributions';
+		document.getElementById('44B').innerHTML='b. design and research';
+		document.getElementById('44A').value='production and distribution';
+		document.getElementById('44B').value='design and research';
+		document.getElementById('44A').id='45A';
+		document.getElementById('44B').id='45B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing45");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q45').style.display='';
+    				document.getElementById('45A').style.display='';
+    				document.getElementById('45B').style.display='';
+				}
+		}
+			else if (val=='45A' || val=='45B'){
+			if(val=='45A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing46" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q46">46. Which is more of a compliment:';
+		document.getElementById('45A').innerHTML='a.There is a very logical person';
+		document.getElementById('45B').innerHTML='b. There is a very sentimental person';
+		document.getElementById('45A').value='There is a very logical person';
+		document.getElementById('45B').value='There is a very sentimental person';
+		document.getElementById('45A').id='46A';
+		document.getElementById('45B').id='46B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing46");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q46').style.display='';
+    				document.getElementById('46A').style.display='';
+    				document.getElementById('46B').style.display='';
+				}
+		}
+			else if (val=='46A' || val=='46B'){
+			if(val=='46A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing47" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q47">47. Do you value in yourself more that you are:';
+		document.getElementById('46A').innerHTML='a.unwavering';
+		document.getElementById('46B').innerHTML='b. devoted';
+		document.getElementById('46A').value='unwavering';
+		document.getElementById('46B').value='devoted';
+		document.getElementById('46A').id='47A';
+		document.getElementById('46B').id='47B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing47");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q47').style.display='';
+    				document.getElementById('47A').style.display='';
+    				document.getElementById('47B').style.display='';
+				}
+		}
+			else if (val=='47A' || val=='47B'){
+			if(val=='47A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing48" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q48">48. Do you more often prefer the:';
+		document.getElementById('47A').innerHTML='a.final and unalterable statement';
+		document.getElementById('47B').innerHTML='b. tentative and preliminary statement';
+		document.getElementById('47A').value='final and unalterable statement';
+		document.getElementById('47B').value='tentative and preliminary statement';
+		document.getElementById('47A').id='48A';
+		document.getElementById('47B').id='48B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing48");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q48').style.display='';
+    				document.getElementById('48A').style.display='';
+    				document.getElementById('48B').style.display='';
+				}
+		}
+			else if (val=='48A' || val=='48B'){
+			if(val=='48A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing49" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q49">49. Are you more comfortable:';
+		document.getElementById('48A').innerHTML='a.after a decision';
+		document.getElementById('48B').innerHTML='b.before a decision';
+		document.getElementById('48A').value='after a decision';
+		document.getElementById('48B').value='before a decision';
+		document.getElementById('48A').id='49A';
+		document.getElementById('48B').id='49B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing49");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q49').style.display='';
+    				document.getElementById('49A').style.display='';
+    				document.getElementById('49B').style.display='';
+				}
+		}
+			else if (val=='49A' || val=='49B'){
+			if(val=='49A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing50" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q50">50. Do you:';
+		document.getElementById('49A').innerHTML='a.speak easily and at length with strangers';
+		document.getElementById('49B').innerHTML='b. find little to say to strangers';
+		document.getElementById('49A').value='speak easily and at length with strangers';
+		document.getElementById('49B').value='find little to say to strangers';
+		document.getElementById('49A').id='50A';
+		document.getElementById('49B').id='50B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing50");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q50').style.display='';
+    				document.getElementById('50A').style.display='';
+    				document.getElementById('50B').style.display='';
+				}
+		}
+			else if (val=='50A' || val=='50B'){
+			if(val=='50A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing51" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q51">51. Are you more likely to trust your:';
+		document.getElementById('50A').innerHTML='a.experience';
+		document.getElementById('50B').innerHTML='b. hunch';
+		document.getElementById('50A').value='experience';
+		document.getElementById('50B').value='hunch';
+		document.getElementById('50A').id='51A';
+		document.getElementById('50B').id='51B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing51");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q51').style.display='';
+    				document.getElementById('51A').style.display='';
+    				document.getElementById('51B').style.display='';
+				}
+		}
+			else if (val=='51A' || val=='51B'){
+			if(val=='51A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing52" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q52">52. Do you feel:';
+		document.getElementById('51A').innerHTML='a.more practical than ingenious';
+		document.getElementById('51B').innerHTML='b. more ingenious than practical';
+		document.getElementById('51A').value='more practical than ingenious';
+		document.getElementById('51B').value='more ingenious than practical';
+		document.getElementById('51A').id='52A';
+		document.getElementById('51B').id='52B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing52");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q52').style.display='';
+    				document.getElementById('52A').style.display='';
+    				document.getElementById('52B').style.display='';
+				}
+		}
+	    else if (val=='52A' || val=='52B'){
+			if(val=='52A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing53" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q53">53. Which person is more to be complimented one of:';
+		document.getElementById('52A').innerHTML='a.clear reason';
+		document.getElementById('52B').innerHTML='b. strong feeling';
+		document.getElementById('52A').value='clear reason';
+		document.getElementById('52B').value='strong feeling';
+		document.getElementById('52A').id='53A';
+		document.getElementById('52B').id='53B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing53");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q53').style.display='';
+    				document.getElementById('53A').style.display='';
+    				document.getElementById('53B').style.display='';
+				}
+		}
+			else if (val=='53A' || val=='53B'){
+			if(val=='53A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing54" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q54">54. Are you inclined more to be';
+		document.getElementById('53A').innerHTML='a.fair-minded';
+		document.getElementById('53B').innerHTML='b. sympathetic';
+		document.getElementById('53A').value='fair-minded';
+		document.getElementById('53B').value='sympathetic';
+		document.getElementById('53A').id='54A';
+		document.getElementById('53B').id='54B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing54");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q54').style.display='';
+    				document.getElementById('54A').style.display='';
+    				document.getElementById('54B').style.display='';
+				}
+		}
+        	else if (val=='54A' || val=='54B'){
+			if(val=='54A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing55" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q55">55. Is it preferable mostly to : ';
+		document.getElementById('54A').innerHTML='a.make sure things are arranged';
+		document.getElementById('54B').innerHTML='b. just let things happen';
+		document.getElementById('54A').value='make sure things are arranged';
+		document.getElementById('54B').value='just let things happen';
+		document.getElementById('54A').id='55A';
+		document.getElementById('54B').id='55B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing55");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q55').style.display='';
+    				document.getElementById('55A').style.display='';
+    				document.getElementById('55B').style.display='';
+				}
+		}
+	    else if (val=='55A' || val=='55B'){
+			if(val=='55A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing56" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q56">56. relationships should most things be:';
+		document.getElementById('55A').innerHTML='a.re-negotiable';
+		document.getElementById('55B').innerHTML='b. random and circumstantial';
+		document.getElementById('55A').value='re-negotiable';
+		document.getElementById('55B').value='random and circumstantial';
+		document.getElementById('55A').id='56A';
+		document.getElementById('55B').id='56B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing56");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q56').style.display='';
+    				document.getElementById('56A').style.display='';
+    				document.getElementById('56B').style.display='';
+				}
+		}
+	    else if (val=='56A' || val=='56B'){
+			if(val=='56A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing57" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q57">57. When the phone rings do you:';
+		document.getElementById('56A').innerHTML='a.hasten to get to it first';
+		document.getElementById('56B').innerHTML='b.hope someone else will answer';
+		document.getElementById('56A').value='hasten to get to it first';
+		document.getElementById('56B').value='hope someone else will answer';
+		document.getElementById('56A').id='57A';
+		document.getElementById('56B').id='57B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing57");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q57').style.display='';
+    				document.getElementById('57A').style.display='';
+    				document.getElementById('57B').style.display='';
+				}
+		}
+	    else if (val=='57A' || val=='57B'){
+			if(val=='57A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing58" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q58">58. Do you prize more in yourself:';
+		document.getElementById('57A').innerHTML='a.a strong sense of reality';
+		document.getElementById('57B').innerHTML='b.a vivid imagination';
+		document.getElementById('57A').value='a strong sense of reality';
+		document.getElementById('57B').value='a vivid imagination';
+		document.getElementById('57A').id='58A';
+		document.getElementById('57B').id='58B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing58");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q58').style.display='';
+    				document.getElementById('58A').style.display='';
+    				document.getElementById('58B').style.display='';
+				}
+		}
+	    else if (val=='58A' || val=='58B'){
+			if(val=='58A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing59" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q59">59. Are you drawn more to:';
+		document.getElementById('58A').innerHTML='a.fundamentals';
+		document.getElementById('58B').innerHTML='b. overtones';
+		document.getElementById('58A').value='fundamentals';
+		document.getElementById('58B').value='overtones';
+		document.getElementById('58A').id='59A';
+		document.getElementById('58B').id='59B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing59");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q59').style.display='';
+    				document.getElementById('59A').style.display='';
+    				document.getElementById('59B').style.display='';
+				}
+		}
+	    else if (val=='59A' || val=='59B'){
+			if(val=='59A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing60" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q60">60. Which seems the greater error:';
+		document.getElementById('59A').innerHTML='a.to be too passionate';
+		document.getElementById('59B').innerHTML='b. to be too objective';
+		document.getElementById('59A').value='to be too passionate';
+		document.getElementById('59B').value='to be too objective';
+		document.getElementById('59A').id='60A';
+		document.getElementById('59B').id='60B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing60");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q60').style.display='';
+    				document.getElementById('60A').style.display='';
+    				document.getElementById('60B').style.display='';
+				}
+		}
+	    else if (val=='60A' || val=='60B'){
+			if(val=='60A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing61" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q61">61. Do you see yourself as basically:';
+		document.getElementById('60A').innerHTML='a.hard-headed';
+		document.getElementById('60B').innerHTML='b.soft-hearted';
+		document.getElementById('60A').value='hard-headed';
+		document.getElementById('60B').value='soft-hearted';
+		document.getElementById('60A').id='61A';
+		document.getElementById('60B').id='61B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing61");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q61').style.display='';
+    				document.getElementById('61A').style.display='';
+    				document.getElementById('61B').style.display='';
+				}
+		}
+		else if (val=='61A' || val=='61B'){
+			if(val=='61A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing62" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q62">62.Which situation appeals to you more:';
+		document.getElementById('61A').innerHTML='a.the structured and scheduled';
+		document.getElementById('61B').innerHTML='b. the unstructured and unscheduled';
+		document.getElementById('61A').value='the structured and scheduled';
+		document.getElementById('61B').value='the unstructured and unscheduled';
+		document.getElementById('61A').id='62A';
+		document.getElementById('61B').id='62B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing62");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q62').style.display='';
+    				document.getElementById('62A').style.display='';
+    				document.getElementById('62B').style.display='';
+				}
+		}
+		else if (val=='62A' || val=='62B'){
+			if(val=='62A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing63" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q63">63. Are you a person that is more:';
+		document.getElementById('62A').innerHTML='a.routinized than whimsical';
+		document.getElementById('62B').innerHTML='b. whimsical than routinized';
+		document.getElementById('62A').value='routinized than whimsical';
+		document.getElementById('62B').value='whimsical than routinized';
+		document.getElementById('62A').id='63A';
+		document.getElementById('62B').id='63B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing63");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q63').style.display='';
+    				document.getElementById('63A').style.display='';
+    				document.getElementById('63B').style.display='';
+				}
+		}
+		else if (val=='63A' || val=='63B'){
+			if(val=='63A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing64" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q64">64.Are you more inclined to be:';
+		document.getElementById('63A').innerHTML='a.easy to approach';
+		document.getElementById('63B').innerHTML='b.somewhat reserved';
+		document.getElementById('63A').value='easy to approach';
+		document.getElementById('63B').value='somewhat reserved';
+		document.getElementById('63A').id='64A';
+		document.getElementById('63B').id='64B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing64");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q64').style.display='';
+    				document.getElementById('64A').style.display='';
+    				document.getElementById('64B').style.display='';
+				}
+		}
+		else if (val=='64A' || val=='64B'){
+			if(val=='64A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing65" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q65">65. In writings do you prefer :';
+		document.getElementById('64A').innerHTML='a.the more literal';
+		document.getElementById('64B').innerHTML='b. the more figurative';
+		document.getElementById('64A').value='the more literal';
+		document.getElementById('64B').value='the more figurative';
+		document.getElementById('64A').id='65A';
+		document.getElementById('64B').id='65B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing65");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q65').style.display='';
+    				document.getElementById('65A').style.display='';
+    				document.getElementById('65B').style.display='';
+				}
+		}
+		else if (val=='65A' || val=='65B'){
+			if(val=='65A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing66" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q66">66.Is it harder for you to:';
+		document.getElementById('65A').innerHTML='a.identify with others';
+		document.getElementById('65B').innerHTML='b. utilize others';
+		document.getElementById('65A').value='identify with others';
+		document.getElementById('65B').value='utilize others';
+		document.getElementById('65A').id='66A';
+		document.getElementById('65B').id='66B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing66");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q66').style.display='';
+    				document.getElementById('66A').style.display='';
+    				document.getElementById('66B').style.display='';
+				}
+		}
+		else if (val=='66A' || val=='66B'){
+			if(val=='66A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing67" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q67">67.Which do you wish more for yourself:';
+		document.getElementById('66A').innerHTML='a.clarity of reason';
+		document.getElementById('66B').innerHTML='b.strength of compassion';
+		document.getElementById('66A').value='clarity of reason';
+		document.getElementById('66B').value='strength of compassion';
+		document.getElementById('66A').id='67A';
+		document.getElementById('66B').id='67B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing67");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q67').style.display='';
+    				document.getElementById('67A').style.display='';
+    				document.getElementById('67B').style.display='';
+				}
+		}
+		else if (val=='67A' || val=='67B'){
+			if(val=='67A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing68" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q68">68. Which is the greater fault:';
+		document.getElementById('67A').innerHTML='a.being indiscriminate';
+		document.getElementById('67B').innerHTML='b.being critical';
+		document.getElementById('67A').value='being indiscriminate';
+		document.getElementById('67B').value='being critical';
+		document.getElementById('67A').id='68A';
+		document.getElementById('67B').id='68B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing68");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q68').style.display='';
+    				document.getElementById('68A').style.display='';
+    				document.getElementById('68B').style.display='';
+				}
+		}
+		else if (val=='68A' || val=='68B'){
+			if(val=='68A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing69" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q69">69.Do you prefer the:';
+		document.getElementById('68A').innerHTML='a.planned event';
+		document.getElementById('68B').innerHTML='b. unplanned event';
+		document.getElementById('68A').value='planned event';
+		document.getElementById('68B').value='unplanned event';
+		document.getElementById('68A').id='69A';
+		document.getElementById('68B').id='69B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing69");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q69').style.display='';
+    				document.getElementById('69A').style.display='';
+    				document.getElementById('69B').style.display='';
+				}
+		}
+		else if (val=='69A' || val=='69B'){
+			if(val=='69A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing70" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q70">70. Do you tend to be more:';
+		document.getElementById('69A').innerHTML='a.deliberate than spontaneous';
+		document.getElementById('69B').innerHTML='b.spontaneous than deliberate';
+		document.getElementById('69A').value='deliberate than spontaneous';
+		document.getElementById('69B').value='spontaneous than deliberate';
+		document.getElementById('69A').id='70A';
+		document.getElementById('69B').id='70B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing70");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q70').style.display='';
+    				document.getElementById('70A').style.display='';
+    				document.getElementById('70B').style.display='';
+				}
+		}
+		else if (val=='70A' || val=='70B'){
+			if(val=='70A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/bot.jpg" %}" alt="NotFOund" style="border-radius: 50%;" >  <span style="display: ;" id="q5"><a class="pointer" onclick="submit()">Please click here to see your report.</a></span>';
+		//document.getElementById('70A').innerHTML='a.To deadlines';
+		//document.getElementById('70B').innerHTML='b. Just whenever';
+		//document.getElementById('70A').value='To deadlines';
+		//document.getElementById('70B').value='Just “whenever”';
+		document.getElementById('70A').id='71A';
+		document.getElementById('70B').id='71B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing4");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q5').style.display='';
+    				document.getElementById('5A').style.display='';
+    				document.getElementById('5B').style.display='';
+				}
+		}
+
+
+
+
+
+		document.getElementById('ques').value=answer
+	}
+	function submit(){
+		document.getElementById("submit").click();
+	}
+</script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

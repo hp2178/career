@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html id="html">
+
+{% load staticfiles %}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="utf-8"/>    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+<meta name="author" content="">
+<title>Chat-bot</title>
+<meta property="og:title" content="KESYA | Reminiscent of Royal Craftsmanship" />
+<meta name="description" content="Kesya focuses traditional Rajasthani arts and crafts through a range of accessories for both men and women" />
+<meta property="og:description" content="Kesya focuses traditional Rajasthani arts and crafts through a range of accessories for both men and women" />
+<link rel="icon" type="image/png" href="{% static 'img/databytes.jpg'%}" />
+<meta property="og:image" content="{% static 'img/og-image.jpg'%}" />    
+<link rel="stylesheet" href="{% static 'newcss/supersized.css'%}"/>    
+<link rel="stylesheet" href="{% static 'newcss/style.css'%}"/>    
+<link rel="stylesheet" href="{% static 'newcss/side-stick.css'%}"/>    
+<link rel="stylesheet" href="{% static 'newcss/responsive.css'%}"/>
+</head>
+
+<body>
+    <aside id="sticky-social">
+  <ul>
+    <li>
+      <a href="#" style="margin-right: 20px;" class=" menu-btn1" id="menu-btn1"><b>Login</b>
+
+   <!--
+        <button id="menu-btn1" class=" menu-btn1" value="LOGIN">
+        </button>
+         <span>Cart</span> -->
+      </a>
+    </li>
+    <!--<li>
+      <a  href="#" style="margin-right: 100px;"><b>Language</b>
+       
+      </a>
+    </li>-->
+  </ul>
+</aside>
+<div class="overlay overlay-hugeinc">
+  <button type="button" class="overlay-close">Close</button>
+  <div id="morphsearch" class="morphsearch open">
+    <form action="http://www.kesyajaipur.com/store/search" method="post" class="morphsearch-form">
+      <input class="morphsearch-input" type="text" placeholder="Search..." name="search-term" id="srcTI"/>
+      <button class="morphsearch-submit" type="submit">Search</button>
+    </form>
+  </div>
+</div>    <div class="loading-screen">
+        <div class="logo1">
+            <img src="{% static 'images/databytes.jpg'%}" alt="">
+        </div>
+        <div class="logo2">
+            <img src="{% static 'images/databytes.jpg'%}" alt="">
+        </div>
+    </div>
+    <div class="main-wrapper home-page">
+        <style>
+.logo-menu-active{
+    margin-top: 0;
+}
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 25%;
+    top: 15%;
+    width: 50%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: gray;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.img-hor {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+
+
+
+
+
+
+
+</style>
+<div id="header" class="home">
+    <div class="logo logo-menu-off">
+        <a href="index.html" title="Databytes">
+            <img src="{% static 'images/databytes.jpeg'%}" alt="Databytes"  class="logo-menu home-logo">
+        </a>
+    </div>
+    <div class="header-menu">
+        <div class="logo logo-menu-active">
+            <a href="index.html" title="Databytes">
+                <img src="{% static 'images/databytes.jpg'%}" alt="Databytes">
+            </a>
+        </div>
+        <button id="menu-btn" class="c-hamburger c-hamburger--htx menu-btn1">
+            <span>toggle menu</span>
+        </button>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="dashboard.html" title="I am Student">I am a Student</a>
+                </li>
+                <li>
+                    <a href="#" title="Coming Soon">I am a Working Professional</a>
+                </li>
+                <li>
+                    <a href="#" title="Coming Soon">I am a Teacher</a>
+                </li>
+                <li>
+                    <a href="adminLogin.html" title="I am an Admin">I am an Admin</a>
+                </li>
+                <li>
+                    <div class="dot-separator">
+                        <img src="{% static 'img/dot-separator.png'%}" alt="">
+                    </div>
+                </li>
+                <!--
+                <li>
+                    <a href="javascript:void(0)" title="products" style="color: #c49430;">PRODUCTS</a>
+                </li>
+                <li>
+                    <a href="products-s.html" title="product">Students</a>
+                </li>
+                <li>
+                    <a href="products-w.html" title="products">Working Professional</a>
+                </li>
+                <li>
+                    <a href="products-t.html" title="product">Teacher/Institute</a>
+                </li>
+
+                <li>
+                    <div class="dot-separator">
+                        <img src="{% static 'img/dot-separator.png'%}" alt="">
+                    </div>
+                </li>
+                -->
+                <li>
+                    <a href="contact.html" title="contact us">CONTACT US</a>
+                </li>
+                <li>
+                    <div class="terms">
+                        <div>
+                            <a href="#" title="">Terms of Service</a>
+                        </div>
+                        <div class="line-sepa" style="padding: 0 15px;background: none;">
+                            |
+                        </div>
+                        <div style="width: 110px;">
+                            <a href="#" title="">Privacy Policy</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>        <div class="mid-text">
+            <br><br>
+            <!--<a href="https://youtu.be/9b7YhddGFGc" target="_blank" title="Know More" class="btn-border">Know More</a>-->
+            <button title="Know More" class="btn-border" style="background-color:  rgb(204,188,137);border-color: black;color: black;vertical-align: middle; height: 40px; width: 100%; font-size: 20px;" id="myBtn">Know More</button>
+
+        </div>
+        <!--
+        <div id="chatbox" style="display: none;float: right;margin-right: 100px;margin-top: 5px;background-color: white;width: 200px;height: 300px;border-radius: 1em;">
+            <div style="border-bottom: solid;"> 
+                <div style="margin-left: 3px;margin-top: 3px;width: 60%;display: inline-block;">Hi, I am Taby, Your virtual assistant from Databytes.<br>
+I am coming soon.</div>
+            <div style="width: 30%;display: inline-block;margin-left: 10px;"><img src="{% static 'images/jove.jpg'%}" style="border-radius: 3em;float: right;" height="75" width="75">
+            </div>
+        </div>
+    </div>
+-->
+        <div id="chatbox" style="display: none;float: right;margin-right: 100px;margin-top: 5px;background-color: white;width: 200px;height: 300px;border-radius: 1em;">
+
+            <div style="width: 30%;display: inline-block;margin-left: 80px;margin-top: 20px;"><img src="{% static 'images/jove.jpg'%}" style="border-radius: 3em;float: right;" height="75" width="75">
+            </div><br>
+            <div style="margin-left: 3px;margin-top: 3px;margin-top: 20px;display: inline-block;"><font size="4">Hi, I am Taby, Your AI based virtual assistant from Databytes Analytics.<br><br>
+<span style="color: red;margin-left: 20px;margin-top: 10px;"><b> I am coming soon.</b></span></font></div>
+        </div>
+
+
+
+
+
+
+
+        <img src="{% static 'images/tabychat1.png'%}" id="chattaby" onmouseover="myFunct()"  onmouseout="myFunct1()" style="float: right;margin-top: 260px;margin-right: 10px;" alt="NOOOOOOOOOOOOOO" height="75" width="75">
+
+    <script type="text/javascript">
+        function myFunct(){
+            document.getElementById('chattaby').classList.add("img-hor");
+            document.getElementById('chattaby').style.cursor="pointer";
+            document.getElementById('chattaby').style.marginRight = '-290px';
+            document.getElementById('chatbox').style.display="";
+        }
+        function myFunct1(){
+            document.getElementById('chattaby').classList.remove("img-hor");
+            document.getElementById('chattaby').style.marginRight = '10px';
+            document.getElementById('chatbox').style.display="none";
+        }
+    </script>
+        <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <center>
+    <p><!--<iframe  class="youtube-video" style="border-radius: 40px;" height="290" width="575" src="https://www.youtube.com/embed/9b7YhddGFGc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+    <iframe class="youtube-video" style="border-radius: 40px;" height="290" width="575" src="https://www.youtube.com/embed/WmLsvq4gffc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p></center>
+  </div>
+
+</div>
+        <div class="bot-tiles" style="height: 95px;">
+            <div>
+                <a href="pf.html" title="">
+                    Product Features
+                    <span><img src="{% static 'img/line-separator.png'%}"></span>
+                </a>
+            </div>
+            <div>
+                <a href="au.html" title="">
+                    About Us
+                    <span><img src='{% static "img/line-separator.png"%}'></span>
+                </a>
+            </div>
+            <div>
+                <a href="pp.html" title="">
+                    Plans & Pricing
+                    <span><img src='{% static "img/line-separator.png"%}'></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;">
+        <script src="../ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>        
+        <script src="{% static 'js/vendors/jquery.js'%}"></script>        
+        <script src="{% static 'js/vendors/modernizr.custom.js'%}"></script>        
+        <script src="{% static 'js/vendors/jquery.easings.min.js'%}"></script>        
+        <script src="{% static 'js/vendors/scrolloverflow.min.js'%}"></script>        
+        <script src="{% static 'js/vendors/supersized.min.js'%}"></script>        
+        <script src="{% static 'js/vendors/supersized.shutter.min.js'%}"></script>        
+        <script src="{% static 'js/vendors/classie.js'%}"></script>        
+        <script src="{% static 'js/vendors/search.js'%}"></script>        
+        <script src="{% static 'js/home.js'%}"></script>    
+    </div>
+    <script type="text/javascript">
+
+    jQuery(function($){
+
+        $.supersized({
+
+                        // Functionality
+                        slide_interval          :   5000,       // Length between transitions
+                        transition              :   1,          
+                        transition_speed        :   1500,        // Speed of transition
+
+                        // Components                           
+                        slide_links             :   'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
+                        slides                  :   [           // Slideshow Images
+                        {image : '{% static "img/bg/1.jpg"%}'},
+                        {image : '{% static "img/bg/2.jpg"%}'},
+                        {image : '{% static "img/bg/3.jpg"%}'},
+                        //{image : 'img/bg/4.jpg'}
+                        ]
+                        
+                    });
+    });
+
+    </script>
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+    document.getElementById('menu-btn').style.zIndex = "-1";
+    document.getElementById('menu-btn').style.display = "none";
+    document.getElementById('menu-btn1').style.zIndex = "-1";
+    document.getElementById('menu-btn1').style.display = "none";
+    document.getElementById('chattaby').style.display = "none";
+    
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+    document.getElementById('menu-btn').style.zIndex = "1";
+    document.getElementById('menu-btn').style.display = "";
+    document.getElementById('menu-btn1').style.zIndex = "1";
+    document.getElementById('menu-btn1').style.display = "";
+    document.getElementById('chattaby').style.display = "";
+
+    $('iframe').attr('src', $('iframe').attr('src'));
+
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.getElementById('menu-btn').style.zIndex = "1";
+        document.getElementById('menu-btn').style.display = "";
+        document.getElementById('menu-btn1').style.zIndex = "1";
+        document.getElementById('menu-btn1').style.display = "";
+    document.getElementById('chattaby').style.display = "";
+
+        $('iframe').attr('src', $('iframe').attr('src'));
+
+    }
+}
+
+
+
+function init(){
+    //Setup the menu functionality
+    $('.menu-btn1').click(function(){
+        if($('.menu-btn1').hasClass('is-active')){
+            $(".menu-btn1").removeClass("is-active");
+            $('.menu').slideUp(1000, function(){
+                $('.logo-menu-active').hide();
+                $('.home-page').removeClass("menu-active");
+                // $('.mid-text').removeClass('blurd');
+                $('.mid-text').show();
+                $('.logo-menu-off').show();
+            });
+        }else{
+            $('.logo-menu-off').hide();
+            // $('.mid-text').addClass('blurd');
+            $('.mid-text').hide();
+            $('.home-page').addClass("menu-active");
+            $(".menu-btn1").addClass("is-active");
+            $('.header-menu').show();
+            $('.logo-menu-active').show();
+            $('.menu').slideDown(1000);
+        }
+    });
+    
+
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<!-- Mirrored from www.kesyajaipur.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Apr 2018 05:05:10 GMT -->
+</html>

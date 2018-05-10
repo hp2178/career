@@ -1,0 +1,1929 @@
+<!DOCTYPE HTML>
+<html onmouseover="check()">
+<head> 
+
+ {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>Chat-bot</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cubeslider.css'%}">
+     
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demonew.css'%}"/>
+  
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+
+    <script src="{% static 'js/jquery-3.2.0.min.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <meta name="google-signin-client_id" content="40784559178-njrnpentbq1qocvs8htg75l424m53re1.apps.googleusercontent.com.apps.googleusercontent.com">
+
+    body {
+
+  color: #666666;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pen Title */
+.pen-title {
+  padding: 50px 0;
+  text-align: center;
+  letter-spacing: 2px;
+    ima
+}
+.pen-title h1 {
+  margin: 0 0 20px;
+  font-size: 48px;
+  font-weight: 300;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: #ed2553;
+}
+.pen-title span a {
+  color: #ed2553;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Rerun */
+.rerun {
+  margin: 0 0 30px;
+  text-align: center;
+}
+.rerun a {
+  cursor: pointer;
+  display: inline-block;
+  background: #ed2553;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.rerun a:hover {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Scroll To Bottom */
+#codepen, #portfolio {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #363636;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  color: #ffffff;
+  text-align: center;
+}
+#codepen i, #portfolio i {
+  line-height: 56px;
+}
+#codepen:hover, #portfolio:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* CodePen */
+#portfolio {
+  bottom: 96px;
+  right: 36px;
+  background: #ed2553;
+  width: 44px;
+  height: 44px;
+  -webkit-animation: buttonFadeInUp 1s ease;
+  animation: buttonFadeInUp 1s ease;
+}
+#portfolio i {
+  line-height: 44px;
+}
+
+/* Container */
+.container-card{
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto 100px;
+}
+.container-card.active .card:first-child {
+  background: #f2f2f2;
+  margin: 0 15px;
+}
+.container-card.active .card:nth-child(2) {
+  background: #fafafa;
+  margin: 0 10px;
+}
+.container-card.active .card.alt {
+  top: 20px;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+.container-card.active .card.alt .toggle {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+.container-card.active .card.alt .toggle:before {
+  content: '';
+}
+.container-card.active .card.alt .title,
+.container-card.active .card.alt .input-container,
+.container-card.active .card.alt .button-container {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.container-card.active .card.alt .title {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+}
+.container-card.active .card.alt .input-container {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+}
+.container-card.active .card.alt .input-container:nth-child(2) {
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+}
+.container-card.active .card.alt .input-container:nth-child(3) {
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+.container-card.active .card.alt .button-container {
+  -webkit-transition-delay: .7s;
+          transition-delay: .7s;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Title */
+  /* Inputs */
+  /* Button */
+  /* Footer */
+  /* Alt Card */
+}
+.card:first-child {
+  background: #fafafa;
+  height: 10px;
+  border-radius: 5px 5px 0 0;
+  margin: 0 10px;
+  padding: 0;
+}
+.card .title {
+  position: relative;
+  z-index: 1;
+  border-left: 5px solid #ed2553;
+  margin: 0 0 35px;
+  padding: 10px 0 10px 50px;
+  color: #ed2553;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card .input-container {
+  position: relative;
+  margin: 0 60px 50px;
+}
+.card .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 60px;
+  border: 0;
+  color: #212121;
+  font-size: 24px;
+  font-weight: 400;
+}
+.card .input-container input:focus ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container input:focus ~ .bar:before, .card .input-container input:focus ~ .bar:after {
+  width: 50%;
+}
+.card .input-container input:valid ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.card .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #757575;
+  width: 100%;
+  height: 1px;
+}
+.card .input-container .bar:before, .card .input-container .bar:after {
+  content: '';
+  position: absolute;
+  background: #ed2553;
+  width: 0;
+  height: 2px;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+.card .input-container .bar:before {
+  left: 50%;
+}
+.card .input-container .bar:after {
+  right: 50%;
+}
+.card .button-container {
+  margin: 0 60px;
+  text-align: center;
+}
+.card .button-container button {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 240px;
+  border: 2px solid #e3e3e3;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button span {
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #ed2553;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+  border-color: #ed2553;
+}
+.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+  color: #ed2553;
+}
+.card .button-container button:active span, .card .button-container button:focus span {
+  color: #ffffff;
+}
+.card .button-container button:active:before, .card .button-container button:focus:before {
+  opacity: 1;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+}
+.card .footer {
+  margin: 40px 0 0;
+  color: #d3d3d3;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+}
+.card .footer a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .footer a:hover {
+  color: #bababa;
+}
+.card.alt {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  background: none;
+  border-radius: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Toggle */
+  /* Title */
+  /* Input */
+  /* Button */
+}
+.card.alt .toggle {
+  position: relative;
+  background: #ed2553;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+  font-size: 30px;   
+  line-height: 160px;
+  text-align: center;
+  cursor: pointer;
+}
+.card.alt .toggle:before {
+  content: '\f040  new user';
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+.card.alt .title,
+.card.alt .input-container,
+.card.alt .button-container {
+  left: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+.card.alt .title {
+  position: relative;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.card.alt .title .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  display: inline;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 400;
+}
+.card.alt .title .close:before {
+  content: '\00d7';
+}
+.card.alt .input-container input {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ .bar:before, .card.alt .input-container input:focus ~ .bar:after {
+  background: #ffffff;
+}
+.card.alt .input-container input:valid ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.card.alt .input-container .bar {
+  background: rgba(255, 255, 255, 0.8);
+}
+.card.alt .button-container button {
+  width: 100%;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.card.alt .button-container button span {
+  color: #ed2553;
+}
+.card.alt .button-container button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.card.alt .button-container button:active:before, .card.alt .button-container button:focus:before {
+  display: none;
+}
+
+/* Keyframes */
+@-webkit-keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+@keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+.icon-circle .fa{
+    font-size           : 25px;
+    color               : #e84700;
+    margin              : 0 auto;
+    height              : 80px;
+    width               : 80px;
+    border-radius       : 50%;
+    border              :2px solid #e84700;
+    line-height         : 80px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+    
+}
+      
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 50px;
+    
+}
+
+@media (min-width:320px) and (max-width:768px) {
+
+
+ .icon-circle .fa{
+    font-size           : 15px;
+    color               : #e84700;
+    
+    height              : 40px;
+    width               : 40px;
+    border-radius       : 50%;
+     
+    border              :2px solid #e84700;
+    line-height         : 40px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+}
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 20px;
+}   
+}
+
+.ifacebook .fa{
+    color               :black;
+    border              :2px solid black;
+}
+
+.ifacebook .fa:hover{
+    
+    background-color        : black;    
+    color                   : #fff;
+    border                  : 1px solid black;
+
+}
+
+.itwittter .fa{
+    color               : #33ccff;
+    border              :2px solid #33ccff;
+}
+
+.itwittter .fa:hover{
+    
+    background-color        : #33ccff;    
+    color                   : #fff;
+    border                  : 1px solid #33ccff;
+
+}
+
+.igoogle .fa{
+    color               : #BD3518;
+    border              :2px solid #BD3518;
+}
+
+.igoogle .fa:hover{
+    
+    background-color        : #BD3518;    
+    color                   : #fff;
+    border                  : 1px solid #BD3518;
+
+}
+
+.iLinkedin .fa{
+    color               : #007bb7;
+    border              :2px solid #007bb7;
+}
+
+.iLinkedin .fa:hover{
+    
+    background-color        :#007bb7;    
+    color                   : #fff;
+    border                  : 1px solid #007bb7;
+
+}
+
+    .zoom {
+    
+    transition: transform .2s; /* Animation */
+    
+   
+}
+
+.zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}    
+    
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}      
+      
+
+
+
+.specDet .resRep{
+  display: none;
+}
+
+
+#ryt{
+  background: #1d1d1d;
+  float: right;
+
+}
+
+.mySlides {display:none;}
+
+
+
+.my{
+  display: inline-block;
+}
+
+
+button {
+  padding:10px
+}
+label {
+  cursor:pointer
+}
+#form-switch {
+  display:none
+}
+#register-form {
+  display:none
+}
+#form-switch:checked~#register-form {
+  display:block
+}
+#form-switch:checked~#login-form {
+  display:none
+}
+
+
+
+/* Shared */
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  margin: 0.2em;
+  padding: 0 15px 0 46px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 16px;
+  color: #FFF;
+}
+.loginBtn:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 100%;
+}
+.loginBtn:focus {
+  outline: none;
+}
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+}
+
+
+/* Facebook */
+.loginBtn--facebook {
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 #354C8C;
+}
+.loginBtn--facebook:before {
+  border-right: #364e92 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
+}
+.loginBtn--facebook:hover,
+.loginBtn--facebook:focus {
+  background-color: #5B7BD5;
+  background-image: linear-gradient(#5B7BD5, #4864B1);
+}
+
+
+/* Google */
+.loginBtn--google {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #DD4B39;
+}
+.loginBtn--google:before {
+  border-right: #BB3F30 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_google.png') 6px 6px no-repeat;
+}
+.loginBtn--google:hover,
+.loginBtn--google:focus {
+  background: red;
+}
+
+
+
+/* github */
+.loginBtn--github {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #2a2c30;
+}
+{% load staticfiles %}
+.loginBtn--github:before {
+  border-right: #151616 1px solid;
+  background: url('https://imageog.flaticon.com/icons/png/512/23/23957.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF') 6px 6px no-repeat;
+  background-position: center; 
+  background-size: 65px 35px;
+}
+.loginBtn--github:hover,
+.loginBtn--github:focus {
+  background: #444649;
+}
+
+/* linkedin */
+.loginBtn--linkedin {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #0077b5;
+}
+{% load staticfiles %}
+.loginBtn--linkedin:before {
+  border-right: #026091 1px solid;
+  background: url('http://www.hdicon.com/wp-content/uploads/2011/08/linked_in_icon.png') 6px 6px no-repeat;
+  background-position: center; 
+  background-size: 50px 50px;
+}
+.loginBtn--linkedin:hover,
+.loginBtn--linkedin:focus {
+  background: #026091;
+}
+
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    width: 50%;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vertical .progress-bar {
+  float: left;
+  height: 300px;
+  width: 40px;
+  margin-right: 25px;
+}
+
+.vertical .progress-track {
+  position: relative;
+  width: 40px;
+  height: 100%;
+  background: #ebebeb;
+}
+
+.vertical .progress-fill {
+  position: relative;
+  background: #825;
+  height: 50%;
+  width: 40px;
+  color: #fff;
+  text-align: center;
+  font-family: "Lato","Verdana",sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.rounded .progress-track,
+.rounded .progress-fill {
+  box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+  border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#chart {
+  padding: 20px;
+}
+
+
+
+.bars td {
+  vertical-align: bottom;
+}
+
+.bars div:hover {
+  opacity: 0.6;
+}
+
+.legend {
+  vertical-align: bottom;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.legbox {
+  display: block;
+  clear: both;
+}
+
+.xaxisname {
+  margin: 5px;
+  color: #fff;
+  font-size: 77%;
+  padding: 5px;
+  float: left;
+}
+
+
+/*Flat UI colors*/
+
+.one {
+  background: #16A085;
+}
+
+.two {
+  background: #2ECC71;
+}
+
+.three {
+  background: #27AE60;
+}
+
+.four {
+  background: #3498DB;
+}
+
+.five {
+  background: #2980B9;
+}
+
+.six {
+  background: #9B59B6;
+}
+
+.seven {
+  background: #8E44AD;
+}
+
+.eight {
+  background: #34495E;
+}
+
+.nine {
+  background: #2C3E50;
+}
+
+.ten {
+  background: #22313f;
+}
+
+.eleven {
+  background: #F1C40F;
+}
+
+.twelve {
+  background: #F39C12;
+}
+
+.thirteen {
+  background: #E67E22;
+}
+
+.fourteen {
+  background: #D35400;
+}
+
+.fifteen {
+  background: #E74C3C;
+}
+
+.sixteen {
+  background: #C0392B;
+}
+
+.seventeen {
+  background: #ECF0F1;
+}
+
+.seventeen.clouds {
+  color: #BDC3C7;
+}
+
+.eighteen {
+  background: #BDC3C7;
+}
+
+.nineteen {
+  background: #95A5A6;
+}
+
+.twenty {
+  background: #7F8C8D;
+}
+
+
+
+
+
+.footer-left:hover {
+  background-color: white;
+
+}
+.footer-right:hover {
+  background-color: white;
+  text-decoration:none;
+
+}
+      a:hover{
+    text-decoration: none;
+}
+
+
+
+.fc1:hover {
+  background-color: white;
+
+}
+
+.fc2:hover {
+  background-color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style> 
+
+<title>Chat-bot</title> 
+ <meta name="description" content="website description" /> 
+  <meta name="keywords" content="website keywords, website keywords" />  <meta http-equiv="content-type" content="text/html; charset=windows-1252" /> 
+   <link rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+<body>  
+  <div class="container-fluid"> 
+<nav class="navbar navbar-inverse navbar-fixed-top" style="padding: 10px; background-color:rgb(10,34,36);">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <a href="/counselling/index.html"><img class="zoom"  title="Databytes Analytics Pvt Ltd" src="{% static 'images/databytes.jpg'%}" class="brandpic" height="50" width="70"></a>
+           
+             
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" >
+                <img class="zoom" src="{% static 'images/jove.jpg'%}" title="I'm Taby!" style="border-radius:20px;margin-right: 20px;" class="brandpic" height="40" width="40">
+                <a href="/counselling/taby.html" style="margin-right: 20px;color: white;"><font size="4"><b>Dashboard</b></font></a>
+                <!--<a  href="#" style="margin-right: 20px;color: white;"><font size="4"><b>Language</b></font></a>-->
+                <a  href="#Contact" style="margin-right: 20px;color: white;"><font size="4"><img src="{% static 'images/da2.png'%}" height="20" width="30"></a>
+                <a href="/counselling/logout" style="color: white;margin-right: 20px;margin-top: 6px;width: 55px;float: right;"><font size="4"><b>Logout</b></font></a>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+ </div> 
+  
+
+
+
+
+
+      <script type="text/javascript">
+        function myFunction(){
+          alert("Please, Please, Please. Follow the steps given on the home page... Thank You...")
+        }
+      </script>
+
+
+
+
+    </div>    
+
+
+<div id="content">
+ <center> 
+
+<div style="margin-bottom: 20px;margin-top: 150px;" >
+  {% load staticfiles %}
+  <b>The Report is available in downloadable format only for Tabular and for Pie Chart.</b><br><br><br>
+
+<input type="checkbox" name="enableTable" id="enableTable" onclick="enableTable()">Tabular
+<script type="text/javascript">
+  function enableTable(){
+    if (document.getElementById('enableTable').checked){
+      document.getElementById('tabular').style.display='';
+    }
+    else{
+     document.getElementById('tabular').style.display='none'; 
+    }
+    if ((document.getElementById('enableCompBar').checked)||(document.getElementById('enableDough').checked)){
+      document.getElementById('cmd').style.display='none';
+    }
+    else if((document.getElementById('enableTable').checked)||(document.getElementById('enablePie').checked)){
+      document.getElementById('cmd').style.display='';
+    }
+    else{
+       document.getElementById('cmd').style.display='none';
+    }
+  }
+</script>
+<input type="checkbox" name="enablePie" id="enablePie" onclick="enablePie()">Pie Chart
+<script type="text/javascript">
+  function enablePie(){
+    if (document.getElementById('enablePie').checked){
+      document.getElementById('pieChart').style.display='';
+    }
+    else{
+     document.getElementById('pieChart').style.display='none'; 
+    }
+    if ((document.getElementById('enableCompBar').checked)||(document.getElementById('enableDough').checked)){
+      document.getElementById('cmd').style.display='none';
+    }
+    else if((document.getElementById('enableTable').checked)||(document.getElementById('enablePie').checked)){
+      document.getElementById('cmd').style.display='';
+    }
+    else{
+       document.getElementById('cmd').style.display='none';
+    }
+  }
+</script>
+<!--
+<input type="checkbox" name="enableBar" id="enableBar" onclick="enableBar()">Bar Chart
+<script type="text/javascript">
+  function enableBar(){
+    if (document.getElementById('enableBar').checked){
+      document.getElementById('chartContainer').style.display='';
+    }
+    else{
+     document.getElementById('chartContainer').style.display='none'; 
+    }
+  }
+</script>
+-->
+<input type="checkbox" name="enableCompBar" id="enableCompBar" checked onclick="enableCompBar()">Bar Chart
+<script type="text/javascript">
+  function enableCompBar(){
+    if (document.getElementById('enableCompBar').checked){
+      document.getElementById('chartContainer1').style.display='';
+      document.getElementById('chartContainer').style.display='';
+    }
+    else{
+     document.getElementById('chartContainer1').style.display='none';
+     document.getElementById('chartContainer').style.display='none';
+    }
+    if ((document.getElementById('enableCompBar').checked)||(document.getElementById('enableDough').checked)){
+      document.getElementById('cmd').style.display='none';
+    }
+    else if((document.getElementById('enableTable').checked)||(document.getElementById('enablePie').checked)){
+      document.getElementById('cmd').style.display='';
+    }
+    else{
+       document.getElementById('cmd').style.display='none';
+    }
+  }
+</script>
+<input type="checkbox" name="enableDough" id="enableDough" onclick="enableDough()">Dough Chart
+<script type="text/javascript">
+  function enableDough(){
+    if (document.getElementById('enableDough').checked){
+      document.getElementById('doughChart').style.display='';
+    }
+    else{
+     document.getElementById('doughChart').style.display='none'; 
+    }
+    if ((document.getElementById('enableCompBar').checked)||(document.getElementById('enableDough').checked)){
+      document.getElementById('cmd').style.display='none';
+    }
+    else if((document.getElementById('enableTable').checked)||(document.getElementById('enablePie').checked)){
+      document.getElementById('cmd').style.display='';
+    }
+    else{
+       document.getElementById('cmd').style.display='none';
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabular" style="display: none;">
+<table>
+  <tr>
+    <th >Traits</th>
+    <th>Percentage</th>
+    
+  </tr>
+  <tr>
+    <td>Extrovert</td>
+    <td>{{e_ei}}</td>
+    
+  </tr>
+  <tr>
+    <td>Introvert</td>
+    <td>{{i_ei}}</td>
+    
+  </tr>
+
+</table>
+
+
+<table>
+  <tr>
+    <th>Traits</th>
+    <th>Percentage</th>
+    
+  </tr>
+  <tr>
+    <td>Sensing</td>
+    <td>{{s_sn}}</td>
+    
+  </tr>
+  <tr>
+    <td>Intuition</td>
+    <td>{{n_sn}}</td>
+    
+  </tr>
+
+</table>
+
+
+
+<table>
+  <tr>
+    <th>Traits</th>
+    <th>Percentage</th>
+    
+  </tr>
+  <tr>
+    <td>Thinking</td>
+    <td>{{t_tf}}</td>
+    
+  </tr>
+  <tr>
+    <td>Feeling</td>
+    <td>{{f_tf}}</td>
+    
+  </tr>
+
+</table>
+
+
+
+<table>
+  <tr>
+    <th>Traits</th>
+    <th>Percentage</th>
+    
+  </tr>
+  <tr>
+    <td>Judging</td>
+    <td>{{j_jp}}</td>
+    
+  </tr>
+  <tr>
+    <td>Perceiving</td>
+    <td>{{p_jp}}</td>
+    
+  </tr>
+
+</table>
+
+</div>
+
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Traits');
+        data.addColumn('number', 'Percentage');
+        data.addRows([
+          ['Extrovert', {{e_ei}}],
+          ['Introvert', {{i_ei}}],
+        ]);
+        var options = {'title':'My Traits',
+                       'width':400,
+                       'height':300};
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Traits');
+        data.addColumn('number', 'Percentage');
+        data.addRows([
+          ['Sensing', {{s_sn}}],
+          ['Intuition', {{n_sn}}],
+        ]);
+        var options = {'title':'My Traits',
+                       'width':400,
+                       'height':300};
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Traits');
+        data.addColumn('number', 'Percentage');
+        data.addRows([
+          ['Thinking', {{t_tf}}],
+          ['Feeling', {{f_tf}}],
+        ]);
+        var options = {'title':'My Traits',
+                       'width':400,
+                       'height':300};
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div2'));
+        chart.draw(data, options);
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Traits');
+        data.addColumn('number', 'Percentage');
+        data.addRows([
+          ['Judging', {{j_jp}}],
+          ['Perceiving', {{p_jp}}],
+        ]);
+        var options = {'title':'My Traits',
+                       'width':400,
+                       'height':300};
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div3'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <!--Div that will hold the pie chart-->
+    <div style="display: none;" id="pieChart">
+    <div id="chart_div" style="display: inline-block;"></div>
+    <div id="chart_div1" style="display: inline-block;"></div><br>
+    <div id="chart_div2" style="display: inline-block;"></div>
+    <div id="chart_div3" style="display: inline-block;"></div>
+</div>
+
+
+
+<!-- Vertical, rounded -->
+
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  theme: "light2", // "light1", "light2", "dark1", "dark2"
+  title:{
+    text: "My Traits"
+  },
+  axisY: {
+    title: "Percentage"
+  },
+  data: [{        
+    type: "column",  
+    showInLegend: true, 
+    legendMarkerColor: "grey",
+    legendText: "Traits",
+    dataPoints: [      
+      { y: {{e_ei}}, label: "Extrovert" },
+      { y: {{i_ei}},  label: "Introvert" },
+      { y: {{s_sn}},  label: "Sensing" },
+      { y: {{n_sn}},  label: "Intuition" },
+      { y: {{t_tf}},  label: "Thinking" },
+      { y: {{f_tf}}, label: "Feeling" },
+      { y: {{j_jp}},  label: "Judging" },
+      { y: {{p_jp}},  label: "Perceiving" }
+    ]
+  }]
+});
+chart.render();
+
+
+
+
+
+var chart = new CanvasJS.Chart("chartContainer1", {
+  animationEnabled: true,
+  title:{
+    text: "My Traits"
+  },  
+  axisY: {
+    title: "Percentage",
+    titleFontColor: "#4F81BC",
+    lineColor: "#4F81BC",
+    labelFontColor: "#4F81BC",
+    tickColor: "#4F81BC"
+  },
+  axisY2: {
+    title: "Percentage",
+    titleFontColor: "#C0504E",
+    lineColor: "#C0504E",
+    labelFontColor: "#C0504E",
+    tickColor: "#C0504E"
+  },  
+  toolTip: {
+    shared: true
+  },
+  legend: {
+    cursor:"pointer",
+    itemclick: toggleDataSeries
+  },
+  data: [{
+    type: "column",
+    name: "Trait 1",
+    legendText: "Trait 1",
+    showInLegend: true, 
+    dataPoints:[
+      { label: "Extrovert/Introvert", y: {{e_ei}} },
+      { label: "Sensing/Intuition", y: {{s_sn}} },
+      { label: "Thinking/Feeling", y: {{t_tf}} },
+      { label: "Judging/Perceiving", y: {{j_jp}} },
+    ]
+  },
+  {
+    type: "column", 
+    name: "Trait 2",
+    legendText: "Trait 2",
+    axisYType: "secondary",
+    showInLegend: true,
+    dataPoints:[
+      { label: "Extrovert/Introvert", y: {{i_ei}} },
+      { label: "Sensing/Intuition", y: {{n_sn}} },
+      { label: "Thinking/Feeling", y: {{f_tf}} },
+      { label: "Judging/Perceiving", y: {{p_jp}} },
+    ]
+  }]
+});
+chart.render();
+
+function toggleDataSeries(e) {
+  if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+    e.dataSeries.visible = false;
+  }
+  else {
+    e.dataSeries.visible = true;
+  }
+  chart.render();
+}
+
+
+
+
+
+
+
+
+var chart = new CanvasJS.Chart("chartContainer2", {
+  animationEnabled: true,
+  title:{
+    text: "My Traits",
+    horizontalAlign: "center"
+  },
+  data: [{
+    type: "doughnut",
+    startAngle: 60,
+    //innerRadius: 60,
+    indexLabelFontSize: 17,
+    indexLabel: "{label} - #percent%",
+    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+    dataPoints: [
+      { y: {{e_ei}}, label: "Extrovert" },
+      { y: {{i_ei}}, label: "Introvert" },
+    ]
+  }]
+});
+chart.render();
+
+
+
+
+
+
+var chart = new CanvasJS.Chart("chartContainer3", {
+  animationEnabled: true,
+  title:{
+    text: "My Traits",
+    horizontalAlign: "center"
+  },
+  data: [{
+    type: "doughnut",
+    startAngle: 60,
+    //innerRadius: 60,
+    indexLabelFontSize: 17,
+    indexLabel: "{label} - #percent%",
+    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+    dataPoints: [
+      { y: {{s_sn}}, label: "Sensing" },
+      { y: {{n_sn}}, label: "Intuition" },
+    ]
+  }]
+});
+chart.render();
+
+
+
+
+
+
+var chart = new CanvasJS.Chart("chartContainer4", {
+  animationEnabled: true,
+  title:{
+    text: "My Traits",
+    horizontalAlign: "center"
+  },
+  data: [{
+    type: "doughnut",
+    startAngle: 60,
+    //innerRadius: 60,
+    indexLabelFontSize: 17,
+    indexLabel: "{label} - #percent%",
+    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+    dataPoints: [
+      { y: {{t_tf}}, label: "Thinking" },
+      { y: {{f_tf}}, label: "Feeling" },
+    ]
+  }]
+});
+chart.render();
+
+
+
+
+
+var chart = new CanvasJS.Chart("chartContainer5", {
+  animationEnabled: true,
+  title:{
+    text: "My Traits",
+    horizontalAlign: "center"
+  },
+  data: [{
+    type: "doughnut",
+    startAngle: 60,
+    //innerRadius: 60,
+    indexLabelFontSize: 17,
+    indexLabel: "{label} - #percent%",
+    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+    dataPoints: [
+      { y: {{j_jp}}, label: "Judging" },
+      { y: {{p_jp}}, label: "Perceiving" },
+    ]
+  }]
+});
+chart.render();
+
+
+
+
+
+
+}
+</script>
+
+<div id="chart"></div>
+<center>
+<div id="chartContainer" style="height: 300px;width: 100%; margin-bottom: 100px;display: ;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</center>
+
+
+<div id="chartContainer1" style="height: 300px; width: 100%;margin-bottom: 100px;display: ;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<div style="display: none;" id="doughChart">
+<div id="chartContainer2" style="height: 300px; margin-bottom: 100px;display: inline-block;float: left;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div id="chartContainer3" style="height: 300px; margin-bottom: 100px;display: inline-block;"></div><br>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div id="chartContainer4" style="height: 300px; margin-bottom: 100px;display: inline-block;float: left;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div id="chartContainer5" style="height: 300px; margin-bottom: 100px;display: inline-block;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+<script type="text/javascript">
+$('.vertical .progress-fill span').each(function(){
+  var percent = $(this).html();
+  var pTop = 100 - ( percent.slice(0, percent.length - 1) ) + "%";
+  $(this).parent().css({
+    'height' : percent,
+    'top' : pTop
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</center>
+
+</div>
+
+<center>
+<div id="editor"></div>
+<button id="cmd" class="btn btn-primary" style="background-color:  rgb(204,188,137);border-color: black;color: black;margin-bottom: 15px;display: none;">Download Report</button>
+</center>
+
+
+
+<div id="Contact" class="container-fluid" >
+<div class="row" style="margin-top: -80px;">
+   <!--<footer class="footer-distributed" style="background-color: rgba(0, 0, 0, 0.80);height: 50px;" >-->
+<footer class="footer-distributed" style="background-color: rgb(10,34,36);height: 50px;" >
+         <a href="taby.html" id="text1" title="" style="color: white;">
+                    
+      <div  class="footer-left" onmouseover="changeTextclr()" onmouseout="changeTextclrback()" style="height: 85px;margin-top: -45px;width: 25%;">
+   <div style="margin-top: 30px;"> <center><font face="calibri" size="4">Taby</font> </center></div>
+            
+      </div>
+    </a>
+      
+      <div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"  class="footer-center" style="margin-left: 27px;height: 85px;margin-top: -45px;width: 500px;width: 50%;display: inline-block;">
+
+        <a href="manage.html" id="text2" title="" style="color: white;" >
+              
+        <div style="display: inline-block;width: 48%;height: 85px;" class="fc1" onmouseover="changeTextclr2()" onmouseout="changeTextclrback2()">
+                 <div style="margin-top: 30px;">   <center><font face="calibri" size="4">Manage Profile</font> </center></div>
+             
+</div>   </a>
+     <a href="/counselling/help.html" target="_blank" id="text3" title="" style="color: white;" >
+        <div style="display: inline-block;width: 48%;height: 85px;"  class="fc1" onmouseover="changeTextclr3()" onmouseout="changeTextclrback3()">
+       
+                    <div style="margin-top: 30px;">  <center><font face="calibri" size="4">Help</font> </center></div>
+                
+</div></a>
+
+
+
+
+      </div>
+
+       
+<a href="#" title=""  id="text" style="color: white;">
+  
+      <div class="footer-right"  title="Coming Soon" onmouseover="changeTextclr1()" onmouseout="changeTextclrback1()" style="height: 85px;margin-top: -45px;width: 22%;">
+                  <div style="margin-top: 30px;"><center><font face="calibri" size="4">Chat With Counsellor</font></center> </div>
+              
+
+
+      
+ 
+      </div>  </a>
+       
+    </footer>   
+       </div>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#cmd").live("click", function () {
+            var divContents = $("#content").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('<style>table {    font-family: arial, sans-serif;    border-collapse: collapse;    idth: 100%;    margin-bottom: 50px;}td, th {    border: 1px solid #dddddd;    text-align: center;    padding: 8px;    width: 50%;}tr:nth-child(even) {    background-color: black;}</style>');            
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    function changeTextclr(){
+      document.getElementById('text1').style.color = 'black';
+    }
+    function changeTextclrback(){
+      document.getElementById('text1').style.color = 'white';
+    }
+    function changeTextclr1(){
+      document.getElementById('text').style.color = 'black';
+    }
+    function changeTextclrback1(){
+      document.getElementById('text').style.color = 'white';
+    }
+    function changeTextclr2(){
+      document.getElementById('text2').style.color = 'black';
+    }
+    function changeTextclrback2(){
+      document.getElementById('text2').style.color = 'white';
+    }
+    function changeTextclr3(){
+      document.getElementById('text3').style.color = 'black';
+    }
+    function changeTextclrback3(){
+      document.getElementById('text3').style.color = 'white';
+    }
+    </script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+<script type="text/javascript">
+  
+
+
+var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+$('#cmd').click(function () {   
+    doc.fromHTML($('#content').html(), 15, 15, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample-file.pdf');
+});
+
+// This code is collected but useful, click below to jsfiddle link.
+
+</script>
+
+
+
+-->
+
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+Bar chart w/o canvasJS
+
+#chart {  padding: 20px;}table {  width: 100%;  height: 400px;}.charttitle {  text-align: center;}.bars td {  vertical-align: bottom;}.bars div:hover {  opacity: 0.6;}.legend {  vertical-align: bottom;  padding-left: 20px;  text-align: left;}.legbox {  display: block;  clear: both;}.xaxisname {  margin: 5px;  color: #fff;  font-size: 77%;  padding: 5px;  float: left;}/*Flat UI colors*/.one {  background: black;}.two {  background: #2ECC71;}.three {  background: #27AE60;}.four {  background: #3498DB;}.five {  background: #2980B9;}.six {  background: #blue;}.seven {  background: #8E44AD;}.eight {  background: #blue;}.nine {  background: #2C3E50;}.ten {  background: #22313f;}.eleven {  background: #F1C40F;}.twelve {  background: black;}.thirteen {  background: #E67E22;}.fourteen {  background: #D35400;}.fifteen {  background: black;}.sixteen {  background: #C0392B;}.seventeen {  background: #ECF0F1;}.seventeen.clouds {  color: #BDC3C7;}.eighteen {  background: #BDC3C7;}.nineteen {  background: #95A5A6;}.twenty {  background: #7F8C8D;}
+
+
+
+
+
+
+//chart data
+var chartjson = {
+  "title": "Students Academic Scores",
+  "data": [{
+    "name": "Kerry",
+    "score": 20
+  }, {
+    "name": "Teegan",
+    "score": 73
+  }, {
+    "name": "Jamalia",
+    "score": 20
+  }, {
+    "name": "Quincy",
+    "score": 89
+  }, {
+    "name": "Darryl",
+    "score": 24
+  }, {
+    "name": "Jescie",
+    "score": 86
+  }, {
+    "name": "Quemby",
+    "score": 96
+  }, {
+    "name": "McKenzie",
+    "score": 71
+  }],
+  "xtitle": "Secured Marks",
+  "ytitle": "Marks",
+  "ymax": 100,
+  "ykey": 'score',
+  "xkey": "name",
+  "prefix": "%"
+}
+
+//chart colors
+var colors = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen'];
+
+//constants
+var TROW = 'tr',
+  TDATA = 'td';
+
+var chart = document.createElement('div');
+//create the chart canvas
+var barchart = document.createElement('table');
+//create the title row
+var titlerow = document.createElement(TROW);
+//create the title data
+var titledata = document.createElement(TDATA);
+//make the colspan to number of records
+titledata.setAttribute('colspan', chartjson.data.length + 1);
+titledata.setAttribute('class', 'charttitle');
+titledata.innerText = chartjson.title;
+titlerow.appendChild(titledata);
+barchart.appendChild(titlerow);
+chart.appendChild(barchart);
+
+//create the bar row
+var barrow = document.createElement(TROW);
+
+//lets add data to the chart
+for (var i = 0; i < chartjson.data.length; i++) {
+  barrow.setAttribute('class', 'bars');
+  var prefix = chartjson.prefix || '';
+  //create the bar data
+  var bardata = document.createElement(TDATA);
+  var bar = document.createElement('div');
+  bar.setAttribute('class', colors[i]);
+  bar.style.height = chartjson.data[i][chartjson.ykey] + prefix;
+  bardata.innerText = chartjson.data[i][chartjson.ykey] + prefix;
+  bardata.appendChild(bar);
+  barrow.appendChild(bardata);
+}
+
+//create legends
+var legendrow = document.createElement(TROW);
+var legend = document.createElement(TDATA);
+legend.setAttribute('class', 'legend');
+legend.setAttribute('colspan', chartjson.data.length);
+
+//add legend data
+for (var i = 0; i < chartjson.data.length; i++) {
+  var legbox = document.createElement('span');
+  legbox.setAttribute('class', 'legbox');
+  var barname = document.createElement('span');
+  barname.setAttribute('class', colors[i] + ' xaxisname');
+  var bartext = document.createElement('span');
+  bartext.innerText = chartjson.data[i][chartjson.xkey];
+  legbox.appendChild(barname);
+  legbox.appendChild(bartext);
+  legend.appendChild(legbox);
+}
+barrow.appendChild(legend);
+barchart.appendChild(barrow);
+barchart.appendChild(legendrow);
+chart.appendChild(barchart);
+document.getElementById('chart').innerHTML = chart.outerHTML;
+
+  -->

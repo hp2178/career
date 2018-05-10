@@ -1,0 +1,203 @@
+	.filter-mobile{
+		display: none;
+	}
+	@media screen and (max-width: 900px){
+		.form-group label{
+			text-align:left;
+			display: block;
+			width: 100%;
+		}
+		.form-group input,.form-group select{
+			width: 90%;
+		}
+	}
+	@media only screen and (max-width:840px){
+		.desktop-btn{
+			display: none;
+		}
+		.contactus .dot-separator{
+			margin: 10px 0;
+		}
+		/*.coming-soon-wrapper{
+			background-size: contain;
+		}*/
+		.mobile-btn{
+			display: block;
+		}
+		#header .menu ul li, .header-menu .menu ul li {
+			margin: 20px 0;
+		}
+		#header.home .menu{
+			padding-top: 0;
+			margin-top: 0;
+		}
+		.coming-soon-wrapper{
+			position: fixed;
+		}
+		.bespoke-content{
+			margin: 25% 0;
+		}
+		.bespoke-content.big-diamond .bespoke-title-box{
+			padding: 60px 0;
+		}
+		.bespoke-content.big-diamond .diamond, .bespoke-content.big-diamond .diamond:before{
+			width: 200px;
+			height: 200px;
+		}
+		#sticky-social{
+			right: 12px;
+		}
+		#sticky-social ul li{
+			display: block;
+		}
+		.bot-tiles{
+			display: none;
+		}
+		.mobile.bot-tiles{
+			display: block;
+		}
+		.bespoke-modal.modalwindow .content{
+			padding: 20px;
+		}
+		.bespoke-modal.modalwindow h6{
+			color: #c3922e;
+		}
+		.bespoke-modal.modalwindow .content p{
+			text-align: center;
+		}
+		.bespoke-modal.modalwindow{
+			background: #FFF;
+			overflow-y: scroll;
+		}
+		#header .menu ul li a{
+			/* font-size: 2.5em; */
+		}
+		#header .menu ul li a span{
+			font-size: 2em;
+		}
+		#header .menu ul li .line-separator img{
+			width: 30px;
+		}
+		.cart-product-details{
+			left: 0;
+		}
+		.cart-product-img,.cart-product-details{
+			border: none;
+			border: 1px solid #f1f1f1;
+		}
+		.ver-line-sepa{
+			height: 50px;
+			display: none;
+		}
+		.content .product-tile .column{
+			width: 100%;
+			height: 250px;
+			float: none;
+		}
+		.content .product-tile .column:hover .title {
+			top: 60%;
+		}
+		.slide-wrapper .content{
+			position: relative;
+			top: -125px;
+		}
+		.filter-desktop{
+			display: none;
+		}
+		.filter-mobile{
+			display: block;
+		}
+		.filter-mobile .fil-btn{
+			background: #FFF;
+			overflow: hidden;
+			margin: 0 auto;
+			margin-top: 15px;
+			width: 260px;
+			border: solid 1px #000;
+			cursor: pointer;
+		}
+		.filter-mobile .fil-btn h5{
+			margin: 0;
+			font-size: 16px;
+			padding: 10px 0;
+		}
+		.filter-overlay{
+			height: 100%;
+			width: 100%;
+			position: fixed; /* Stay in place */
+			z-index: 999; /* Sit on top */
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-color: #FFF; /* Black fallback color */
+			background-color: rgba(239, 239, 233, 0.95); /* Black w/opacity */
+			overflow-x: hidden; /* Disable horizontal scroll */
+			transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+			text-align: center;
+		}
+		.footer .social-icons {
+			padding-top: 20px;
+		}
+		.cart-product-img {
+			max-height: 200px;
+		}
+		.cart-product-img img{
+			padding: 20px 0;
+		}
+		.cart-product-details .product-details-title{
+			padding: 5px;
+			margin: 0;
+		}
+		.cart-product-details .item-list{
+			border-top: 2px solid #575555;
+		}
+		.item-list .product-details-title{
+			position: relative;
+		}
+		.aboutus img{
+			padding: 0;
+		}
+		.our-story-txt{
+			height: auto;
+			padding: 10px;
+		}
+		.ourstory p{
+			width: 95%;
+		}
+		.stocklist h3 {
+			font-size: 1.17em;
+			margin-top: 50px;
+		}
+		.store-details {
+			margin-top: 25px;
+		}
+		.morphsearch.open .morphsearch-form{
+			width: 100%;
+			padding: 0 10px 0 10px;
+		}
+		.morphsearch-input{
+			width: 70%;
+		}
+	}
+	@media only screen and (min-width:960px){
+		.content .product-tile .column{
+			height: 550px;
+		}
+	}
+	@media only screen and (max-width:1440px){
+		.bot-tiles div a{
+			padding-top: 50px;
+		}
+	}
+/* @media only screen and (min-width:1440px){
+	.content .product-tile .column{
+		height: 700px;
+	}
+	} */
+	@media screen and (max-width: 1024px) { /* Specific to this particular image */
+		.bg-image {
+			left: 50%;
+			margin-left: -512px;   /* 50% */
+		}
+	}

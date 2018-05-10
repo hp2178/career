@@ -1,0 +1,1241 @@
+<html>
+<head>
+	{% load staticfiles %}
+    <meta charset="utf-8">
+    <title>Chat-bot</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cubeslider.css'%}">
+     
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demonew.css'%}"/>
+  
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   
+   
+<style>
+    
+
+.fa-2x {
+  font-size: 1.5em;
+}
+
+.app {
+  position: relative;
+  overflow: hidden;
+  top: 19px;
+  height: calc(100% - 38px);
+  margin: auto;
+  padding: 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
+}
+
+.app-one {
+  background-color: #f7f7f7;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
+}
+
+.side {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.side-one {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  display: block;
+  top: 0;
+}
+
+.side-two {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  top: -100%;
+  left: -100%;
+  -webkit-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+
+}
+
+
+.heading {
+  padding: 10px 16px 10px 15px;
+  margin: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #eee;
+  z-index: 1000;
+}
+
+.heading-avatar {
+  padding: 0;
+  cursor: pointer;
+
+}
+
+.heading-avatar-icon img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.heading-name {
+  padding: 0 !important;
+  cursor: pointer;
+}
+
+.heading-name-meta {
+  font-weight: 700;
+  font-size: 100%;
+  padding: 5px;
+  padding-bottom: 0;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
+  display: block;
+}
+.heading-online {
+  display: none;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #93918f;
+}
+.heading-compose {
+  padding: 0;
+}
+
+.heading-compose i {
+  text-align: center;
+  padding: 5px;
+  color: #93918f;
+  cursor: pointer;
+}
+
+.heading-dot {
+  padding: 0;
+  margin-left: 10px;
+}
+
+.heading-dot i {
+  text-align: right;
+  padding: 5px;
+  color: #93918f;
+  cursor: pointer;
+}
+
+.searchBox {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 60px;
+  width: 100%;
+}
+
+.searchBox-inner {
+  height: 100%;
+  width: 100%;
+  padding: 10px !important;
+  background-color: #fbfbfb;
+}
+
+
+/*#searchBox-inner input {
+  box-shadow: none;
+}*/
+
+.searchBox-inner input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.sideBar {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: #fff;
+  overflow-y: auto;
+  border: 1px solid #f7f7f7;
+  height: calc(100% - 120px);
+}
+
+.sideBar-body {
+  position: relative;
+  padding: 10px !important;
+  border-bottom: 1px solid #f7f7f7;
+  height: 72px;
+  margin: 0 !important;
+  cursor: pointer;
+}
+
+.sideBar-body:hover {
+  background-color: #f2f2f2;
+}
+
+.sideBar-avatar {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.avatar-icon img {
+  border-radius: 50%;
+  height: 49px;
+  width: 49px;
+}
+
+.sideBar-main {
+  padding: 0 !important;
+}
+
+.sideBar-main .row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sideBar-name {
+  padding: 10px !important;
+}
+
+.name-meta {
+  font-size: 100%;
+  padding: 1% !important;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000;
+}
+
+.sideBar-time {
+  padding: 10px !important;
+}
+
+.time-meta {
+  text-align: right;
+  font-size: 12px;
+  padding: 1% !important;
+  color: rgba(0, 0, 0, .4);
+  vertical-align: baseline;
+}
+
+/*New Message*/
+
+.newMessage {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100%;
+  position: relative;
+  left: -100%;
+}
+.newMessage-heading {
+  padding: 10px 16px 10px 15px !important;
+  margin: 0 !important;
+  height: 100px;
+  width: 100%;
+  background-color: #00bfa5;
+  z-index: 1001;
+}
+
+.newMessage-main {
+  padding: 10px 16px 0 15px !important;
+  margin: 0 !important;
+  height: 60px;
+  margin-top: 30px !important;
+  width: 100%;
+  z-index: 1001;
+  color: #fff;
+}
+
+.newMessage-title {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 5px !important;
+}
+.newMessage-back {
+  text-align: center;
+  vertical-align: baseline;
+  padding: 12px 5px !important;
+  display: block;
+  cursor: pointer;
+}
+.newMessage-back i {
+  margin: auto !important;
+}
+
+.composeBox {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 60px;
+  width: 100%;
+}
+
+.composeBox-inner {
+  height: 100%;
+  width: 100%;
+  padding: 10px !important;
+  background-color: #fbfbfb;
+}
+
+.composeBox-inner input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.compose-sideBar {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: #fff;
+  overflow-y: auto;
+  border: 1px solid #f7f7f7;
+  height: calc(100% - 160px);
+}
+
+/*Conversation*/
+
+.conversation {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100%;
+  /*width: 100%;*/
+  border-left: 1px solid rgba(0, 0, 0, .08);
+  /*overflow-y: auto;*/
+}
+
+.message {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: url("w.jpg") no-repeat fixed center;
+  background-size: cover;
+  overflow-y: auto;
+  border: 1px solid #f7f7f7;
+  height: calc(100% - 120px);
+}
+.message-previous {
+  margin : 0 !important;
+  padding: 0 !important;
+  height: auto;
+  width: 100%;
+}
+.previous {
+  font-size: 15px;
+  text-align: center;
+  padding: 10px !important;
+  cursor: pointer;
+}
+
+.previous a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.message-body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: auto;
+  height: auto;
+}
+
+.message-main-receiver {
+  /*padding: 10px 20px;*/
+  max-width: 60%;
+}
+
+.message-main-sender {
+  padding: 3px 20px !important;
+  margin-left: 40% !important;
+  max-width: 60%;
+}
+
+.message-text {
+  margin: 0 !important;
+  padding: 5px !important;
+  word-wrap:break-word;
+  font-weight: 200;
+  font-size: 14px;
+  padding-bottom: 0 !important;
+}
+
+.message-time {
+  margin: 0 !important;
+  margin-left: 50px !important;
+  font-size: 12px;
+  text-align: right;
+  color: #9a9a9a;
+
+}
+
+.receiver {
+  width: auto !important;
+  padding: 4px 10px 7px !important;
+  border-radius: 10px 10px 10px 0;
+  background: #ffffff;
+  font-size: 12px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.sender {
+  float: right;
+  width: auto !important;
+  background: #dcf8c6;
+  border-radius: 10px 10px 0 10px;
+  padding: 4px 10px 7px !important;
+  font-size: 12px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+
+/*Reply*/
+
+.reply {
+  height: 60px;
+  width: 100%;
+  background-color: #f5f1ee;
+  padding: 10px 5px 10px 5px !important;
+  margin: 0 !important;
+  z-index: 1000;
+}
+
+.reply-emojis {
+  padding: 5px !important;
+}
+
+.reply-emojis i {
+  text-align: center;
+  padding: 5px 5px 5px 5px !important;
+  color: #93918f;
+  cursor: pointer;
+}
+
+.reply-recording {
+  padding: 5px !important;
+}
+
+.reply-recording i {
+  text-align: center;
+  padding: 5px !important;
+  color: #93918f;
+  cursor: pointer;
+}
+
+.reply-send {
+  padding: 5px !important;
+}
+
+.reply-send i {
+  text-align: center;
+  padding: 5px !important;
+  color: #93918f;
+  cursor: pointer;
+}
+
+.reply-main {
+  padding: 2px 5px !important;
+}
+
+.reply-main textarea {
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+  padding: 5px !important;
+  outline: none;
+  border: none;
+  text-indent: 5px;
+  box-shadow: none;
+  height: 100%;
+  font-size: 16px;
+}
+
+.reply-main textarea:focus {
+  outline: none;
+  border: none;
+  text-indent: 5px;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 700px) {
+  .app {
+    top: 0;
+    height: 100%;
+  }
+  .heading {
+    height: 70px;
+    background-color: #009688;
+  }
+  .fa-2x {
+    font-size: 2.3em !important;
+  }
+  .heading-avatar {
+    padding: 0 !important;
+  }
+  .heading-avatar-icon img {
+    height: 50px;
+    width: 50px;
+  }
+  .heading-compose {
+    padding: 5px !important;
+  }
+  .heading-compose i {
+    color: #fff;
+    cursor: pointer;
+  }
+  .heading-dot {
+    padding: 5px !important;
+    margin-left: 10px !important;
+  }
+  .heading-dot i {
+    color: #fff;
+    cursor: pointer;
+  }
+  .sideBar {
+    height: calc(100% - 130px);
+  }
+  .sideBar-body {
+    height: 80px;
+  }
+  .sideBar-avatar {
+    text-align: left;
+    padding: 0 8px !important;
+  }
+  .avatar-icon img {
+    height: 55px;
+    width: 55px;
+  }
+  .sideBar-main {
+    padding: 0 !important;
+  }
+  .sideBar-main .row {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .sideBar-name {
+    padding: 10px 5px !important;
+  }
+  .name-meta {
+    font-size: 16px;
+    padding: 5% !important;
+  }
+  .sideBar-time {
+    padding: 10px !important;
+  }
+  .time-meta {
+    text-align: right;
+    font-size: 14px;
+    padding: 4% !important;
+    color: rgba(0, 0, 0, .4);
+    vertical-align: baseline;
+  }
+  /*Conversation*/
+  .conversation {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100%;
+    /*width: 100%;*/
+    border-left: 1px solid rgba(0, 0, 0, .08);
+    /*overflow-y: auto;*/
+  }
+  .message {
+    height: calc(100% - 140px);
+  }
+  .reply {
+    height: 70px;
+  }
+  .reply-emojis {
+    padding: 5px 0 !important;
+  }
+  .reply-emojis i {
+    padding: 5px 2px !important;
+    font-size: 1.8em !important;
+  }
+  .reply-main {
+    padding: 2px 8px !important;
+  }
+  .reply-main textarea {
+    padding: 8px !important;
+    font-size: 18px;
+  }
+  .reply-recording {
+    padding: 5px 0 !important;
+  }
+  .reply-recording i {
+    padding: 5px 0 !important;
+    font-size: 1.8em !important;
+  }
+  .reply-send {
+    padding: 5px 0 !important;
+  }
+  .reply-send i {
+    padding: 5px 2px 5px 0 !important;
+    font-size: 1.8em !important;
+  }
+}
+    
+    
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+/* -------------------- Rounded Corners */
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+/* -------------------- Colors: Background */
+.slate   { background-color: #ddd; }
+.green   { background-color: #779126; }
+.blue    { background-color: #3b8ec2; }
+.yellow  { background-color: white; }
+.black   { background-color: #000; }
+
+/* -------------------- Colors: Text */
+.slate select   { color: #000; }
+.green select   { color: #fff; }
+.blue select    { color: #fff; }
+.yellow select  { color: #000; }
+.black select   { color: #fff; }
+
+
+/* -------------------- Select Box Styles: danielneumann.com Method */
+/* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+#mainselection select {
+   border: 0;
+   color: #EEE;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 378px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+#mainselection {
+   overflow:hidden;
+   width:350px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+}
+
+
+/* -------------------- Select Box Styles: stackoverflow.com Method */
+/* -------------------- Source: http://stackoverflow.com/a/5809186 */
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#soflow-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+   background-color: #779126;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}    
+    
+    <!---------------------------------------------------------->
+.jumbotron {
+      background-color: #f4511e;
+      color: #fff;
+     
+  }
+  
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo {
+      font-size: 200px;
+  }
+  
+.card {
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+.card-title {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    color: rgba(0, 0, 0, .68);
+}
+
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    max-width: 10%;
+    padding: .75em 1em;
+    color: rgba(0, 0, 0, .4);
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: #fff;
+}
+
+.card-inverse .btn {
+    border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.profile {
+    position: absolute;
+    top: -12px;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 0px;
+    height: 0px;
+    margin: 0;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+.profile-avatar {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.profile-inline {
+    position: relative;
+    top: 0;
+    display: inline-block;
+}
+
+.profile-inline ~ .card-title {
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: top;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.meta {
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a:hover {
+    color: rgba(0, 0, 0, .87);
+}    
+
+.zoom {
+    
+    transition: transform .2s; /* Animation */
+    
+   
+}
+
+.zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}    
+    
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+} 
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color:white;
+  background-color: transparent;
+}    
+    </style>    
+</head>
+<div class="container-fluid"> 
+<nav class="navbar navbar-inverse navbar-fixed-top" style="padding: 10px; background-color:#286f9e;">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <a href="/AiHiring/index.html"><img class="zoom" src="{% static 'images/brainstem.png'%}" class="brandpic" height="50" width="70"></a>
+           
+             
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" >
+                <img class="zoom" src="{% static 'images/jove.jpg'%}" style="border-radius:20px" class="brandpic" height="40" width="40">
+                <a href="/counselling/dashboard.html"><button class="btn btn-primary" style='background-color: white;color:black'>Enter Dashboard</button></a>
+                <button class="btn btn-primary" style='background-color: white;color:black'>Language</button>
+            </ul>
+        </div>
+    </div>
+</nav>
+ </div>      
+<div class="container-special">
+  <div class="jumbotron" style="width: 1920px; height: 120px; background-color:dodgerblue">
+    <div class="col-sm-4">
+    <h3 style="font-family:sans-serif;padding-top: 15px; color: white;opacity: 1.0">Brain Stem Technologies Pvt Ltd</h3>
+        </div>  
+      <div class="col-sm-8"> 
+      <div class="container" style="margin-top: 35px">
+        
+      <button class="btn btn-primary" style="margin-left: 16%;background-color: white;color: black">Indivdiuals</button>
+                <button class="btn btn-primary" style="background-color: white;color: black">Teacher</button>
+      <button class="btn btn-primary" style="background-color: white;color: black">Parents</button>
+                <button class="btn btn-primary" style="background-color: white;color: black">School/College/Universities</button>
+        </div>
+          </div>
+</div> 
+    </div>
+<div class="container" style="padding-top: 30px;padding-left: 10px; padding-right: 10px;" >   
+ <div id="home" style="margin-top: -30px ; margin-bottom:20px;">
+    <div align="center" class="embed-responsive embed-responsive-16by9">
+    <!--
+    <video id="myVideo" autoplay onclick="Vid()" loop class="embed-responsive-item">
+        <source src="{% static 'images/jove.mp4'%}" type="video/mp4" >
+
+    </video>-->
+    <iframe width="50" height="10" src="https://www.youtube.com/embed/9b7YhddGFGc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
+
+
+    <script> 
+var vid = document.getElementById("myVideo"); 
+var playnpause=0;
+function playVid() { 
+    vid.play(); 
+} 
+
+function pauseVid() { 
+    vid.pause(); 
+} 
+
+function Vid(){
+	console.log("i m in vid");
+	if (playnpause==1){
+		vid.play();
+		playnpause=0;
+	}
+	else{
+		vid.pause();
+		playnpause=1;
+	}
+}
+
+
+</script> 
+</div>
+    </div>   
+  </div> 
+  <center>
+  <!--<button onclick="playVid()" type="button">Play Video</button>
+	<button onclick="pauseVid()" type="button">Pause Video</button><br> --></center>
+<div id="Projects" style="background-color:mediumpurple;margin-top: -8px" >
+    <center><h2 class="fifthheading" style="color: black;opacity: .55">Product Features</h2></center>
+<div class="container-fluid newpadding2" style="background-color:mediumpurple">
+<center>
+    <div class="col-sm-4">
+        <center><h3 class="secheading" style="opacity: 1.0;color: white">Feature1</h3></center>
+    <ul class="ch-grid">
+					<li>
+                        
+						<div data-scroll="toggle(.fromTopIn, .fromTopOut)"class="ch-item5 ch-img-15">				
+							<div class="ch-info5-wrap5">
+								<div class="ch-info5">
+									<div class="ch-info5-front5 ch-img-15"></div>
+									<div class="ch-info5-back5">
+										<h3>Text</h3>
+										<p>text<a href="https://www.facebook.com/alicev1.3/">text</a></p>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</li>
+        </ul>
+        </div>
+     <div class="col-sm-4">
+          <center><h3 class="secheading" style="opacity: 1.0 ;color: white">Feature 2</h3></center>
+    <ul class="ch-grid">
+					<li>
+                        
+						<div data-scroll="toggle(.fromTopIn, .fromTopOut)"class="ch-item5 ch-img-21">
+							<div class="ch-info5-wrap5">
+								<div class="ch-info5">
+									<div class="ch-info5-front5 ch-img-21"></div>
+									<div class="ch-info5-back5">
+										<h3>Text</h3>
+                                        <p>Text</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+         </ul>
+    </div>
+     <div class="col-sm-4">
+          <center><h3 class="secheading" style="opacity: 1.0;color: white">Feature 3</h3></center>
+    <ul class="ch-grid">
+					<li>
+                        
+						<div data-scroll="toggle(.fromTopIn, .fromTopOut)"class="ch-item5 ch-img-15">
+							<div class="ch-info5-wrap5">
+								<div class="ch-info5">
+									<div class="ch-info5-front5 ch-img-15"></div>
+									<div class="ch-info5-back5">
+										<h3>Text</h3>
+										<p>Text</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+    </div>
+    </center>
+  <div class="col-sm-4">
+        <center><h3 class="secheading" style="opacity: 1.0;color: white">Feature 4</h3></center>
+    <ul class="ch-grid">
+					<li>
+                        
+						<div data-scroll="toggle(.fromTopIn, .fromTopOut)"class="ch-item5 ch-img-15">				
+							<div class="ch-info5-wrap5">
+								<div class="ch-info5">
+									<div class="ch-info5-front5 ch-img-15"></div>
+									<div class="ch-info5-back5">
+										<h3>Text</h3>
+										<p>text<a href="https://www.facebook.com/alicev1.3/">text</a></p>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</li>
+        </ul>
+        </div>
+     <div class="col-sm-4">
+          <center><h3 class="secheading" style="opacity: 1.0;color: white">Feature 5</h3></center>
+    <ul class="ch-grid">
+					<li>
+                        
+						<div data-scroll="toggle(.fromTopIn, .fromTopOut)"class="ch-item5 ch-img-21">
+							<div class="ch-info5-wrap5">
+								<div class="ch-info5">
+									<div class="ch-info5-front5 ch-img-21"></div>
+									<div class="ch-info5-back5">
+										<h3>Text</h3>
+                                        <p>Text</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+         </ul>
+    </div>
+     <div class="col-sm-4">
+          <center><h3 class="secheading" style="opacity: 1.0;color: white">Feature 6</h3></center>
+    <ul class="ch-grid">
+					<li>
+                        
+						<div data-scroll="toggle(.fromTopIn, .fromTopOut)"class="ch-item5 ch-img-15">
+							<div class="ch-info5-wrap5">
+								<div class="ch-info5">
+									<div class="ch-info5-front5 ch-img-15"></div>
+									<div class="ch-info5-back5">
+										<h3>Text</h3>
+										<p>Text</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+    </div>
+    </center>
+  
+   
+    
+<div id="aboutus"class="container-fluid" style="margin-top: 700px; padding-bottom: 50px;  background-color:#e0e6f1;border-radius:40px ">  
+
+<center><h2 class="firstheading newpadding" style="opacity: .55">About Us</h2></center>
+    <div class="container" style=" padding: 60px 50px;">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2 style="opacity: .55">XYZ </h2>
+      <h4>Lorem ipsum..</h4>      
+      <p>Lorem ipsum..</p>
+    </div>
+    <div class="col-sm-4">
+        <img class="logo" style="border-radius: 50%"src="{% static 'images/download.jpg'%}">
+    </div>
+  </div>
+</div>
+
+<div class="container" >
+  <div class="row">
+    <div class="col-sm-8">
+    
+        <img class="logo" style="border-radius: 50%"src="{% static 'images/4.jpg'%}">
+  
+    </div>
+    <div class="col-sm-4">
+      <h2 style="opacity: .55">text</h2>
+      <h4><strong>XYZ:</strong> Our mission lorem ipsum..</h4>      
+      <p><strong>XYZ:</strong> Our vision Lorem ipsum..</p>
+    </div>
+  </div>
+</div>
+</div>    
+</div>    
+
+</div>    
+
+<div class="newpadding1" >
+<div class="container-fluid" style="margin-bottom: -20px; margin-top: -60px;  background-color:#038889 ">   
+    
+<div style="background-color:#038889;height: 400px;" id="pnp" name="pnp">
+	<center><h2  class="thirdheading"style="margin-bottom: 20px; color:white; opacity: 1.0">Plans & Pricing</h2></center>
+	<div name="pnpcontent" id="pnpcontent">
+	<center><span class="secheading" style="color:white; opacity:1.0;color: white">Select Category :</span>
+	<div class="styled-select yellow rounded" style="margin-top: 50px;width: 250px;margin-bottom: 50px;  font-family: 'Open Sans',sans-serif;">    
+
+  <select>
+    <option>Students</option>
+    <option>Working</option>
+    <option>School/College/Universities</option>
+  </select>
+</div><br><br>
+
+        <button class="btn-lg btn-warning" style="width: 100px;" name="pnpnext" id="pnpnext" value="pnpnext" onclick="screen2()"><span class="secpara" style="color: white">Next</span></button>
+</center>
+
+
+    </div>
+
+<div class="style_prevu_kit" style="background-color:#cb2025;"></div>
+
+</div>
+
+</div>
+
+<div id="Contact"class="container-fluid">
+<div class="row" style="margin-top: -90px">
+   <footer class="footer-distributed" style="height: 300px;">
+
+			<div  class="footer-left">
+
+				<h3 class="zoom">Brain Stem<span>Technolgies</span></h3>
+
+				<p class="footer-company-name"> &copy; COPYRIGHTS</p><br>
+				<p class="footer-company-name"> ALL RIGHTS RESERVED.</p><br>
+			</div>
+
+			<div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"class="footer-center">
+
+				
+
+				<div>
+					<i class="fa fa-phone zoom"></i>
+            
+                    <p class="zoom">+91-xxxxxxxxxx</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope zoom"></i>
+					<p class="zoom"><a href="mailto:support@company.com">xxxx@xxxx.in</a></p>
+                  
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<div class="footer-icons">
+
+					<a href=https://www.facebook.com/DataBytesAnalytics/><i class="fa fa-facebook zoom"></i></a>
+				</div>
+
+			
+         
+       
+          <div>
+
+				
+
+		
+                </div>
+<div>
+				<div class="footer-icons">
+
+					<a href=https://twitter.com/databytes1><i class="fa fa-twitter zoom"></i></a>
+				</div>
+
+			</div>
+       
+    </footer>   
+       </div>
+
+
+
+</div>   
+</div>    
+<footer>
+    <div class="navbar navbar-inverse navbar-fixed-bottom" style="padding: 5px;background-color:#004165;border-color:#02517D">
+        <div class="container">
+            <div class="navbar-collapse collapse" id="footer-body">
+                <ul class="nav navbar-nav">
+                    <li ><a href="#">Browse Our Library</a></li>
+                    <li><a href="#aboutus">About Us</a></li>
+                    <li><a href="#Contact">Contact Us</a></li>
+                    <li><a href="#">Our Partners</a></li>
+                    <li><a href="#">User Review</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+          	<div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer-body">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="footer-bar-btns visible-xs">
+                    <li><a href="#" class="btn" title="History"><i class="fa fa-2x fa-clock-o blue-text"></i></a></li>
+                    <li><a href="#" class="btn" title="Favourites"><i class="fa fa-2x fa-star yellow-text"></i></a></li>
+                    <li><a href="#" class="btn" title="Subscriptions"><i class="fa fa-2x fa-rss-square orange-text"></i></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</footer>
+    
+<script type="text/javascript">
+	function screen2() {
+		// body...
+		document.getElementById('pnpcontent').innerHTML="";
+		document.getElementById('pnpcontent').innerHTML='<center><span style="color: white;margin-top: 500px;">Question 1 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your name?" style="width:300px;"><br>	<span style="color: white;margin-top: 10px;">Question 2 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your age?" style="width:300px;margin-top: 10px;"><br>	<span style="color: white;margin-top: 10px;">Question 3 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your school/college/university name?" style="width:300px;margin-top: 10px;"><br>	<span style="color: white;margin-top: 10px;">Question 4 :</span>	<input type="text" name="q1" id="q1" placeholder="What is your current std/semester?" style="width:300px;margin-top: 10px;margin-bottom: 50px;"><br><br><button class="btn-lg btn-warning"style="width: 100px;" name="pnpnext" id="pnpnext" value="pnpnext" onclick="screen3()">Next</button></center>';
+		
+
+	}
+	function screen3() {
+		// body...
+		document.getElementById('pnpcontent').innerHTML="";
+		document.getElementById('pnp').style.height='600px';
+		document.getElementById('pnpcontent').innerHTML='<center><div style="margin-top:-40px "class="container-fluid";><div class="col-sm-4 zoom"><div class="card "><p class="card-block"><p style="color:white">                </p> <br><h2>100$</h2><form method="POST" ><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px">Buy</button></form> </div></div>	<div class="col-sm-4 zoom"><div class="card " type="submit"  id="buy1" name="buy1" value="100"><p class="card-block"><p style="color:white">     </p><br><h2>200$</h2><form method="POST" ><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy2" name="buy2" value="200">Buy</button></form>   </div></div><div class="col-sm-4 zoom"><div class="card ">    <p class="card-block"><p style="color:white"></p> <br><h2>300$</h2><form method="POST" ><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy3" name="buy3" value="300">Buy</button></form> </div></div></center><center><div class=container-fluid style="padding-top:60px"><div class="col-sm-4 zoom"><div class="card ">   <p class="card-block"><p style="color:white"></p> <br><h2>400$</h2><form method="POST" ><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy4" name="buy4" value="400">Buy</button></form></div></div><div class="col-sm-4 zoom"><div class="card ">   <p class="card-block"><p style="color:white"></p> <br><h2>500$</h2><form method="POST" ><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy5" name="buy5" value="500">Buy</button></form></div></div><div class="col-sm-4 zoom"><div class="card ">   <p class="card-block"><p style="color:white"></p> <br><h2>600$</h2><form method="POST" ><button class="btn-lg btn-warning" style="width: 100px;margin-top: 5px; margin-bottom:10px" type="submit"  id="buy6" name="buy6" value="600">Buy</button></form></div> </center> '
+        
+	}
+</script>
+col-sm-6 col-md-4 col-lg-3 mt-4 
+<script src="{% static 'js/jquery-3.2.0.min.js'%}"></script>
+<script type="text/javascript">
+$(function(){
+    $(".heading-compose").click(function() {
+      $(".side-two").css({
+        "left": "0"
+      });
+    });
+
+    $(".newMessage-back").click(function() {
+      $(".side-two").css({
+        "left": "-100%"
+      });
+    });
+})    
+    </script>    
+<script src="{% static 'js/newbootstrap.min.js'%}"></script>
+</html>    

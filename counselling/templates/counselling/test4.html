@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<style type="text/css">
+	a:hover{
+		background-color: white;
+		text-decoration: underline;
+		color: blue;
+	}
+	.pointer {cursor: pointer;}
+	.blink_me {
+  		animation: blinker 1s linear;
+  		animation-iteration-count: 1;
+	}
+
+	@keyframes blinker {
+  	50% {
+    	opacity: 0;
+  	}
+	}
+
+
+
+
+
+
+
+
+
+	button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+  background: #286f9e;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+button::before,
+button::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button:hover {
+  color: black;
+}
+/* BUTTON 5 */
+.btn-5 {
+  overflow: hidden;
+}
+
+.btn-5::after {
+  /*background-color: #f00;*/
+  height: 100%;
+  left: -35%;
+  top: 0;
+  transform: skew(50deg);
+  transition-duration: 0.6s;
+  transform-origin: top left;
+  width: 0;
+}
+
+.btn-5:hover:after {
+  height: 100%;
+  width: 135%;
+}
+</style>
+
+
+<body style="background-color: ">
+	
+		{% csrf_token %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		window.onload=function () {
+     var objDiv = document.getElementById("history");
+     objDiv.scrollTop = objDiv.scrollHeight;
+}
+	</script>
+	<div type="text" name="history" id="history" style="margin-left: 400px;background: #27e5c8;width: 35%;height: 550px;position: fixed;overflow:scroll;">
+		<!--{% for c in cL %}
+		<pre>{{c}}<br></pre>
+		{% endfor %}-->
+		
+		<!--{% for c in cQl %}
+		<pre>{{c}}<br></pre>
+		{% endfor %}
+		{% for c in cAl %}
+		<pre>{{c}}<br></pre>
+		{% endfor %}-->
+<!--
+		{% load extra %}
+		{% for c in cQl %}
+		<pre><div id="ryt" align="left" >{% load staticfiles %}<img width="85" height="70" src="{% static 'images/bot.jpg' %}" alt="NotFOund"> {{cAl|get_at_index:forloop.counter0}}
+     	</div> <br></pre>
+		<pre><div align="center">	{{c}}	<br></div></pre>
+		
+		{% endfor %}		-->
+
+		<div  align="left" style="margin-bottom: 0px;margin-top: 5px;margin-left: 5px;">{% load staticfiles %}<img width="60" height="60" src="{% static 'images/jove.jpg' %}" alt="NotFOund" style="border-radius: 50%;"> <span id="typing1" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q1">1. At a party do you:</span>  
+			<script type="text/javascript">
+				var x = document.getElementById("typing1");
+				x.addEventListener("webkitAnimationEnd", myEndFunction1);
+				function myEndFunction1() {
+    				this.style.display = "none";
+    				document.getElementById('q1').style.display='';
+    				document.getElementById('1A').style.display='';
+    				document.getElementById('1B').style.display='';
+				}
+				
+			</script>
+
+
+
+	</div>
+<!--<input type="text" name="ans" id="ans" placeholder="type ans here.." value="{{ques}}"><br>-->
+<form method="post" action='reports.html'>
+	{% csrf_token %}
+<div style="width: 100%;height:75px;color: red;" id="hehe">
+	<input type="text" name="ques" hidden id="ques" value="" style="width: 15%;height: 50px;position: fixed;bottom:2%;">
+	
+	<br>
+	<input type="submit" hidden  name="submit" id="submit" value="submit" style="width: 15%;height: 50px;position: fixed;bottom:2%;left: 175px;"><br>
+</div>
+</form>
+<button class="btn-5" name="a" id="1A" value="Interact with many, including strangers" onclick="call(this.id)" style="display: none;width: 15%;left: 350px;height: 50px;position: fixed;bottom:2%;">a. Interact with many, including strangers</button>
+<button class="btn-5" name="b" id="1B" value="Interact with a few, known to you" style="display: none;width: 15%;height: 50px;position: fixed;bottom:2%;left: 700px;"  onclick="call(this.id)">b. Interact with a few, known to you</button>
+
+<script type="text/javascript">
+	var answer=[]
+	function call(val){
+		if (val=='1A' || val=='1B'){
+			if(val=='1A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" ><img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;"> <span id="typing2" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q2">2. Are you more:</span>  ';
+		document.getElementById('1A').innerHTML='a. Realistic than speculative';
+		document.getElementById('1B').innerHTML='b. Speculative than realistic';
+
+		document.getElementById('1A').value='Realistic than speculative';
+		document.getElementById('1B').value='Speculative than realistic';
+		document.getElementById('1A').id='2A';
+		document.getElementById('1B').id='2B';
+		document.getElementById('2A').style.display='none';
+    	document.getElementById('2B').style.display='none';
+
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        var x = document.getElementById("typing2");
+				x.addEventListener("webkitAnimationEnd", myEndFunction2);
+				function myEndFunction2() {
+    				this.style.display = "none";
+    				document.getElementById('q2').style.display='';
+    				document.getElementById('2A').style.display='';
+    				document.getElementById('2B').style.display='';
+				}
+
+		}
+		else if (val=='2A' || val=='2B'){
+			if(val=='2A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><span id="typing3" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q3">3. Is it worse to:</span>  ';
+		
+		document.getElementById('2A').innerHTML='a. Have your head in the clouds';
+		document.getElementById('2B').innerHTML='b. Be in a rut';
+		document.getElementById('2A').value='Have your head in the clouds';
+		document.getElementById('2B').value='Be in a rut';
+		document.getElementById('2A').id='3A';
+		document.getElementById('2B').id='3B';
+		document.getElementById('3A').style.display='none';
+    	document.getElementById('3B').style.display='none';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+         var x = document.getElementById("typing3");
+				x.addEventListener("webkitAnimationEnd", myEndFunction3);
+				function myEndFunction3() {
+    				this.style.display = "none";
+    				document.getElementById('q3').style.display='';
+    				document.getElementById('3A').style.display='';
+    				document.getElementById('3B').style.display='';
+				}
+
+		
+		}
+		else if (val=='3A' || val=='3B'){
+			if(val=='3A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" > <span id="typing4" class="blink_me"  ><b>...<i>Typing</i>...</b></span>    <span style="display: none;" id="q4">4. Are you more impressed by:</span>';
+		document.getElementById('3A').innerHTML='a. Principles';
+		document.getElementById('3B').innerHTML='b. Emotions';
+		document.getElementById('3A').value='Principles';
+		document.getElementById('3B').value='Emotions';
+		document.getElementById('3A').id='4A';
+		document.getElementById('3B').id='4B';
+		document.getElementById('4A').style.display='none';
+    	document.getElementById('4B').style.display='none';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+        var x = document.getElementById("typing4");
+				x.addEventListener("webkitAnimationEnd", myEndFunction4);
+				function myEndFunction4() {
+    				this.style.display = "none";
+    				document.getElementById('q4').style.display='';
+    				document.getElementById('4A').style.display='';
+    				document.getElementById('4B').style.display='';
+				}
+		}
+		else if (val=='4A' || val=='4B'){
+			if(val=='4A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" > 5. Are more drawn toward the:';
+		document.getElementById('4A').innerHTML='a. Convincing';
+		document.getElementById('4B').innerHTML='b. Touching';
+		document.getElementById('4A').value='Convincing';
+		document.getElementById('4B').value='Touching';
+		document.getElementById('4A').id='5A';
+		document.getElementById('4B').id='5B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='5A' || val=='5B'){
+			if(val=='5A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" >6. Are more drawn toward the:';
+		document.getElementById('5A').innerHTML='a.To deadlines';
+		document.getElementById('5B').innerHTML='b. Just whenever';
+		document.getElementById('5A').value='To deadlines';
+		document.getElementById('5B').value='Just “whenever”';
+		document.getElementById('5A').id='6A';
+		document.getElementById('5B').id='6B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='6A' || val=='6B'){
+			if(val=='6A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" >7. Are more drawn toward the:';
+		document.getElementById('6A').innerHTML='a.To deadlines';
+		document.getElementById('6B').innerHTML='b. Just whenever';
+		document.getElementById('6A').value='To deadlines';
+		document.getElementById('6B').value='Just “whenever”';
+		document.getElementById('6A').id='7A';
+		document.getElementById('6B').id='7B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='7A' || val=='7B'){
+			if(val=='7A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" >8. Are more drawn toward the:';
+		document.getElementById('7A').innerHTML='a.To deadlines';
+		document.getElementById('7B').innerHTML='b. Just whenever';
+		document.getElementById('7A').value='To deadlines';
+		document.getElementById('7B').value='Just “whenever”';
+		document.getElementById('7A').id='8A';
+		document.getElementById('7B').id='8B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='8A' || val=='8B'){
+			if(val=='8A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" >9. Are more drawn toward the:';
+		document.getElementById('8A').innerHTML='a.To deadlines';
+		document.getElementById('8B').innerHTML='b. Just whenever';
+		document.getElementById('8A').value='To deadlines';
+		document.getElementById('8B').value='Just “whenever”';
+		document.getElementById('8A').id='9A';
+		document.getElementById('8B').id='9B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='9A' || val=='9B'){
+			if(val=='9A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" >10. Are more drawn toward the:';
+		document.getElementById('9A').innerHTML='a.To deadlines';
+		document.getElementById('9B').innerHTML='b. Just whenever';
+		document.getElementById('9A').value='To deadlines';
+		document.getElementById('9B').value='Just “whenever”';
+		document.getElementById('9A').id='10A';
+		document.getElementById('9B').id='10B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='10A' || val=='10B'){
+			if(val=='10A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" >11. Are more drawn toward the:';
+		document.getElementById('10A').innerHTML='a.To deadlines';
+		document.getElementById('10B').innerHTML='b. Just whenever';
+		document.getElementById('10A').value='To deadlines';
+		document.getElementById('10B').value='Just “whenever”';
+		document.getElementById('10A').id='11A';
+		document.getElementById('10B').id='11B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='11A' || val=='11B'){
+			if(val=='11A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund"  style="border-radius: 50%;" >12. Are more drawn toward the:';
+		document.getElementById('11A').innerHTML='a.To deadlines';
+		document.getElementById('11B').innerHTML='b. Just whenever';
+		document.getElementById('11A').value='To deadlines';
+		document.getElementById('11B').value='Just “whenever”';
+		document.getElementById('11A').id='12A';
+		document.getElementById('11B').id='12B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='12A' || val=='12B'){
+			if(val=='12A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" >13. Are more drawn toward the:';
+		document.getElementById('12A').innerHTML='a.To deadlines';
+		document.getElementById('12B').innerHTML='b. Just whenever';
+		document.getElementById('12A').value='To deadlines';
+		document.getElementById('12B').value='Just “whenever”';
+		document.getElementById('12A').id='13A';
+		document.getElementById('12B').id='13B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='13A' || val=='13B'){
+			if(val=='13A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" >14. Are more drawn toward the:';
+		document.getElementById('13A').innerHTML='a.To deadlines';
+		document.getElementById('13B').innerHTML='b. Just whenever';
+		document.getElementById('13A').value='To deadlines';
+		document.getElementById('13B').value='Just “whenever”';
+		document.getElementById('13A').id='14A';
+		document.getElementById('13B').id='14B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+		else if (val=='14A' || val=='14B'){
+			if(val=='14A'){
+				answer.push('a');
+			}
+			else{
+				answer.push('b');
+			}
+		document.getElementById('history').innerHTML=document.getElementById('history').innerHTML+'<div style="float:right;background-color:white;margin-bottom:20px;">User :'+document.getElementById(val).value+'</div><div id="ryt" align="left" style="margin-bottom:75px;margin-top: 5px;margin-left: 5px;" >{% load staticfiles %}<img width="60" height="60" src="{% static "images/jove.jpg" %}" alt="NotFOund" style="border-radius: 50%;" ><a class="pointer" onclick="submit()">Please click here to see your report.</a>';
+		document.getElementById('14A').innerHTML='a.To deadlines';
+		document.getElementById('14B').innerHTML='b. Just whenever';
+		document.getElementById('14A').value='To deadlines';
+		document.getElementById('14B').value='Just “whenever”';
+		document.getElementById('14A').id='15A';
+		document.getElementById('14B').id='15B';
+		var objDiv = document.getElementById("history");
+        objDiv.scrollTop = objDiv.scrollHeight;
+		}
+
+
+
+		document.getElementById('ques').value=answer
+	}
+	function submit(){
+		document.getElementById("submit").click();
+	}
+</script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

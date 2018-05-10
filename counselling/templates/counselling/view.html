@@ -1,0 +1,1288 @@
+<!DOCTYPE HTML>
+<html onmouseover="check()">
+<head> 
+
+ {% load staticfiles %}
+    <meta charset="utf-8">
+    <title>Chat-bot</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cubeslider.css'%}">
+     
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style5.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/demonew.css'%}"/>
+  
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css'%}" />
+
+    <script src="{% static 'js/jquery-3.2.0.min.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <meta name="google-signin-client_id" content="40784559178-njrnpentbq1qocvs8htg75l424m53re1.apps.googleusercontent.com.apps.googleusercontent.com">
+
+    body {
+
+  color: #666666;
+  font-family: 'RobotoDraft', 'Roboto', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pen Title */
+.pen-title {
+  padding: 50px 0;
+  text-align: center;
+  letter-spacing: 2px;
+    ima
+}
+.pen-title h1 {
+  margin: 0 0 20px;
+  font-size: 48px;
+  font-weight: 300;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: #ed2553;
+}
+.pen-title span a {
+  color: #ed2553;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Rerun */
+.rerun {
+  margin: 0 0 30px;
+  text-align: center;
+}
+
+.pointer {cursor: pointer;}
+
+.rerun a {
+  cursor: pointer;
+  display: inline-block;
+  background: #ed2553;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.rerun a:hover {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Scroll To Bottom */
+#codepen, #portfolio {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #363636;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  color: #ffffff;
+  text-align: center;
+}
+#codepen i, #portfolio i {
+  line-height: 56px;
+}
+#codepen:hover, #portfolio:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* CodePen */
+#portfolio {
+  bottom: 96px;
+  right: 36px;
+  background: #ed2553;
+  width: 44px;
+  height: 44px;
+  -webkit-animation: buttonFadeInUp 1s ease;
+  animation: buttonFadeInUp 1s ease;
+}
+#portfolio i {
+  line-height: 44px;
+}
+
+/* Container */
+.container-card{
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto 100px;
+}
+.container-card.active .card:first-child {
+  background: #f2f2f2;
+  margin: 0 15px;
+}
+.container-card.active .card:nth-child(2) {
+  background: #fafafa;
+  margin: 0 10px;
+}
+.container-card.active .card.alt {
+  top: 20px;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+.container-card.active .card.alt .toggle {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+.container-card.active .card.alt .toggle:before {
+  content: '';
+}
+.container-card.active .card.alt .title,
+.container-card.active .card.alt .input-container,
+.container-card.active .card.alt .button-container {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.container-card.active .card.alt .title {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+}
+.container-card.active .card.alt .input-container {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+}
+.container-card.active .card.alt .input-container:nth-child(2) {
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+}
+.container-card.active .card.alt .input-container:nth-child(3) {
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+.container-card.active .card.alt .button-container {
+  -webkit-transition-delay: .7s;
+          transition-delay: .7s;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Title */
+  /* Inputs */
+  /* Button */
+  /* Footer */
+  /* Alt Card */
+}
+.card:first-child {
+  background: #fafafa;
+  height: 10px;
+  border-radius: 5px 5px 0 0;
+  margin: 0 10px;
+  padding: 0;
+}
+.card .title {
+  position: relative;
+  z-index: 1;
+  border-left: 5px solid #ed2553;
+  margin: 0 0 35px;
+  padding: 10px 0 10px 50px;
+  color: #ed2553;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card .input-container {
+  position: relative;
+  margin: 0 60px 50px;
+}
+.card .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 60px;
+  border: 0;
+  color: #212121;
+  font-size: 24px;
+  font-weight: 400;
+}
+.card .input-container input:focus ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container input:focus ~ .bar:before, .card .input-container input:focus ~ .bar:after {
+  width: 50%;
+}
+.card .input-container input:valid ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.card .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #757575;
+  width: 100%;
+  height: 1px;
+}
+.card .input-container .bar:before, .card .input-container .bar:after {
+  content: '';
+  position: absolute;
+  background: #ed2553;
+  width: 0;
+  height: 2px;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+.card .input-container .bar:before {
+  left: 50%;
+}
+.card .input-container .bar:after {
+  right: 50%;
+}
+.card .button-container {
+  margin: 0 60px;
+  text-align: center;
+}
+.card .button-container button {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 240px;
+  border: 2px solid #e3e3e3;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button span {
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #ed2553;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+  border-color: #ed2553;
+}
+.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+  color: #ed2553;
+}
+.card .button-container button:active span, .card .button-container button:focus span {
+  color: #ffffff;
+}
+.card .button-container button:active:before, .card .button-container button:focus:before {
+  opacity: 1;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+}
+.card .footer {
+  margin: 40px 0 0;
+  color: #d3d3d3;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+}
+.card .footer a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .footer a:hover {
+  color: #bababa;
+}
+.card.alt {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  background: none;
+  border-radius: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Toggle */
+  /* Title */
+  /* Input */
+  /* Button */
+}
+.card.alt .toggle {
+  position: relative;
+  background: #ed2553;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+  font-size: 30px;   
+  line-height: 160px;
+  text-align: center;
+  cursor: pointer;
+}
+.card.alt .toggle:before {
+  content: '\f040  new user';
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+.card.alt .title,
+.card.alt .input-container,
+.card.alt .button-container {
+  left: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+.card.alt .title {
+  position: relative;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.card.alt .title .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  display: inline;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 400;
+}
+.card.alt .title .close:before {
+  content: '\00d7';
+}
+.card.alt .input-container input {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container input:focus ~ .bar:before, .card.alt .input-container input:focus ~ .bar:after {
+  background: #ffffff;
+}
+.card.alt .input-container input:valid ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.card.alt .input-container .bar {
+  background: rgba(255, 255, 255, 0.8);
+}
+.card.alt .button-container button {
+  width: 100%;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.card.alt .button-container button span {
+  color: #ed2553;
+}
+.card.alt .button-container button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.card.alt .button-container button:active:before, .card.alt .button-container button:focus:before {
+  display: none;
+}
+
+/* Keyframes */
+@-webkit-keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+@keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+.icon-circle .fa{
+    font-size           : 25px;
+    color               : #e84700;
+    margin              : 0 auto;
+    height              : 80px;
+    width               : 80px;
+    border-radius       : 50%;
+    border              :2px solid #e84700;
+    line-height         : 80px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+    
+}
+      
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 50px;
+    
+}
+
+@media (min-width:320px) and (max-width:768px) {
+
+
+ .icon-circle .fa{
+    font-size           : 15px;
+    color               : #e84700;
+    
+    height              : 40px;
+    width               : 40px;
+    border-radius       : 50%;
+     
+    border              :2px solid #e84700;
+    line-height         : 40px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+}
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 20px;
+}   
+}
+
+.ifacebook .fa{
+    color               :black;
+    border              :2px solid black;
+}
+
+.ifacebook .fa:hover{
+    
+    background-color        : black;    
+    color                   : #fff;
+    border                  : 1px solid black;
+
+}
+
+.itwittter .fa{
+    color               : #33ccff;
+    border              :2px solid #33ccff;
+}
+
+.itwittter .fa:hover{
+    
+    background-color        : #33ccff;    
+    color                   : #fff;
+    border                  : 1px solid #33ccff;
+
+}
+
+.igoogle .fa{
+    color               : #BD3518;
+    border              :2px solid #BD3518;
+}
+
+.igoogle .fa:hover{
+    
+    background-color        : #BD3518;    
+    color                   : #fff;
+    border                  : 1px solid #BD3518;
+
+}
+
+.iLinkedin .fa{
+    color               : #007bb7;
+    border              :2px solid #007bb7;
+}
+
+.iLinkedin .fa:hover{
+    
+    background-color        :#007bb7;    
+    color                   : #fff;
+    border                  : 1px solid #007bb7;
+
+}
+
+    .zoom {
+    
+    transition: transform .2s; /* Animation */
+    
+   
+}
+
+.zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}    
+    
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}      
+      
+
+
+
+.specDet .resRep{
+  display: none;
+}
+
+
+#ryt{
+  background: #1d1d1d;
+  float: right;
+
+}
+
+.mySlides {display:none;}
+
+
+
+.my{
+  display: inline-block;
+}
+
+
+
+button {
+  padding:10px
+}
+label {
+  cursor:pointer
+}
+#form-switch {
+  display:none
+}
+#register-form {
+  display:none
+}
+#form-switch:checked~#register-form {
+  display:block
+}
+#form-switch:checked~#login-form {
+  display:none
+}
+
+
+
+/* Shared */
+.loginBtn {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  margin: 0.2em;
+  padding: 0 15px 0 46px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  border-radius: 0.2em;
+  font-size: 16px;
+  color: #FFF;
+}
+.loginBtn:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 100%;
+}
+.loginBtn:focus {
+  outline: none;
+}
+.loginBtn:active {
+  box-shadow: inset 0 0 0 32px rgba(0,0,0,0.1);
+}
+
+
+/* Facebook */
+.loginBtn--facebook {
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 #354C8C;
+}
+.loginBtn--facebook:before {
+  border-right: #364e92 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png') 6px 6px no-repeat;
+}
+.loginBtn--facebook:hover,
+.loginBtn--facebook:focus {
+  background-color: #5B7BD5;
+  background-image: linear-gradient(#5B7BD5, #4864B1);
+}
+
+
+/* Google */
+.loginBtn--google {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #DD4B39;
+}
+.loginBtn--google:before {
+  border-right: #BB3F30 1px solid;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_google.png') 6px 6px no-repeat;
+}
+.loginBtn--google:hover,
+.loginBtn--google:focus {
+  background: red;
+}
+
+
+
+/* github */
+.loginBtn--github {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #2a2c30;
+}
+{% load staticfiles %}
+.loginBtn--github:before {
+  border-right: #151616 1px solid;
+  background: url('https://imageog.flaticon.com/icons/png/512/23/23957.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF') 6px 6px no-repeat;
+  background-position: center; 
+  background-size: 65px 35px;
+}
+.loginBtn--github:hover,
+.loginBtn--github:focus {
+  background: #444649;
+}
+
+/* linkedin */
+.loginBtn--linkedin {
+  /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  background: #0077b5;
+}
+{% load staticfiles %}
+.loginBtn--linkedin:before {
+  border-right: #026091 1px solid;
+  background: url('http://www.hdicon.com/wp-content/uploads/2011/08/linked_in_icon.png') 6px 6px no-repeat;
+  background-position: center; 
+  background-size: 50px 50px;
+}
+.loginBtn--linkedin:hover,
+.loginBtn--linkedin:focus {
+  background: #026091;
+}
+
+
+
+
+
+
+
+
+
+
+
+.speech-bubble {
+	position: relative;
+	background: #89bb00;
+	border-radius: .4em;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #89bb00;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}
+
+
+
+
+
+
+
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+  background-color: #1a5884;
+  color: white;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+.footer-left:hover {
+  background-color: white;
+
+}.footer-right:hover {
+  background-color: white;
+
+}
+
+
+      a:hover{
+    text-decoration: none;
+}
+
+</style> 
+
+<title>Ai Based Hiring</title> 
+ <meta name="description" content="website description" /> 
+  <meta name="keywords" content="website keywords, website keywords" />  <meta http-equiv="content-type" content="text/html; charset=windows-1252" /> 
+   <link rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+<body>  
+  <div class="container-fluid"> 
+<nav class="navbar navbar-inverse navbar-fixed-top" style="padding: 10px; background-color:rgb(10,34,36);">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <a href="/AiHiring/index.html"><img class="zoom" title="Databytes Analytics Pvt Ltd" src="{% static 'images/databytes.jpg'%}" class="brandpic" height="50" width="70"></a>
+           
+             
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" >
+                <img class="zoom" src="{% static 'images/jove.jpg'%}" title="I'm Taby!" style="margin-right: 20px;border-radius:20px" class="brandpic" height="40" width="40">
+                <!--<button class="btn btn-primary" style='background-color: white;color:black'>Enter Dashboard</button>-->
+                <a href="/counselling/adminLogin.html" style="color: white;width: 55px;float: right;margin-right: 20px;margin-top: 6px;"><center><b><font size="4">Logout</font></b></center></a>
+                <!--<button class="btn btn-primary" style='background-color: white;color:black'>Language</button>-->
+
+            </ul>
+
+        </div>
+        
+    </div>
+</nav>
+ </div> 
+  
+
+
+
+
+
+      <script type="text/javascript">
+        function myFunction(){
+          alert("Please, Please, Please. Follow the steps given on the home page... Thank You...")
+        }
+      </script>
+
+
+
+
+    </div>    
+
+
+<center>
+  <div id="content" style="margin-top: 200px;">
+     {% load extra %}
+    <!--
+    {{email}}<br>
+    {{name}}<br>
+    {{scu}}<br>
+    {{course}}<br>
+    {{sem}}<br>
+    {{bday}}<br>
+    {{gender}}<br>
+    {{tg}}<br>
+    {{E}}/{{I}}<br>
+    {{S}}/{{N}}<br>
+    {{T}}/{{F}}<br>
+    {{J}}/{{P}}<br>
+    {{Json}}-->
+<table id="mytable">
+  <tr>
+
+    <th style="width: 12.5%;"><center>Email</center> </th>
+    <th style="width: 12.5%;"><center>Name</center> </th>
+    <th style="width: 12.5%;"><center>School</center> </th>
+    <th style="width: 12.5%;"><center>Course</center> </th>
+    <th style="width: 12.5%;"><center>Semester</center> </th>
+    <th style="width: 12.5%;"><center>Bday</center></th>
+    <th style="width: 12.5%;"><center>Gender</center> </th>
+    <th style="width: 12.5%;"><center>Test Given </center></th>
+  </tr>
+
+  <tr>
+    <td style="width: 12.5%;">{{email}}</td>
+    <td style="width: 12.5%;">{{name}}</td>
+    <td style="width: 12.5%;">{{scu}}</td>
+    <td style="width: 12.5%;">{{course}}</td>
+    <td style="width: 12.5%;">{{sem}}</td>
+    <td style="width: 12.5%;">{{bday}}</td>
+    <td style="width: 12.5%;">{{gender}}</td>
+    <td style="width: 12.5%;">{{tg}}</td>
+    
+  </tr>
+</table>
+<br><br><br>
+<table id="mytable1">
+  <tr>
+    <th  style="width: 12.5%;" class="ei" id="ei"><center>Extrovert</center></th>
+    <th  style="width: 12.5%;" class="si" id="si"><center>Introvert</center></th>
+    <th  style="width: 12.5%;" class="tf" id="tf"><center>Sensing</center></th>
+    <th  style="width: 12.5%;" class="jp" id="jp"><center>Intuition</center></th>
+    <th  style="width: 12.5%;" class="ei" id="ei"><center>Thinking</center></th>
+    <th  style="width: 12.5%;" class="si" id="si"><center>Feeling</center></th>
+    <th  style="width: 12.5%;" class="tf" id="tf"><center>Judging</center></th>
+    <th  style="width: 12.5%;" class="jp" id="jp"><center>Perceiving</center></th>
+  </tr>
+  <tr>
+    <td style="width: 12.5%;">{{E}}</td>
+    <td style="width: 12.5%;">{{I}}</td>
+    <td style="width: 12.5%;">{{S}}</td>
+    <td style="width: 12.5%;">{{N}}</td>
+    <td style="width: 12.5%;">{{T}}</td>
+    <td style="width: 12.5%;">{{F}}</td>
+    <td style="width: 12.5%;">{{J}}</td>
+    <td style="width: 12.5%;">{{P}}</td>
+  </tr>
+</table>
+
+
+
+<br><br><br>
+<table id="mytable2">
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">Question</th>
+    <td style="display: ;width: 7.141%;"><center>nswer</center></td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">Question</th>
+    <td style="display: ;width: 7.141%;"><center>Answer</center></td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">Question</th>
+    <td style="display: ;width: 7.141%;"><center>Answer</center></td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">Question</th>
+    <td style="display: ;width: 7.141%;"><center>Answer</center></td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">Question</th>
+    <td style="display: ;width: 7.141%;"><center>Answer</center></td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">Question</th>
+    <td style="display: ;width: 7.141%;"><center>Answer</center></td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">Question</th>
+    <td style="display: ;width: 7.141%;"><center>Answer</center></td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">1</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'1'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">11</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'11'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">21</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'21'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">31</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'31'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">41</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'41'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">51</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'51'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">61</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'61'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">2</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'2'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">12</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'12'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">22</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'22'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">32</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'32'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">42</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'42'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">52</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'52'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">62</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'62'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">3</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'3'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">13</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'13'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">23</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'23'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">33</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'33'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">43</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'43'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">53</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'53'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">63</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'63'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">4</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'4'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">14</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'14'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">24</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'24'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">34</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'34'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">44</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'44'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">54</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'54'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">64</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'64'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">5</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'5'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">15</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'15'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">25</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'25'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">35</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'35'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">45</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'45'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">55</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'55'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">65</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'65'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">6</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'6'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">16</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'16'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">26</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'26'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">36</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'36'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">46</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'46'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">56</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'56'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">66</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'66'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">7</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'7'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">17</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'17'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">27</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'27'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">37</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'37'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">47</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'47'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">57</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'57'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">67</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'67'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">8</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'8'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">18</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'18'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">28</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'28'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">38</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'38'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">48</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'48'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">58</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'58'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">68</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'68'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">9</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'9'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">19</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'19'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">29</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'29'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">39</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'39'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">49</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'49'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">59</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'59'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">69</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'69'}}</td>
+  </tr>
+  <tr>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">10</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'10'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">20</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'20'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">30</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'30'}}</td>
+    <th style="display: ;width: 7.141%;" class="jp" id="jp">40</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'40'}}</td>
+    <th style="display: ;width: 7.141%;" class="ei" id="ei">50</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'50'}}</td>
+    <th style="display: ;width: 7.141%;" class="si" id="si">60</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'60'}}</td>
+    <th style="display: ;width: 7.141%;" class="tf" id="tf">70</th>
+    <td style="display: ;width: 7.141%;">{{Json|get_at_index:'70'}}</td>
+  </tr>
+
+</table>
+
+
+<br><br>
+
+    </div>
+    <button id="cmd" class="btn btn-primary" style="background-color:  rgb(204,188,137);border-color: black;color: black;margin-bottom: 15px;display: ;">Download Report</button>
+  
+  
+</center>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#cmd").live("click", function () {
+            var divContents = $("#content").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('<style>table {    font-family: arial, sans-serif;    border-collapse: collapse;    idth: 100%;    margin-bottom: 50px;}td, th {    border: 1px solid #dddddd;    text-align: center;    padding: 8px;    width: 50%;}tr:nth-child(even) {    background-color: black;}</style>');            
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+        //window.onload = function () {
+         // if('{{tg}}'=='No'){
+          //  document.getElementById('mytable1').style.display='none';
+           // document.getElementById('mytable2').style.display='none';
+            
+          //}
+        //}
+    </script>
+
+
+
+
+<div id="Contact" class="container-fluid" >
+<div class="row" style="margin-top: -80px;">
+      <!--<footer class="footer-distributed" style="background-color: rgba(0, 0, 0, 0.80);height: 50px;" >-->
+<footer class="footer-distributed" style="background-color: rgb(10,34,36);height: 50px;" >
+  <a href="admin.html" id="text1" title="" style="color: white;">
+      <div  class="footer-left" onmouseover="changeTextclr()" onmouseout="changeTextclrback()" style="height: 85px;margin-top: -45px;width: 33%;">
+
+     <!--   <h3 class="zoom">Brain Stem<span>Technolgies</span></h3>-->
+
+        <!--  <p class="footer-company-name"> &copy; COPYRIGHTS</p><br>
+        <p class="footer-company-name"> ALL RIGHTS RESERVED.</p><br>-->
+         
+                      <div style="margin-top: 30px;"><center><font face="calibri" size="4">Dashboard</font> </center></div>
+                
+      </div>
+</a>
+ 
+       
+<a href="help.html" title="" target="_blank"  id="text" style="color: white;">
+ 
+      <div class="footer-right"  title="Coming Soon" onmouseover="changeTextclr1()" onmouseout="changeTextclrback1()" style="height: 85px;margin-top: -45px;width: 500px;width: 400px;margin-left: 400px;">
+                   <div style="margin-top: 30px;"><center><font face="calibri" size="4">Help</font></center> </div>
+                
+
+
+      
+ 
+      </div>
+       </a>
+    </footer>   
+       </div>    
+   
+    
+
+
+<script type="text/javascript">
+  function changeTextclr(){
+      document.getElementById('text1').style.color = 'black';
+    }
+    function changeTextclrback(){
+      document.getElementById('text1').style.color = 'white';
+    }
+    function changeTextclr1(){
+      document.getElementById('text').style.color = 'black';
+    }
+    function changeTextclrback1(){
+      document.getElementById('text').style.color = 'white';
+    }
+     function changeTextclr2(){
+      document.getElementById('text2').style.color = 'black';
+    }
+    function changeTextclrback2(){
+      document.getElementById('text2').style.color = 'white';
+    }
+    function changeTextclr3(){
+      document.getElementById('text3').style.color = 'black';
+    }
+    function changeTextclrback3(){
+      document.getElementById('text3').style.color = 'white';
+    }
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
